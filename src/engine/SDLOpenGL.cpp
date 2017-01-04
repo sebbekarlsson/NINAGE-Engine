@@ -112,26 +112,9 @@ void SDLOpenGL::update() {
 void SDLOpenGL::render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glColor3f(1.0f,1.0f,1.0f); 
+    glColor3f(1.0f,1.0f,1.0f);
 
-    this->image->bind();
-
-    glPushMatrix();
-    glTranslatef(WIDTH/2, HEIGHT/2, 0.0f);
-    glBegin(GL_QUADS);
-    glTexCoord2f(0, 0);
-    glVertex2f( 0.0f, 0.0f );
-
-    glTexCoord2f(1, 0);
-    glVertex2f( 0.0f, 200.0f );
-
-    glTexCoord2f(1, 1);
-    glVertex2f( 200.0f, 200.0f );
-
-    glTexCoord2f(0, 1);
-    glVertex2f( 200.0f, 0.0f );
-    glEnd();
-    glPopMatrix();
+    this->testobj->render(0.5f); 
 }
 
 void SDLOpenGL::tick() {
