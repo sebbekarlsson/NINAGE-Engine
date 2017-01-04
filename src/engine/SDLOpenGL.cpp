@@ -131,6 +131,11 @@ void SDLOpenGL::close() {
     SDL_Quit(); 
 }
 
+/**
+ * Get the current scene associated with the sceneIndex
+ *
+ * @return Scene
+ */
 Scene* SDLOpenGL::getCurrentScene() {
     return this->scenes->at(this->sceneIndex);
 }

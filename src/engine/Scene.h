@@ -17,7 +17,6 @@ class Scene {
 
         void tick(float delta);
         void render(float detla);
-
 };
 
 #endif

@@ -11,6 +11,7 @@ void TestObj::tick(float delta) {
     this->y++;
 
     if (x >= 100) {
+        /* THIS DOES NOT WORK, invalid use of incomplete type ‘class Scene’ */
         //game.getCurrentScene()->destantiate(this);
     }
 }
