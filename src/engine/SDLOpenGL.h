@@ -1,7 +1,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 #include <iostream>
-#include "SDLImageLoader.h"
+#include "../utils/SDLImageLoader.h"
 
 
 class SDLOpenGL {
