@@ -3,26 +3,26 @@
 #include <SDL2/SDL_opengl.h>
 
 
-int main (int argc, char* args[]) {
-    SDLOpenGL sogl;
+SDLOpenGL game;
 
-    sogl.init();
+int main (int argc, char* args[]) {
+    game.init();
 
     SDL_Event e;
 
-    while (!sogl.quit) {
+    while (!game.quit) {
         while (SDL_PollEvent(&e) != 0) {
             if (e.type == SDL_QUIT) {
-                sogl.quit = true;
+                game.quit = true;
             } 
         }
 
-        sogl.render();
-        sogl.tick();
-        SDL_GL_SwapWindow(sogl.display); 
+        game.render();
+        game.tick();
+        SDL_GL_SwapWindow(game.display); 
     }
 
-    sogl.close();
+    game.close();
 
     return 0;
 }

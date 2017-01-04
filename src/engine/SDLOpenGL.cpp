@@ -1,3 +1,4 @@
+#include "TestObj.h"
 #include "SDLOpenGL.h"
 
 
@@ -5,10 +6,11 @@ SDLOpenGL::SDLOpenGL() {
     this->SCALE = 2;
     this->WIDTH = 640;
     this->HEIGHT = WIDTH / 16 * 9;
+    this->TITLE = "GAME TITLE";
     this->quit = false;
     this->loader = new SDLImageLoader();
     this->image = this->loader->load("assets/card.png");
-    this->rotation = 0.0f;
+    this->testobj = new TestObj(0, 0);
 }
 
 /**
@@ -116,7 +118,6 @@ void SDLOpenGL::render() {
 
     glPushMatrix();
     glTranslatef(WIDTH/2, HEIGHT/2, 0.0f);
-    glRotatef(rotation, 0.0f, 0.0f, 1.0f); 
     glBegin(GL_QUADS);
     glTexCoord2f(0, 0);
     glVertex2f( 0.0f, 0.0f );
@@ -134,7 +135,7 @@ void SDLOpenGL::render() {
 }
 
 void SDLOpenGL::tick() {
-    rotation += 1.5f;
+    this->testobj->tick(0.5f);
 }
 
 /**
