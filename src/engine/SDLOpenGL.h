@@ -29,9 +29,8 @@ class SDLOpenGL {
 
         bool initGL();
         bool init();
-        void update();
-        void tick();
         void render();
+        void tick();
         void close();
 };
 

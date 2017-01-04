@@ -100,13 +100,6 @@ bool SDLOpenGL::init() {
 }
 
 /**
- * Tick/Update function.
- */
-void SDLOpenGL::update() {
-    printf("Update");
-}
-
-/**
  * This function is used to draw a rotating green plane.
  */
 void SDLOpenGL::render() {
@@ -117,6 +110,9 @@ void SDLOpenGL::render() {
     this->testobj->render(0.5f); 
 }
 
+/**
+ * Tick/Update function.
+ */
 void SDLOpenGL::tick() {
     this->testobj->tick(0.5f);
 }
