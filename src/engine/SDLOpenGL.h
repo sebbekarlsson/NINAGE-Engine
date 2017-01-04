@@ -4,11 +4,13 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 #include <iostream>
+#include <vector>
 #include "../utils/SDLImageLoader.h"
 
 
 
 class TestObj;
+class Scene;
 
 class SDLOpenGL {
     public:
@@ -17,7 +19,8 @@ class SDLOpenGL {
         int HEIGHT;
         std::string TITLE;
         bool quit;
-        TestObj *testobj;
+        std::vector<Scene*> *scenes = new std::vector<Scene*>();
+        int sceneIndex;
         
         SDLImageLoader *loader;
         EasyImage *image;
@@ -32,6 +35,8 @@ class SDLOpenGL {
         void render();
         void tick();
         void close();
+
+        Scene* getCurrentScene();
 };
 
 #endif

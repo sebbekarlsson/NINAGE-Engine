@@ -1,12 +1,18 @@
+#include "SDLOpenGL.h"
 #include "TestObj.h"
 
 
 TestObj::TestObj(int x, int y) : Instance(x, y) {
-    this->sprite->addImage(&*game.loader->load("assets/card.png"));
+    this->sprite->addImage(game.loader->load("assets/card.png"));
 }
 
 void TestObj::tick(float delta) {
     this->x++;
+    this->y++;
+
+    if (x >= 100) {
+        //game.getCurrentScene()->destantiate(this);
+    }
 }
 
 void TestObj::render(float delta) {

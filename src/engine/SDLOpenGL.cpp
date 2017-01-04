@@ -1,4 +1,5 @@
-#include "TestObj.h"
+#include "Scene.h"
+#include "TestScene.h"
 #include "SDLOpenGL.h"
 
 
@@ -10,7 +11,11 @@ SDLOpenGL::SDLOpenGL() {
     this->quit = false;
     this->loader = new SDLImageLoader();
     this->image = this->loader->load("assets/card.png");
-    this->testobj = new TestObj(0, 0);
+    this->sceneIndex = 0;
+    
+    TestScene *ts = new TestScene();
+
+    this->scenes->push_back(ts);
 }
 
 /**
@@ -107,14 +112,14 @@ void SDLOpenGL::render() {
 
     glColor3f(1.0f,1.0f,1.0f);
 
-    this->testobj->render(0.5f); 
+    this->getCurrentScene()->render(0.5f);
 }
 
 /**
  * Tick/Update function.
  */
 void SDLOpenGL::tick() {
-    this->testobj->tick(0.5f);
+    this->getCurrentScene()->tick(0.5f);
 }
 
 /**
@@ -124,4 +129,8 @@ void SDLOpenGL::close() {
     SDL_DestroyWindow(display);
     display = NULL;
     SDL_Quit(); 
+}
+
+Scene* SDLOpenGL::getCurrentScene() {
+    return this->scenes->at(this->sceneIndex);
 }

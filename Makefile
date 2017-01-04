@@ -5,13 +5,17 @@ output:\
     SDLOpenGL.o\
     Instance.o\
     TestObj.o\
-    Sprite.o
+    Sprite.o\
+    Scene.o\
+    TestScene.o
 	g++ $(FLAGZ)\
 	    main.o\
 	    SDLOpenGL.o\
 	    Instance.o\
 	    TestObj.o\
 	    Sprite.o\
+	    Scene.o\
+	    TestScene.o\
 	    -o game.out
 
 main.o: src/main.cpp
@@ -28,6 +32,12 @@ Instance.o: src/engine/Instance.cpp src/engine/Instance.h
 
 TestObj.o: src/engine/TestObj.cpp src/engine/TestObj.h
 	g++ $(FLAGZ) -c src/engine/TestObj.cpp
+
+Scene.o: src/engine/Scene.cpp src/engine/Scene.h
+	g++ $(FLAGZ) -c src/engine/Scene.cpp
+
+TestScene.o: src/engine/TestScene.cpp src/engine/TestScene.h
+	g++ $(FLAGZ) -c src/engine/TestScene.cpp
 
 clean:
 	rm *.o

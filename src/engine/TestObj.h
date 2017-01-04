@@ -3,9 +3,8 @@
 
 #include <iostream>
 #include "Instance.h"
-#include "SDLOpenGL.h"
 
-
+class SDLOpenGL;
 extern SDLOpenGL game;
 
 class TestObj: public Instance {
