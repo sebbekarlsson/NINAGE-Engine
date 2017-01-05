@@ -12,6 +12,8 @@ class Scene {
     public:
         std::vector<Instance*> *instances = new std::vector<Instance*>();
 
+        Scene();
+
         void instantiate(Instance *instance);
         void destantiate(Instance &instance);
 

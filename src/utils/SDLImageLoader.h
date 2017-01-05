@@ -44,8 +44,8 @@ class EasyImage {
 
 class SDLImageLoader {
     public:
-        EasyImage* load(char* path) {
-            SDL_Surface * surface = IMG_Load(path);
+        EasyImage* load(std::string path) {
+            SDL_Surface * surface = IMG_Load(path.c_str());
             EasyImage * image = new EasyImage(&*surface);
 
             return image;

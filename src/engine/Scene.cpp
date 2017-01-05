@@ -2,6 +2,10 @@
 #include "Instance.h"
 
 
+Scene::Scene() {
+    std::cout << typeid(this).name() << std::endl;
+}
+
 void Scene::instantiate(Instance *instance) {
     this->instances->push_back(instance);
 }

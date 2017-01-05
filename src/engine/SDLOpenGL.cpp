@@ -44,8 +44,8 @@ bool SDLOpenGL::initGL() {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_TEXTURE_2D);
 
-    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
     glLoadIdentity();    
 
@@ -68,12 +68,20 @@ bool SDLOpenGL::initGL() {
 bool SDLOpenGL::init() {
     bool success = true;
 
-    if (!SDL_Init(SDL_INIT_VIDEO) < 0) {
-        printf("Could not initialize video", SDL_GetError());
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+        printf("Could not initialize video: %s", SDL_GetError());
         success = false;
     } else {
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
+
+        #ifdef __APPLE__
+            std::cout << "OSX, OPENGL 2.1" << std::endl;
+            SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
+            SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+        #else
+            std::cout << "OPENGL 3.0" << std::endl;
+            SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+            SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
+        #endif
 
         display = SDL_CreateWindow (
                 "Game Title",
@@ -85,16 +93,16 @@ bool SDLOpenGL::init() {
                 );
 
         if (display == NULL) {
-            printf("Could not create display", SDL_GetError());
+            printf("Could not create display: %s", SDL_GetError());
         } else {
             context = SDL_GL_CreateContext(display);
 
             if (context == NULL) {
-                printf("Could not create context", SDL_GetError());
+                printf("Could not create context: %s", SDL_GetError());
                 success = false;
             } else {
                 if (!initGL()) {
-                    printf("Could not initialize OpenGL", SDL_GetError());
+                    printf("Could not initialize OpenGL: %s", SDL_GetError());
                     success = false;
                 }
             }
