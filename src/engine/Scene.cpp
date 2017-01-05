@@ -3,7 +3,6 @@
 
 
 Scene::Scene() {
-    std::cout << typeid(this).name() << std::endl;
 }
 
 void Scene::instantiate(Instance *instance) {
