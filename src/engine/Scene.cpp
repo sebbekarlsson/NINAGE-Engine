@@ -3,6 +3,7 @@
 
 
 Scene::Scene() {
+    this->camera = new Camera(0, 0);
 }
 
 void Scene::instantiate(Instance *instance) {

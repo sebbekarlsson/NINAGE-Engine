@@ -9,7 +9,7 @@ extern SDLOpenGL game;
 
 class TestObj: public Instance {
     public:
-        TestObj(int x, int y);
+        TestObj(float x, float y);
 
         void render(float delta);
         void tick(float delta);

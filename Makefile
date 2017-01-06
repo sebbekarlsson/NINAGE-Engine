@@ -18,6 +18,7 @@ output:\
     Instance.o\
     TestObj.o\
     Sprite.o\
+    Camera.o\
     Scene.o\
     TestScene.o
 	g++ $(FLAGZ)\
@@ -26,6 +27,7 @@ output:\
 	    Instance.o\
 	    TestObj.o\
 	    Sprite.o\
+	    Camera.o\
 	    Scene.o\
 	    TestScene.o\
 	    -o game.out
@@ -44,6 +46,9 @@ Instance.o: src/engine/Instance.cpp src/engine/Instance.h
 
 TestObj.o: src/engine/TestObj.cpp src/engine/TestObj.h
 	g++ $(G_FLAGZ) -c src/engine/TestObj.cpp
+
+Camera.o: src/engine/Camera.cpp src/engine/Camera.h
+	g++ $(G_FLAGZ) -c src/engine/Camera.cpp
 
 Scene.o: src/engine/Scene.cpp src/engine/Scene.h
 	g++ $(G_FLAGZ) -c src/engine/Scene.cpp

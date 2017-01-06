@@ -6,11 +6,11 @@
 
 class Instance {
     public:
-        int x;
-        int y;
+        float x;
+        float y;
         Sprite *sprite;
 
-        Instance(int x, int y);
+        Instance(float x, float y);
 
         virtual void tick(float delta) = 0;
         virtual void render(float delta) = 0;

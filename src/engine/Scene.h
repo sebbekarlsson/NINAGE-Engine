@@ -4,15 +4,17 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "Camera.h"
 
 
 class Instance;
 
 class Scene {
     public:
-        std::vector<Instance*> *instances = new std::vector<Instance*>();
-
         Scene();
+
+        std::vector<Instance*> *instances = new std::vector<Instance*>();
+        Camera * camera;
 
         void instantiate(Instance *instance);
         void destantiate(Instance &instance);

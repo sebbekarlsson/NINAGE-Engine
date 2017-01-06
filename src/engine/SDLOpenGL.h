@@ -14,6 +14,8 @@ class Scene;
 
 class SDLOpenGL {
     public:
+        SDLOpenGL();
+
         int SCALE;
         int WIDTH;
         int HEIGHT;
@@ -27,8 +29,6 @@ class SDLOpenGL {
 
         SDL_Window* display = NULL;
         SDL_GLContext context;
-
-        SDLOpenGL();
 
         bool initGL();
         bool init();

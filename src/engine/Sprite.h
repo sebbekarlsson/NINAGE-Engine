@@ -8,10 +8,10 @@
 
 class Sprite {
     public:
+        Sprite();
+
         std::vector<EasyImage*> *images = new std::vector<EasyImage*>();
         int imageIndex;
-
-        Sprite();
 
         void next();
         void addImage(EasyImage *image);
