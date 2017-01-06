@@ -119,8 +119,15 @@ void SDLOpenGL::render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glColor3f(1.0f,1.0f,1.0f);
-
+    
+    glPushMatrix();
+    glTranslatef(
+            -this->getCurrentScene()->camera->x,
+            -this->getCurrentScene()->camera->y,
+            0
+            );
     this->getCurrentScene()->render(0.5f);
+    glPopMatrix();
 }
 
 /**

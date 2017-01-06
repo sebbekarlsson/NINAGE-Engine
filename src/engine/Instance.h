@@ -8,6 +8,8 @@ class Instance {
     public:
         float x;
         float y;
+        float rotation;
+        bool centeredOrigo;
         Sprite *sprite;
 
         Instance(float x, float y);

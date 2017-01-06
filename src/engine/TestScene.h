@@ -4,6 +4,9 @@
 #include "Scene.h"
 
 
+class SDLOpenGL;
+extern SDLOpenGL game;
+
 class TestScene: public Scene {
     public:
         TestScene();

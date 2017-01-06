@@ -6,11 +6,11 @@
 
 
 class EasyImage {
-    SDL_Surface * surface;
-    int mode = GL_RGB;
-    GLuint TextureID;
-
     public:
+        SDL_Surface * surface;
+        int mode = GL_RGB;
+        GLuint TextureID;
+
         EasyImage(SDL_Surface *surface) {
             this->surface = surface;
             this->TextureID = 0;
@@ -39,6 +39,14 @@ class EasyImage {
                     this->surface->pixels
                     );
             glBindTexture(GL_TEXTURE_2D, this->TextureID);
+        }
+
+        int getWidth() {
+            return this->surface->w; 
+        }
+
+        int getHeight() {
+            return this->surface->h;
         }
 };
 
