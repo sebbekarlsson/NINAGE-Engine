@@ -15,6 +15,8 @@ class Sprite {
 
         void next();
         void addImage(EasyImage *image);
+        void draw(float delta);
+
         EasyImage* getCurrentImage();
 };
 

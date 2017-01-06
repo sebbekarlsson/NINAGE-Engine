@@ -17,7 +17,7 @@ int main (int argc, char* args[]) {
             } 
         }
 
-        game.render();
+        game.draw();
         game.tick();
         SDL_GL_SwapWindow(game.display); 
     }

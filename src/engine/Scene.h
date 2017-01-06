@@ -20,7 +20,7 @@ class Scene {
         void destantiate(Instance &instance);
 
         void tick(float delta);
-        void render(float detla);
+        void draw(float detla);
 };
 
 #endif

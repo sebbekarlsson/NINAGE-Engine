@@ -32,7 +32,7 @@ class SDLOpenGL {
 
         bool initGL();
         bool init();
-        void render();
+        void draw();
         void tick();
         void close();
 

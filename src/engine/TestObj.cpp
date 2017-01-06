@@ -18,20 +18,6 @@ void TestObj::tick(float delta) {
     }
 }
 
-void TestObj::render(float delta) {
-    this->sprite->getCurrentImage()->bind();
-   
-    glBegin(GL_QUADS);
-    glTexCoord2f(0, 0);
-    glVertex2f(0.0f, 0.0f);
-
-    glTexCoord2f(0, 1);
-    glVertex2f(0.0f, this->sprite->getCurrentImage()->getHeight());
-
-    glTexCoord2f(1, 1);
-    glVertex2f(this->sprite->getCurrentImage()->getWidth(), this->sprite->getCurrentImage()->getHeight());
-
-    glTexCoord2f(1, 0);
-    glVertex2f(this->sprite->getCurrentImage()->getWidth(), 0.0f);
-    glEnd();
+void TestObj::draw(float delta) {
+    this->sprite->draw(delta);
 }

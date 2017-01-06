@@ -28,20 +28,25 @@ void Scene::tick(float delta) {
     }
 }
 
-void Scene::render(float delta) {
-    this->camera->render(delta);
+void Scene::draw(float delta) {
+    this->camera->draw(delta);
     for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
         glPushMatrix();
+
         glTranslatef((*it)->x, (*it)->y, 0.0f);
+
         if ((*it)->centeredOrigo) {
             glTranslatef(((*it)->sprite->getCurrentImage()->getWidth()/2), ((*it)->sprite->getCurrentImage()->getHeight()/2), 0);
         }
+
         glRotatef((*it)->rotation, 0.0f, 0.0f, 1.0f);
+
         if ((*it)->centeredOrigo) {
             glTranslatef(-((*it)->sprite->getCurrentImage()->getWidth()/2), -((*it)->sprite->getCurrentImage()->getHeight()/2), 0);
         }
-        (*it)->render(delta);
-        glLoadIdentity();
+
+        (*it)->draw(delta);
+
         glPopMatrix();
     }
 }

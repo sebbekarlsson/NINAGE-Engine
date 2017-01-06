@@ -8,7 +8,7 @@ class Camera: public Instance {
     public:
         Camera(float x, float y);
 
-        void render(float delta);
+        void draw(float delta);
         void tick(float delta);
 };
 

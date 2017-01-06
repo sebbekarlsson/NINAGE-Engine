@@ -11,7 +11,7 @@ class TestObj: public Instance {
     public:
         TestObj(float x, float y);
 
-        void render(float delta);
+        void draw(float delta);
         void tick(float delta);
 };
 

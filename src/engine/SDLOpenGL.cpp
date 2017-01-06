@@ -115,7 +115,7 @@ bool SDLOpenGL::init() {
 /**
  * This function is used to draw a rotating green plane.
  */
-void SDLOpenGL::render() {
+void SDLOpenGL::draw() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glColor3f(1.0f,1.0f,1.0f);
@@ -126,7 +126,7 @@ void SDLOpenGL::render() {
             -this->getCurrentScene()->camera->y,
             0
             );
-    this->getCurrentScene()->render(0.5f);
+    this->getCurrentScene()->draw(0.5f);
     glPopMatrix();
 }
 
