@@ -45,3 +45,6 @@
 
 ## License
 > https://sv.wikipedia.org/wiki/GNU_General_Public_License
+
+## Author
+> Sebastian Robert Karlsson
