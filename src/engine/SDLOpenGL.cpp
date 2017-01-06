@@ -154,3 +154,17 @@ void SDLOpenGL::close() {
 Scene* SDLOpenGL::getCurrentScene() {
     return this->scenes->at(this->sceneIndex);
 }
+
+/**
+ * Get the mouse position (x, y)
+ *
+ * @return Point
+ */
+Point SDLOpenGL::getMousePosition() {
+    int mx = 0;
+    int my = 0;
+
+    SDL_GetMouseState(&mx, &my);
+
+    return Point((float)mx, (float)my);
+}

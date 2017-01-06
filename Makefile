@@ -20,7 +20,8 @@ output:\
     Sprite.o\
     Camera.o\
     Scene.o\
-    TestScene.o
+    TestScene.o\
+    Point.o
 	g++ $(FLAGZ)\
 	    main.o\
 	    SDLOpenGL.o\
@@ -30,6 +31,7 @@ output:\
 	    Camera.o\
 	    Scene.o\
 	    TestScene.o\
+	    Point.o\
 	    -o game.out
 
 main.o: src/main.cpp
@@ -55,6 +57,9 @@ Scene.o: src/engine/Scene.cpp src/engine/Scene.h
 
 TestScene.o: src/engine/TestScene.cpp src/engine/TestScene.h
 	g++ $(G_FLAGZ) -c src/engine/TestScene.cpp
+
+Point.o: src/utils/Point.cpp src/utils/Point.h
+	g++ $(G_FLAGZ) -c src/utils/Point.cpp
 
 clean:
 	rm *.o

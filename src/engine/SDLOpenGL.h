@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 #include "../utils/SDLImageLoader.h"
+#include "../utils/Point.h"
 
 
 
@@ -37,6 +38,7 @@ class SDLOpenGL {
         void close();
 
         Scene* getCurrentScene();
+        Point getMousePosition();
 };
 
 #endif
