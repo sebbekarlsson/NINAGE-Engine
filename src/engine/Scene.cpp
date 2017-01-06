@@ -24,6 +24,8 @@ void Scene::destantiate(Instance &instance) {
 void Scene::tick(float delta) {
     this->camera->tick(delta);
     for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
+        (*it)->collisionBox->width = (*it)->sprite->getCurrentImage()->getWidth();
+        (*it)->collisionBox->height = (*it)->sprite->getCurrentImage()->getHeight();
         (*it)->tick(delta);
     }
 }

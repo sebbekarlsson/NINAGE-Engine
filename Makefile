@@ -15,6 +15,7 @@ $(info $(FLAGZ))
 output:\
     main.o\
     SDLOpenGL.o\
+    CollisionBox.o\
     Instance.o\
     TestObj.o\
     Sprite.o\
@@ -25,6 +26,7 @@ output:\
 	g++ $(FLAGZ)\
 	    main.o\
 	    SDLOpenGL.o\
+	    CollisionBox.o\
 	    Instance.o\
 	    TestObj.o\
 	    Sprite.o\
@@ -42,6 +44,9 @@ SDLOpenGL.o: src/engine/SDLOpenGL.cpp src/engine/SDLOpenGL.h
 
 Sprite.o: src/engine/Sprite.cpp src/engine/Sprite.h
 	g++ $(G_FLAGZ) -c src/engine/Sprite.cpp
+
+CollisionBox.o: src/engine/CollisionBox.cpp src/engine/CollisionBox.h
+	g++ $(G_FLAGZ) -c src/engine/CollisionBox.cpp
 
 Instance.o: src/engine/Instance.cpp src/engine/Instance.h
 	g++ $(G_FLAGZ) -c src/engine/Instance.cpp

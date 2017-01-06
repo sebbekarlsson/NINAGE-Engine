@@ -2,6 +2,7 @@
 #define INSTANCE_H
 
 #include "Sprite.h"
+#include "CollisionBox.h"
 
 
 class Instance {
@@ -14,9 +15,12 @@ class Instance {
         float rotation;
         bool centeredOrigo;
         Sprite *sprite;
+        CollisionBox *collisionBox;
 
         virtual void tick(float delta) = 0;
         virtual void draw(float delta) = 0;
+        
+        bool intersectsWidth(Instance *instance);
 };
 
 #endif

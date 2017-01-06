@@ -33,4 +33,5 @@ void TestObj::tick(float delta) {
 
 void TestObj::draw(float delta) {
     this->sprite->draw(delta);
+    this->collisionBox->draw(delta);
 }

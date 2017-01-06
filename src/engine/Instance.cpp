@@ -8,4 +8,13 @@ Instance::Instance(float x, float y) {
     this->rotation = 0.0f;
     this->centeredOrigo = false;
     this->sprite = new Sprite();
+    this->collisionBox = new CollisionBox(16.0f, 16.0f);
+}
+
+bool Instance::intersectsWidth(Instance *instance) {
+    return
+        this->x+this->collisionBox->width >= instance->x &&
+        this->x+this->collisionBox->width <= instance->x+instance->collisionBox->width &&
+        this->y+this->collisionBox->height >= instance->y &&
+        this->y+this->collisionBox->height <= instance->y+instance->collisionBox->height;
 }
