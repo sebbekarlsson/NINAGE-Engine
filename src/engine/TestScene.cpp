@@ -4,6 +4,6 @@
 
 
 TestScene::TestScene(): Scene() {
-    this->instantiate(new TestObj(game.WIDTH / 2, game.HEIGHT / 2));
-    this->instantiate(new TestObj(game.WIDTH / 2, game.HEIGHT+16 / 2));
+    this->instantiate(new TestObj(game.getWidth() / 2, game.getHeight() / 2));
+    //this->instantiate(new TestObj(game.WIDTH / 2, game.HEIGHT+16 / 2));
 }

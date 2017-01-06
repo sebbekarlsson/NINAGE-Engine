@@ -12,6 +12,7 @@
 
 class TestObj;
 class Scene;
+extern const Uint8 *state;
 
 class SDLOpenGL {
     public:
@@ -33,6 +34,9 @@ class SDLOpenGL {
 
         bool initGL();
         bool init();
+        bool keyboardDown(int keyCode);
+        int getWidth();
+        int getHeight();
         void draw();
         void tick();
         void close();

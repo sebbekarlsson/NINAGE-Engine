@@ -4,6 +4,7 @@
 
 
 SDLOpenGL game;
+const Uint8 *state = SDL_GetKeyboardState(NULL);
 
 int main (int argc, char* args[]) {
     game.init();

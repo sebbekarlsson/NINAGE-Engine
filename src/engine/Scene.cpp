@@ -33,7 +33,11 @@ void Scene::draw(float delta) {
     for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
         glPushMatrix();
 
-        glTranslatef((*it)->x, (*it)->y, 0.0f);
+        if ((*it)->centeredOrigo) {
+            glTranslatef((*it)->x - (*it)->sprite->getCurrentImage()->getWidth()/2, (*it)->y - (*it)->sprite->getCurrentImage()->getHeight()/2, 0.0f);
+        } else {
+            glTranslatef((*it)->x, (*it)->y, 0.0f); 
+        }
 
         if ((*it)->centeredOrigo) {
             glTranslatef(((*it)->sprite->getCurrentImage()->getWidth()/2), ((*it)->sprite->getCurrentImage()->getHeight()/2), 0);

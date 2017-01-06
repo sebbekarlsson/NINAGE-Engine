@@ -20,7 +20,8 @@ SDLOpenGL::SDLOpenGL() {
 
 /**
  * This function is used to initialize the openGL.
- * @return <bool>
+ *
+ * @return bool
  */
 bool SDLOpenGL::initGL() {
     bool success = true;
@@ -63,7 +64,8 @@ bool SDLOpenGL::initGL() {
 /**
  * This function is used to initialize the display/window with
  * the OpenGL context.
- * @return <bool>
+ *
+ * @return bool
  */
 bool SDLOpenGL::init() {
     bool success = true;
@@ -167,4 +169,33 @@ Point SDLOpenGL::getMousePosition() {
     SDL_GetMouseState(&mx, &my);
 
     return Point((float)mx, (float)my);
+}
+
+/**
+ * Check if keyboard-button is down.
+ *
+ * @param int keyCode
+ *
+ * @return bool
+ */
+bool SDLOpenGL::keyboardDown(int keyCode) {
+    return state[keyCode];
+}
+
+/**
+ * Get Window Width
+ *
+ * @return Int
+ */
+int SDLOpenGL::getWidth() {
+    return this->WIDTH * this->SCALE;
+}
+
+/**
+ * Get Window Height
+ *
+ * @return Int
+ */
+int SDLOpenGL::getHeight() {
+    return this->HEIGHT * this->SCALE; 
 }
