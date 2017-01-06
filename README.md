@@ -10,6 +10,14 @@
 > The first purpose Scenengine was to serve; was being a boilerplate for
 > creating games.
 
+## Compiling & Executing / Running
+
+        # Compile
+        make
+
+        # Execute / Run
+        ./game.out
+
 ## Technical description
 ### Graphics
 > Scenengine uses OpenGL to talk to the graphics card, a long with SDL2.
