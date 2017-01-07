@@ -12,6 +12,7 @@ class CollisionBox {
         float height;
 
         void draw(float delta);
+        void setSize(float width, float height);
 };
 
 #endif

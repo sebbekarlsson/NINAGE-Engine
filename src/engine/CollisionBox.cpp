@@ -20,3 +20,8 @@ void CollisionBox::draw(float delta) {
     glEnable(GL_TEXTURE_2D);
     glPopMatrix();
 }
+
+void CollisionBox::setSize(float width, float height) {
+    this->width = width;
+    this->height = height;
+}

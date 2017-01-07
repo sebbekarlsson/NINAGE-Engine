@@ -17,6 +17,8 @@ void Scene::destantiate(Instance *instance) {
 void Scene::tick(float delta) {
     this->camera->tick(delta);
     for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end();) {
+        
+        /* Checking if instance should be deleted */
         if ((*it)->trash) {
             std::vector<Instance*>::iterator position = std::find(
                 this->instances->begin(),
@@ -26,16 +28,30 @@ void Scene::tick(float delta) {
 
             if (position != this->instances->end()) {
                 delete (*it);
+
+                /*
+                 * Delete instance from list.
+                 *
+                 * It is very important that we update the current
+                 * iterator by assigning the one that std::vector::erase
+                 * returns to it.
+                 */
                 it = this->instances->erase(position);
             }
 
             continue;
         }
 
-        (*it)->collisionBox->width = (*it)->sprite->getCurrentImage()->getWidth();
-        (*it)->collisionBox->height = (*it)->sprite->getCurrentImage()->getHeight();
+        /* Update the size of the collisionBox */
+        (*it)->collisionBox->setSize(
+            (*it)->sprite->getCurrentImage()->getWidth(),
+            (*it)->sprite->getCurrentImage()->getHeight()
+        );
+
+        /* Update instance logic */
         (*it)->tick(delta);
 
+        /* Everything went OK, so let us go to next instance */
         ++it;
     }
 }
