@@ -8,19 +8,19 @@ TestObj::TestObj(float x, float y) : Instance(x, y) {
 }
 
 void TestObj::tick(float delta) {
-    this->rotation += 120.0f * delta;
+    this->rotation += 0.1f * delta;
 
     if (game.keyboardDown(SDL_SCANCODE_LEFT)) {
-        this->x -= 625.5f * delta;
+        this->x -= 0.5f * delta;
     }
     if (game.keyboardDown(SDL_SCANCODE_RIGHT)) {
-        this->x += 625.5f * delta;
+        this->x += 0.5f * delta;
     }
     if (game.keyboardDown(SDL_SCANCODE_UP)) {
-        this->y -= 625.5f * delta;
+        this->y -= 0.5f * delta;
     }
     if (game.keyboardDown(SDL_SCANCODE_DOWN)) {
-        this->y += 625.5f * delta;
+        this->y += 0.5f * delta;
     }
     if (game.keyboardDown(SDL_SCANCODE_RETURN)) {
         game.getCurrentScene()->destantiate(this);

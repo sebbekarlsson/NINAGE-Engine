@@ -25,6 +25,7 @@ class SDLOpenGL {
         bool quit;
         std::vector<Scene*> *scenes = new std::vector<Scene*>();
         int sceneIndex;
+        float FPS;
         
         SDLImageLoader *loader;
         EasyImage *image;
@@ -43,6 +44,7 @@ class SDLOpenGL {
 
         Scene* getCurrentScene();
         Point getMousePosition();
+        float getFPS();
 };
 
 #endif

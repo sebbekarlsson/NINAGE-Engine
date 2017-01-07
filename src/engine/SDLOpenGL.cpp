@@ -12,6 +12,7 @@ SDLOpenGL::SDLOpenGL() {
     this->loader = new SDLImageLoader();
     this->image = this->loader->load("assets/card.png");
     this->sceneIndex = 0;
+    this->FPS = 0.0f;
     
     TestScene *ts = new TestScene();
 
@@ -201,4 +202,13 @@ int SDLOpenGL::getWidth() {
  */
 int SDLOpenGL::getHeight() {
     return this->HEIGHT * this->SCALE; 
+}
+
+/**
+ * Get current Frames Per Second (FPS)
+ *
+ * @return float
+ */
+float SDLOpenGL::getFPS() {
+    return this->FPS;
 }
