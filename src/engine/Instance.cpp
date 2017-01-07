@@ -12,7 +12,10 @@ Instance::Instance(float x, float y) {
     this->collisionBox = new CollisionBox(16.0f, 16.0f);
 }
 
-Instance::~Instance() {}
+Instance::~Instance() {
+    delete this->sprite;
+    delete this->collisionBox;
+}
 
 bool Instance::intersectsWidth(Instance *instance) {
     return

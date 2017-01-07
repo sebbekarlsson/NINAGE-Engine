@@ -19,12 +19,13 @@ void Scene::tick(float delta) {
     for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end();) {
         if ((*it)->trash) {
             std::vector<Instance*>::iterator position = std::find(
-            this->instances->begin(),
-            this->instances->end(),
-            (*it)
+                this->instances->begin(),
+                this->instances->end(),
+                (*it)
             );
 
             if (position != this->instances->end()) {
+                delete (*it);
                 it = this->instances->erase(position);
             }
 
@@ -42,7 +43,6 @@ void Scene::tick(float delta) {
 void Scene::draw(float delta) {
     this->camera->draw(delta);
     for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
-        if ((*it)->trash) { continue; }
         glPushMatrix();
 
         if ((*it)->centeredOrigo) {

@@ -5,6 +5,10 @@ Sprite::Sprite() {
     this->imageIndex = 0;
 }
 
+Sprite::~Sprite() {
+    delete this->images;
+}
+
 void Sprite::next() {
     if (this->imageIndex < this->images->size() - 1) {
         this->imageIndex++;

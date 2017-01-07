@@ -9,6 +9,7 @@
 class Sprite {
     public:
         Sprite();
+        ~Sprite();
 
         std::vector<EasyImage*> *images = new std::vector<EasyImage*>();
         int imageIndex;

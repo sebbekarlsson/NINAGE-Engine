@@ -8,7 +8,7 @@
 class Instance {
     public:
         Instance(float x, float y);
-        ~ Instance();
+        ~Instance();
 
         float x;
         float y;
