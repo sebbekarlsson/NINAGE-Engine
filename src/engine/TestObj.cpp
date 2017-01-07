@@ -3,7 +3,7 @@
 
 
 TestObj::TestObj(float x, float y) : Instance(x, y) {
-    this->sprite->addImage(game.loader->load("assets/card.png"));
+    this->sprite->addImage(game.loader->load("assets/ship.png"));
     this->centeredOrigo = true;
 }
 

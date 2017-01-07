@@ -8,16 +8,17 @@
 class EasyImage {
     public:
         SDL_Surface * surface;
-        int mode = GL_RGB;
+        int mode = GL_RGBA;
         GLuint TextureID;
 
         EasyImage(SDL_Surface *surface) {
             this->surface = surface;
             this->TextureID = 0;
 
-            if(this->surface->format->BytesPerPixel == 4) {
-                this->mode = GL_RGBA;
-            }
+            /* This is really stupid */
+            //if(this->surface->format->BytesPerPixel == 4) {
+            //    this->mode = GL_RGBA;
+            //}
         }
 
         SDL_Texture * get_image() {

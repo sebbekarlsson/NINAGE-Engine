@@ -2,7 +2,11 @@
 #define CAMERA_H
 
 #include "Instance.h"
+#include "SDL2/SDL_ttf.h"
 
+
+class SDLOpenGL;
+extern SDLOpenGL game;
 
 class Camera: public Instance {
     public:

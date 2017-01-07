@@ -13,6 +13,9 @@ SDLOpenGL::SDLOpenGL() {
     this->image = this->loader->load("assets/card.png");
     this->sceneIndex = 0;
     this->FPS = 0.0f;
+
+    this->scenes = new std::vector<Scene*>();
+    this->fonts = new std::map<std::string, TTF_Font*>();
     
     TestScene *ts = new TestScene();
 
@@ -109,6 +112,12 @@ bool SDLOpenGL::init() {
                 }
             }
         }
+    }
+
+    //Initialize SDL_ttf
+    if(TTF_Init() == -1)
+    {
+        return false;    
     }
 
     return success;
@@ -211,4 +220,61 @@ int SDLOpenGL::getHeight() {
  */
 float SDLOpenGL::getFPS() {
     return this->FPS;
+}
+
+bool SDLOpenGL::loadFont(std::string fontfile, int size) {
+    if(TTF_Init() == -1)
+    {
+        return false;    
+    }
+
+    std::map<std::string, TTF_Font*>::iterator it;
+
+    it = this->fonts->find(fontfile);
+    if (it != this->fonts->end()) {
+        return false;
+    }
+
+    TTF_Font *font = TTF_OpenFont(fontfile.c_str(), size);
+
+    if (font == NULL) {
+        printf("TTF ERROR: %s", TTF_GetError());
+
+        return false;
+    }
+
+    this->fonts->insert(std::make_pair(fontfile, font));
+
+    return true;
+}
+
+void SDLOpenGL::drawText(std::string message, std::string fontfile, int size) {
+    glPushMatrix();
+    GLuint texture;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+    TTF_Font *font = this->fonts->find(fontfile)->second;
+
+    if (font == NULL) {
+      printf("TTF ERROR: %s", TTF_GetError());
+    }
+
+    SDL_Surface * sFont = TTF_RenderText_Blended(font, message.c_str(), {255, 255, 255});
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, sFont->w, sFont->h, 0, GL_BGRA, 
+                GL_UNSIGNED_BYTE, sFont->pixels);
+
+    glBegin(GL_QUADS);
+    glTexCoord2f(0,0); glVertex2f(0, 0);
+    glTexCoord2f(1,0); glVertex2f(sFont->w, 0);
+    glTexCoord2f(1,1); glVertex2f(sFont->w, sFont->h);
+    glTexCoord2f(0,1); glVertex2f(0, sFont->h);
+    glEnd();
+
+    glDeleteTextures(1, &texture);
+    SDL_FreeSurface(sFont);
+    glPopMatrix();
 }
