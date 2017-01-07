@@ -10,29 +10,39 @@ void Scene::instantiate(Instance *instance) {
     this->instances->push_back(instance);
 }
 
-void Scene::destantiate(Instance &instance) {
-    std::vector<Instance*>::iterator position = std::find(
-            this->instances->begin(),
-            this->instances->end(),
-            &instance
-            );
-
-    if (position != this->instances->end())
-        this->instances->erase(position);
+void Scene::destantiate(Instance *instance) {
+    instance->trash = true;
 }
 
 void Scene::tick(float delta) {
     this->camera->tick(delta);
-    for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
+    for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end();) {
+        if ((*it)->trash) {
+            std::vector<Instance*>::iterator position = std::find(
+            this->instances->begin(),
+            this->instances->end(),
+            (*it)
+            );
+
+            if (position != this->instances->end()) {
+                it = this->instances->erase(position);
+            }
+
+            continue;
+        }
+
         (*it)->collisionBox->width = (*it)->sprite->getCurrentImage()->getWidth();
         (*it)->collisionBox->height = (*it)->sprite->getCurrentImage()->getHeight();
         (*it)->tick(delta);
+
+        ++it;
     }
 }
 
 void Scene::draw(float delta) {
     this->camera->draw(delta);
     for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
+        if ((*it)->trash) { continue; }
         glPushMatrix();
 
         if ((*it)->centeredOrigo) {

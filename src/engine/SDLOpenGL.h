@@ -7,11 +7,11 @@
 #include <vector>
 #include "../utils/SDLImageLoader.h"
 #include "../utils/Point.h"
+#include "Scene.h"
 
 
 
 class TestObj;
-class Scene;
 extern const Uint8 *state;
 
 class SDLOpenGL {

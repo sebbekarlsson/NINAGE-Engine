@@ -7,9 +7,12 @@ Instance::Instance(float x, float y) {
     this->z = 0.0f;
     this->rotation = 0.0f;
     this->centeredOrigo = false;
+    this->trash = false;
     this->sprite = new Sprite();
     this->collisionBox = new CollisionBox(16.0f, 16.0f);
 }
+
+Instance::~Instance() {}
 
 bool Instance::intersectsWidth(Instance *instance) {
     return

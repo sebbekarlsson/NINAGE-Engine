@@ -17,7 +17,7 @@ class Scene {
         Camera * camera;
 
         void instantiate(Instance *instance);
-        void destantiate(Instance &instance);
+        void destantiate(Instance *instance);
 
         void tick(float delta);
         void draw(float detla);

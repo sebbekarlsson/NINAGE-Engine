@@ -8,6 +8,7 @@ TestObj::TestObj(float x, float y) : Instance(x, y) {
 }
 
 void TestObj::tick(float delta) {
+    if (this->trash) { return; }
     //this->x = game.getMousePosition().x;
     //this->y = game.getMousePosition().y;
     this->rotation += 2.0f;
@@ -23,15 +24,15 @@ void TestObj::tick(float delta) {
     }
     if (game.keyboardDown(SDL_SCANCODE_DOWN)) {
         this->y += 9.5f;
-    }
 
-    if (x >= 100) {
-        /* THIS DOES NOT WORK, invalid use of incomplete type ‘class Scene’ */
-        //game.getCurrentScene()->destantiate(this);
+        //Segmentation fault
+        game.getCurrentScene()->destantiate(this);
     }
 }
 
 void TestObj::draw(float delta) {
+    if (this->trash) { return; }
+
     this->sprite->draw(delta);
     this->collisionBox->draw(delta);
 }

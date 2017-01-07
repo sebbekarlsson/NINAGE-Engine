@@ -8,12 +8,14 @@
 class Instance {
     public:
         Instance(float x, float y);
+        ~ Instance();
 
         float x;
         float y;
         float z;
         float rotation;
         bool centeredOrigo;
+        bool trash;
         Sprite *sprite;
         CollisionBox *collisionBox;
 
