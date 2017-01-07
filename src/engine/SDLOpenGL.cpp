@@ -257,7 +257,22 @@ bool SDLOpenGL::loadFont(std::string fontfile, int size) {
 }
 
 /**
- * Used to draw text using OpenGL technology
+ * Check if a font has been loaded
+ *
+ * @param std::string fontfile
+ *
+ * @return bool
+ */
+bool SDLOpenGL::isFontLoaded(std::string fontfile) {
+    std::map<std::string, TTF_Font*>::iterator it;
+
+    it = this->fonts->find(fontfile);
+    return it != this->fonts->end();
+}
+
+/**
+ * Used to draw text using OpenGL technology,
+ * will load font if it is not already loaded.
  *
  * @param std::string message
  * @param std::string fontfile
@@ -268,6 +283,10 @@ void SDLOpenGL::drawText(std::string message, std::string fontfile, int size) {
     GLuint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
+    
+    if (!this->isFontLoaded(fontfile)) {
+        this->loadFont(fontfile, size);
+    }
 
     TTF_Font *font = this->fonts->find(fontfile)->second;
 
@@ -279,8 +298,17 @@ void SDLOpenGL::drawText(std::string message, std::string fontfile, int size) {
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, sFont->w, sFont->h, 0, GL_BGRA, 
-                GL_UNSIGNED_BYTE, sFont->pixels);
+    glTexImage2D(
+        GL_TEXTURE_2D,
+        0,
+        GL_RGBA,
+        sFont->w,
+        sFont->h,
+        0,
+        GL_BGRA, 
+        GL_UNSIGNED_BYTE,
+        sFont->pixels
+    );
 
     glBegin(GL_QUADS);
     glTexCoord2f(0,0); glVertex2f(0, 0);

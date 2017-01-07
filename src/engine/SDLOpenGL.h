@@ -38,6 +38,7 @@ class SDLOpenGL {
         bool init();
         bool keyboardDown(int keyCode);
         bool loadFont(std::string fontfile, int size);
+        bool isFontLoaded(std::string fontfile);
         int getWidth();
         int getHeight();
         void draw(float delta);

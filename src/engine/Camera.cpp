@@ -5,9 +5,7 @@
 /**
  * Constructor
  */
-Camera::Camera(float x, float y) : Instance(x, y) {
-    game.loadFont("assets/font/bits.ttf", 16);
-}
+Camera::Camera(float x, float y) : Instance(x, y) {}
 
 /**
  * Update logic for camera
@@ -21,11 +19,11 @@ void Camera::tick(float delta) {}
 void Camera::draw(float delta) {
     glPushMatrix();
     glTranslatef(16.0f, 16.0f, 0.0f);
-    game.drawText("FPS: " + std::to_string(game.getFPS()), "assets/font/bits.ttf", 24);
+    game.drawText("FPS: " + std::to_string(game.getFPS()), "assets/font/bits.ttf", 16);
     glPopMatrix();
 
     glPushMatrix();
-    glTranslatef(16.0f, 32.0f, 0.0f);
-    game.drawText("DELTA: " + std::to_string(delta), "assets/font/bits.ttf", 24);
+    glTranslatef(16.0f, 32.0f + 8.0f, 0.0f);
+    game.drawText("DELTA: " + std::to_string(delta), "assets/font/bits.ttf", 16);
     glPopMatrix();
 }
