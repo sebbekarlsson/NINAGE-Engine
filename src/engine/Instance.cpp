@@ -1,6 +1,9 @@
 #include "Instance.h"
 
 
+/**
+ * Constructor
+ */
 Instance::Instance(float x, float y) {
     this->x = x;
     this->y = y;
@@ -12,11 +15,20 @@ Instance::Instance(float x, float y) {
     this->collisionBox = new CollisionBox(16.0f, 16.0f);
 }
 
+/**
+ * Destructor
+ */
 Instance::~Instance() {
     delete this->sprite;
     delete this->collisionBox;
 }
 
+/**
+ * Check if instance intersects / is within boundaries of another instances.
+ * This method depends on the collisionbox.
+ *
+ * @return bool
+ */
 bool Instance::intersectsWidth(Instance *instance) {
     return
         this->x+this->collisionBox->width >= instance->x &&
