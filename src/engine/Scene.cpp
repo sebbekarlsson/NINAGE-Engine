@@ -62,19 +62,19 @@ void Scene::draw(float delta) {
         glPushMatrix();
 
         if ((*it)->centeredOrigo) {
-            glTranslatef((*it)->x - (*it)->sprite->getCurrentImage()->getWidth()/2, (*it)->y - (*it)->sprite->getCurrentImage()->getHeight()/2, 0.0f);
+            glTranslatef((*it)->x - (*it)->sprite->getWidth()/2, (*it)->y - (*it)->sprite->getHeight()/2, 0.0f);
         } else {
             glTranslatef((*it)->x, (*it)->y, 0.0f); 
         }
 
         if ((*it)->centeredOrigo) {
-            glTranslatef(((*it)->sprite->getCurrentImage()->getWidth()/2), ((*it)->sprite->getCurrentImage()->getHeight()/2), 0);
+            glTranslatef(((*it)->sprite->getWidth()/2), ((*it)->sprite->getHeight()/2), 0);
         }
 
         glRotatef((*it)->rotation, 0.0f, 0.0f, 1.0f);
 
         if ((*it)->centeredOrigo) {
-            glTranslatef(-((*it)->sprite->getCurrentImage()->getWidth()/2), -((*it)->sprite->getCurrentImage()->getHeight()/2), 0);
+            glTranslatef(-((*it)->sprite->getWidth()/2), -((*it)->sprite->getHeight()/2), 0);
         }
 
         (*it)->draw(delta);

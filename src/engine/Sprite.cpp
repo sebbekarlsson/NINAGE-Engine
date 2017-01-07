@@ -25,6 +25,14 @@ EasyImage* Sprite::getCurrentImage() {
     return this->images->at(this->imageIndex);
 }
 
+int Sprite::getWidth() {
+    return this->getCurrentImage()->getWidth();
+}
+
+int Sprite::getHeight() {
+    return this->getCurrentImage()->getHeight();
+}
+
 void Sprite::draw(float delta) {
     this->getCurrentImage()->bind();
 
@@ -33,13 +41,13 @@ void Sprite::draw(float delta) {
     glVertex2f(0.0f, 0.0f);
 
     glTexCoord2f(0, 1);
-    glVertex2f(0.0f, this->getCurrentImage()->getHeight());
+    glVertex2f(0.0f, this->getHeight());
 
     glTexCoord2f(1, 1);
-    glVertex2f(this->getCurrentImage()->getWidth(), this->getCurrentImage()->getHeight());
+    glVertex2f(this->getWidth(), this->getHeight());
 
     glTexCoord2f(1, 0);
-    glVertex2f(this->getCurrentImage()->getWidth(), 0.0f);
+    glVertex2f(this->getWidth(), 0.0f);
     glEnd();
 
     this->next();

@@ -19,6 +19,8 @@ class Sprite {
         void draw(float delta);
 
         EasyImage* getCurrentImage();
+        int getWidth();
+        int getHeight();
 };
 
 #endif
