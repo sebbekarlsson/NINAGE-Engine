@@ -51,12 +51,11 @@ bool SDLOpenGL::initGL() {
     glLoadIdentity();    
 
     glClearColor(
-            (float)(0/255),
-            (float)(0/255),
-            (float)(0/255),
-            1.0f
-            );
-
+        (float)(0/255),
+        (float)(0/255),
+        (float)(0/255),
+        1.0f
+    );
 
     return success;
 }
