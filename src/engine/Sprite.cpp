@@ -1,14 +1,24 @@
 #include "Sprite.h"
 
 
+/**
+ * Constructor
+ */
 Sprite::Sprite() {
     this->imageIndex = 0;
 }
 
+/**
+ * Destructor
+ */
 Sprite::~Sprite() {
     delete this->images;
 }
 
+/**
+ * Used to set the currentImage to the next one available in the vector.
+ * (Will loop back to index 0 if it reaches end of vector)
+ */
 void Sprite::next() {
     if (this->imageIndex < this->images->size() - 1) {
         this->imageIndex++;
@@ -17,22 +27,48 @@ void Sprite::next() {
     }
 }
 
+/**
+ * Add image to sprite vector
+ *
+ * @param EasyImage image
+ */
 void Sprite::addImage(EasyImage *image) {
     this->images->push_back(image);
 }
 
+/**
+ * Get the current image in the vector, depends on the
+ * imageIndex.
+ *
+ * @return EasyImage
+ */
 EasyImage* Sprite::getCurrentImage() {
     return this->images->at(this->imageIndex);
 }
 
+/**
+ * Get width of current image in sprite
+ *
+ * @return int
+ */
 int Sprite::getWidth() {
     return this->getCurrentImage()->getWidth();
 }
 
+/**
+ * Get height of current image in sprite
+ *
+ * @return int
+ */
 int Sprite::getHeight() {
     return this->getCurrentImage()->getHeight();
 }
 
+/**
+ * Used to draw the sprite
+ *
+ * @param float delta
+ */
 void Sprite::draw(float delta) {
     this->getCurrentImage()->bind();
 
