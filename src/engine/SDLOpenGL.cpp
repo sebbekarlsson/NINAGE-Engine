@@ -114,7 +114,7 @@ bool SDLOpenGL::init() {
         }
     }
 
-    //Initialize SDL_ttf
+    /* Initialize SDL_ttf */
     if(TTF_Init() == -1)
     {
         return false;    
@@ -135,10 +135,10 @@ void SDLOpenGL::draw(float delta) {
     
     glPushMatrix();
     glTranslatef(
-            -this->getCurrentScene()->camera->x,
-            -this->getCurrentScene()->camera->y,
-            0
-            );
+        -this->getCurrentScene()->camera->x,
+        -this->getCurrentScene()->camera->y,
+        0
+    );
     this->getCurrentScene()->draw(delta);
     glPopMatrix();
 }
@@ -222,6 +222,14 @@ float SDLOpenGL::getFPS() {
     return this->FPS;
 }
 
+/**
+ * Load TTF font for later use.
+ *
+ * @param std::string fontfile
+ * @param int size
+ *
+ * @return bool
+ */
 bool SDLOpenGL::loadFont(std::string fontfile, int size) {
     if(TTF_Init() == -1)
     {
@@ -248,6 +256,13 @@ bool SDLOpenGL::loadFont(std::string fontfile, int size) {
     return true;
 }
 
+/**
+ * Used to draw text using OpenGL technology
+ *
+ * @param std::string message
+ * @param std::string fontfile
+ * @param std::string size
+ */
 void SDLOpenGL::drawText(std::string message, std::string fontfile, int size) {
     glPushMatrix();
     GLuint texture;
