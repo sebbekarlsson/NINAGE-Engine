@@ -1,11 +1,17 @@
 #include "CollisionBox.h"
 
 
+/**
+ * Constructor
+ */
 CollisionBox::CollisionBox(float width, float height) {
     this->width = width;
     this->height = height;
 }
 
+/**
+ * Used to draw boundaries of the collisionbox
+ */
 void CollisionBox::draw(float delta) {
     glTranslatef(0.0f, 0.0f, -1.0f);
     glPushMatrix();
@@ -21,6 +27,12 @@ void CollisionBox::draw(float delta) {
     glPopMatrix();
 }
 
+/**
+ * Set the size of the collisionbox.
+ *
+ * @param float width
+ * @param float height
+ */
 void CollisionBox::setSize(float width, float height) {
     this->width = width;
     this->height = height;
