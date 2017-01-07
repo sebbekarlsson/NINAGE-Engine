@@ -37,8 +37,8 @@ class SDLOpenGL {
         bool keyboardDown(int keyCode);
         int getWidth();
         int getHeight();
-        void draw();
-        void tick();
+        void draw(float delta);
+        void tick(float delta);
         void close();
 
         Scene* getCurrentScene();
