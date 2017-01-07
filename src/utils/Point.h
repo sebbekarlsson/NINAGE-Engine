@@ -7,6 +7,8 @@ class Point {
 
         float x;
         float y;
+
+        void setPosition(float x, float y);
 };
 
 #endif
