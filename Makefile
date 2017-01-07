@@ -63,8 +63,8 @@ Scene.o: src/engine/Scene.cpp src/engine/Scene.h
 TestScene.o: src/engine/TestScene.cpp src/engine/TestScene.h
 	g++ $(G_FLAGZ) -c src/engine/TestScene.cpp
 
-Point.o: src/utils/Point.cpp src/utils/Point.h
-	g++ $(G_FLAGZ) -c src/utils/Point.cpp
+Point.o: src/engine/utils/Point.cpp src/engine/utils/Point.h
+	g++ $(G_FLAGZ) -c src/engine/utils/Point.cpp
 
 clean:
 	rm *.o

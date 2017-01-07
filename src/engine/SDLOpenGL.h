@@ -5,8 +5,8 @@
 #include <SDL2/SDL_opengl.h>
 #include <iostream>
 #include <vector>
-#include "../utils/SDLImageLoader.h"
-#include "../utils/Point.h"
+#include "utils/SDLImageLoader.h"
+#include "utils/Point.h"
 #include "Scene.h"
 
 

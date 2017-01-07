@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include "../utils/SDLImageLoader.h"
+#include "utils/SDLImageLoader.h"
 
 
 class Sprite {
