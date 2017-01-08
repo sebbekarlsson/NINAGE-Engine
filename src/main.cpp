@@ -5,6 +5,7 @@
 
 SDLOpenGL game;
 const Uint8 *state = SDL_GetKeyboardState(NULL);
+int fpsBufferLength = 10;
 
 int main (int argc, char* args[]) {
     game.init();
@@ -34,24 +35,22 @@ int main (int argc, char* args[]) {
 
         SDL_GL_SwapWindow(game.display);
         
-        delta = (double)((NOW - LAST)*1000 / (float)SDL_GetPerformanceFrequency());
+        delta = (double)((NOW - LAST) * 1000 / (float)SDL_GetPerformanceFrequency());
         
         /* Let's store 10 frame calculations */ 
-        if (fpsBuffer->size() < 10) {
+        if (fpsBuffer->size() < fpsBufferLength) {
             fpsBuffer->push_back(delta);
         } else {
-            fpsBuffer->clear();
-        }
-
-        /* Let's calculate the general FPS */
-        if (fpsBuffer->size() >= 10) {
-            float avFps = 0;
+            /* Let's calculate the FPS */
+            float avDelta = 0;
 
             for (std::vector<int>::iterator it = fpsBuffer->begin(); it != fpsBuffer->end(); ++it) {
-                avFps += (*it);
+                avDelta += (*it);
             }
 
-            game.FPS = avFps;
+            game.FPS = (fpsBufferLength / ((avDelta / 1000) / fpsBufferLength)) / 10;
+
+            fpsBuffer->clear();
         }
 
         LAST = NOW;
