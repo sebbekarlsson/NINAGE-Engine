@@ -6,14 +6,27 @@ Scene::Scene() {
     this->camera = new Camera(0, 0);
 }
 
+/**
+ * Instantiate / add object to the scene.
+ *
+ * @param Instance instance
+ */
 void Scene::instantiate(Instance *instance) {
     this->newInstances->push_back(instance);
 }
 
+/**
+ * Remove object from the scene
+ *
+ * @param Instance instance
+ */
 void Scene::destantiate(Instance *instance) {
     instance->trash = true;
 }
 
+/**
+ * Default scene behavior / logic
+ */
 void Scene::tickDefault(float delta) {
     this->camera->tick(delta);
     for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end();) {
@@ -65,6 +78,9 @@ void Scene::tickDefault(float delta) {
     this->newInstances->clear();
 }
 
+/**
+ * Default scene graphics behavior
+ */
 void Scene::drawDefault(float delta) {
     this->camera->draw(delta);
     for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
