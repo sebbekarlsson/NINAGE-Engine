@@ -10,6 +10,9 @@ extern SDLOpenGL game;
 class TestScene: public Scene {
     public:
         TestScene();
+
+        void tick(float delta);
+        void draw(float delta);
 };
 
 #endif

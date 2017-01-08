@@ -18,6 +18,7 @@ output:\
     CollisionBox.o\
     Instance.o\
     TestObj.o\
+    TestObj2.o\
     Sprite.o\
     Camera.o\
     Scene.o\
@@ -29,6 +30,7 @@ output:\
 	    CollisionBox.o\
 	    Instance.o\
 	    TestObj.o\
+	    TestObj2.o\
 	    Sprite.o\
 	    Camera.o\
 	    Scene.o\
@@ -53,6 +55,9 @@ Instance.o: src/engine/Instance.cpp src/engine/Instance.h
 
 TestObj.o: src/engine/TestObj.cpp src/engine/TestObj.h
 	g++ $(G_FLAGZ) -c src/engine/TestObj.cpp
+
+TestObj2.o: src/engine/TestObj2.cpp src/engine/TestObj2.h
+	g++ $(G_FLAGZ) -c src/engine/TestObj2.cpp
 
 Camera.o: src/engine/Camera.cpp src/engine/Camera.h
 	g++ $(G_FLAGZ) -c src/engine/Camera.cpp

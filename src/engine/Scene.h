@@ -14,13 +14,16 @@ class Scene {
         Scene();
 
         std::vector<Instance*> *instances = new std::vector<Instance*>();
+        std::vector<Instance*> *newInstances = new std::vector<Instance*>();
         Camera * camera;
 
         void instantiate(Instance *instance);
         void destantiate(Instance *instance);
+        void tickDefault(float delta);
+        void drawDefault(float delta);
 
-        void tick(float delta);
-        void draw(float detla);
+        virtual void tick(float delta) = 0;
+        virtual void draw(float detla) = 0;
 };
 
 #endif

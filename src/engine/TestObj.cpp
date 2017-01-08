@@ -1,5 +1,6 @@
 #include "SDLOpenGL.h"
 #include "TestObj.h"
+#include "TestObj2.h"
 
 
 TestObj::TestObj(float x, float y) : Instance(x, y) {
@@ -23,7 +24,8 @@ void TestObj::tick(float delta) {
         this->y += 0.5f * delta;
     }
     if (game.keyboardDown(SDL_SCANCODE_RETURN)) {
-        game.getCurrentScene()->destantiate(this);
+        game.getCurrentScene()->instantiate(new TestObj2(this->x, this->y));
+        //game.getCurrentScene()->destantiate(this);
     }
 }
 

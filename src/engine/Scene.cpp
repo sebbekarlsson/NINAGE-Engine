@@ -7,14 +7,14 @@ Scene::Scene() {
 }
 
 void Scene::instantiate(Instance *instance) {
-    this->instances->push_back(instance);
+    this->newInstances->push_back(instance);
 }
 
 void Scene::destantiate(Instance *instance) {
     instance->trash = true;
 }
 
-void Scene::tick(float delta) {
+void Scene::tickDefault(float delta) {
     this->camera->tick(delta);
     for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end();) {
         
@@ -54,9 +54,18 @@ void Scene::tick(float delta) {
         /* Everything went OK, so let us go to next instance */
         ++it;
     }
+
+    /* Remove objects / instances that are waiting for being removed */
+    for(std::vector<Instance*>::iterator it = this->newInstances->begin(); it != this->newInstances->end();) {
+        this->instances->push_back((*it));
+
+        ++it;
+    }
+
+    this->newInstances->clear();
 }
 
-void Scene::draw(float delta) {
+void Scene::drawDefault(float delta) {
     this->camera->draw(delta);
     for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
         glPushMatrix();

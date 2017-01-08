@@ -10,7 +10,6 @@ SDLOpenGL::SDLOpenGL() {
     this->TITLE = "GAME TITLE";
     this->quit = false;
     this->loader = new SDLImageLoader();
-    this->image = this->loader->load("assets/card.png");
     this->sceneIndex = 0;
     this->FPS = 0.0f;
 

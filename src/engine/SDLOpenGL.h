@@ -29,7 +29,6 @@ class SDLOpenGL {
         std::map<std::string, TTF_Font*> *fonts;
         
         SDLImageLoader *loader;
-        EasyImage *image;
 
         SDL_Window* display = NULL;
         SDL_GLContext context;
