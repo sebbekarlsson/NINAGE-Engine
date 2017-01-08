@@ -3,7 +3,7 @@
 
 
 TestObj2::TestObj2(float x, float y) : Instance(x, y) {
-    this->sprite->addImage(game.loader->load("assets/Grid_Iron.png"));
+    this->sprite->addImage(game.loadImage("assets/Grid_Iron.png"));
     this->centeredOrigo = true;
 }
 

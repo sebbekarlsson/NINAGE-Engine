@@ -9,7 +9,6 @@ SDLOpenGL::SDLOpenGL() {
     this->HEIGHT = WIDTH / 16 * 9;
     this->TITLE = "GAME TITLE";
     this->quit = false;
-    this->loader = new SDLImageLoader();
     this->sceneIndex = 0;
     this->FPS = 0.0f;
 
@@ -219,6 +218,20 @@ int SDLOpenGL::getHeight() {
  */
 float SDLOpenGL::getFPS() {
     return this->FPS;
+}
+
+/**
+ * Load an image which can be drawn.
+ *
+ * @param std::string path
+ *
+ * @return SpriteImage
+ */
+SpriteImage* SDLOpenGL::loadImage(std::string path) {
+    SDL_Surface * surface = IMG_Load(path.c_str());
+    SpriteImage * image = new SpriteImage(&*surface);
+
+    return image;
 }
 
 /**

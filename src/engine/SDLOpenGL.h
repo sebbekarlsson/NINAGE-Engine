@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
-#include "utils/SDLImageLoader.h"
+#include "SpriteImage.h"
 #include "utils/Point.h"
 #include "Scene.h"
 
@@ -28,8 +28,6 @@ class SDLOpenGL {
         std::vector<Scene*> *scenes; 
         std::map<std::string, TTF_Font*> *fonts;
         
-        SDLImageLoader *loader;
-
         SDL_Window* display = NULL;
         SDL_GLContext context;
 
@@ -38,16 +36,20 @@ class SDLOpenGL {
         bool keyboardDown(int keyCode);
         bool loadFont(std::string fontfile, int size);
         bool isFontLoaded(std::string fontfile);
+
+        SpriteImage* loadImage(std::string path);
+        Scene* getCurrentScene();
+        Point getMousePosition();
+
         int getWidth();
         int getHeight();
+
         void draw(float delta);
         void tick(float delta);
         void close();
-
-        Scene* getCurrentScene();
-        Point getMousePosition();
-        float getFPS();
         void drawText(std::string message, std::string fontfile, int size);
+
+        float getFPS();
 };
 
 #endif

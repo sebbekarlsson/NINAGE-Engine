@@ -19,6 +19,7 @@ output:\
     Instance.o\
     TestObj.o\
     TestObj2.o\
+    SpriteImage.o\
     Sprite.o\
     Camera.o\
     Scene.o\
@@ -31,6 +32,7 @@ output:\
 	    Instance.o\
 	    TestObj.o\
 	    TestObj2.o\
+	    SpriteImage.o\
 	    Sprite.o\
 	    Camera.o\
 	    Scene.o\
@@ -43,6 +45,9 @@ main.o: src/main.cpp
 
 SDLOpenGL.o: src/engine/SDLOpenGL.cpp src/engine/SDLOpenGL.h
 	g++ $(G_FLAGZ) -c src/engine/SDLOpenGL.cpp
+
+SpriteImage.o: src/engine/SpriteImage.cpp src/engine/SpriteImage.h
+	g++ $(G_FLAGZ) -c src/engine/SpriteImage.cpp
 
 Sprite.o: src/engine/Sprite.cpp src/engine/Sprite.h
 	g++ $(G_FLAGZ) -c src/engine/Sprite.cpp

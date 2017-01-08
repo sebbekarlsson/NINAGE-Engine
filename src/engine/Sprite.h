@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include "utils/SDLImageLoader.h"
+#include "SpriteImage.h"
 
 
 class Sprite {
@@ -11,14 +11,14 @@ class Sprite {
         Sprite();
         ~Sprite();
 
-        std::vector<EasyImage*> *images = new std::vector<EasyImage*>();
+        std::vector<SpriteImage*> *images = new std::vector<SpriteImage*>();
         int imageIndex;
 
         void next();
-        void addImage(EasyImage *image);
+        void addImage(SpriteImage *image);
         void draw(float delta);
 
-        EasyImage* getCurrentImage();
+        SpriteImage* getCurrentImage();
         int getWidth();
         int getHeight();
 };

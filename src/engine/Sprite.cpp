@@ -32,7 +32,7 @@ void Sprite::next() {
  *
  * @param EasyImage image
  */
-void Sprite::addImage(EasyImage *image) {
+void Sprite::addImage(SpriteImage *image) {
     this->images->push_back(image);
 }
 
@@ -42,7 +42,7 @@ void Sprite::addImage(EasyImage *image) {
  *
  * @return EasyImage
  */
-EasyImage* Sprite::getCurrentImage() {
+SpriteImage* Sprite::getCurrentImage() {
     return this->images->at(this->imageIndex);
 }
 
