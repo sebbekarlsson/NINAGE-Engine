@@ -1,6 +1,7 @@
 #ifndef INSTANCE_H
 #define INSTANCE_H
 
+#include "fakeGL.h"
 #include "Sprite.h"
 #include "CollisionBox.h"
 

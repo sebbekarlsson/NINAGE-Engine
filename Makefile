@@ -5,7 +5,7 @@ $(info $(OS))
 ifeq ($(OS), Darwin)
     FLAGZ=`pkg-config --libs sdl2` -std=c++11 -framework OpenGL -framework GLUT -lSDL2_image -lSDL2_ttf -g
 else
-    FLAGZ=`pkg-config --libs sdl2` -std=c++11 -lGL -lglut -lSDL2_image -lSDL2_ttf -lGLU -g
+    FLAGZ=`pkg-config --libs sdl2` -Wall -lGLEW -DGLEW_STATIC -std=c++11 -lSOIL -lGL -lglut -lSDL2_image -lSDL2_ttf -lGLU -g
 endif
 
 G_FLAGZ=-std=c++11
@@ -14,6 +14,7 @@ $(info $(FLAGZ))
 
 output:\
     main.o\
+    ResourceManager.o\
     fakeGL.o\
     SDLOpenGL.o\
     CollisionBox.o\
@@ -28,6 +29,7 @@ output:\
     Point.o
 	g++ $(FLAGZ)\
 	    main.o\
+	    ResourceManager.o\
 	    fakeGL.o\
 	    SDLOpenGL.o\
 	    CollisionBox.o\
@@ -44,6 +46,9 @@ output:\
 
 main.o: src/main.cpp
 	g++ $(G_FLAGZ) -c src/main.cpp
+
+ResourceManager.o: src/engine/utils/ResourceManager/ResourceManager.cpp src/engine/utils/ResourceManager/ResourceManager.h
+	g++ $(G_FLAGZ) -c src/engine/utils/ResourceManager/ResourceManager.cpp
 
 fakeGL.o: src/engine/fakeGL.cpp src/engine/fakeGL.h
 	g++ $(G_FLAGZ) -c src/engine/fakeGL.cpp

@@ -1,12 +1,12 @@
 #ifndef SDLOPENGL_H
 #define SDLOPENGL_H
 
+#include "fakeGL.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 #include <iostream>
 #include <vector>
 #include <map>
-#include "fakeGL.h"
 #include "SpriteImage.h"
 #include "utils/Point.h"
 #include "Scene.h"

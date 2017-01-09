@@ -1,0 +1,3 @@
+[submodule "src/engine/utils/ResourceManager"]
+	path = src/engine/utils/ResourceManager
+	url = git@github.com:sebbekarlsson/ResourceManager.git

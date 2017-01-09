@@ -1,8 +1,8 @@
 #ifndef COLLISIONBOX_H
 #define COLLISIONBOX_H
 
-#include <SDL2/SDL_opengl.h>
 #include "fakeGL.h"
+#include <SDL2/SDL_opengl.h>
 
 
 class CollisionBox {
