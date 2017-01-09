@@ -2,6 +2,7 @@
 #define COLLISIONBOX_H
 
 #include <SDL2/SDL_opengl.h>
+#include "fakeGL.h"
 
 
 class CollisionBox {

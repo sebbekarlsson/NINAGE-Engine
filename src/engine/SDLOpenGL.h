@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include "fakeGL.h"
 #include "SpriteImage.h"
 #include "utils/Point.h"
 #include "Scene.h"

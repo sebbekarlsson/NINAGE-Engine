@@ -18,12 +18,12 @@ void Camera::tick(float delta) {}
  */
 void Camera::draw(float delta) {
     glPushMatrix();
-    glTranslatef(16.0f, 16.0f, 0.0f);
+    f_glTranslatef(16.0f, 16.0f, 0.0f);
     game.drawText("FPS: " + std::to_string(game.getFPS()), "assets/font/bits.ttf", 16);
     glPopMatrix();
 
     glPushMatrix();
-    glTranslatef(16.0f, 32.0f + 8.0f, 0.0f);
+    f_glTranslatef(16.0f, 32.0f + 8.0f, 0.0f);
     game.drawText("DELTA: " + std::to_string(delta), "assets/font/bits.ttf", 16);
     glPopMatrix();
 }

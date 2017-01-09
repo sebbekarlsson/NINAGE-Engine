@@ -13,7 +13,7 @@ CollisionBox::CollisionBox(float width, float height) {
  * Used to draw boundaries of the collisionbox
  */
 void CollisionBox::draw(float delta) {
-    glTranslatef(0.0f, 0.0f, -1.0f);
+    f_glTranslatef(0.0f, 0.0f, -1.0f);
     glPushMatrix();
     glDisable(GL_TEXTURE_2D);
     glColor3f(1.0f, 0.0f, 0.0f);

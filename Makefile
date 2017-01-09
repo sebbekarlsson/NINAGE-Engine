@@ -14,6 +14,7 @@ $(info $(FLAGZ))
 
 output:\
     main.o\
+    fakeGL.o\
     SDLOpenGL.o\
     CollisionBox.o\
     Instance.o\
@@ -27,6 +28,7 @@ output:\
     Point.o
 	g++ $(FLAGZ)\
 	    main.o\
+	    fakeGL.o\
 	    SDLOpenGL.o\
 	    CollisionBox.o\
 	    Instance.o\
@@ -42,6 +44,9 @@ output:\
 
 main.o: src/main.cpp
 	g++ $(G_FLAGZ) -c src/main.cpp
+
+fakeGL.o: src/engine/fakeGL.cpp src/engine/fakeGL.h
+	g++ $(G_FLAGZ) -c src/engine/fakeGL.cpp
 
 SDLOpenGL.o: src/engine/SDLOpenGL.cpp src/engine/SDLOpenGL.h
 	g++ $(G_FLAGZ) -c src/engine/SDLOpenGL.cpp
