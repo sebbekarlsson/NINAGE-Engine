@@ -1,3 +1,12 @@
+# CURRENTLY MIGRATING TO OPENGL 3.3 (or higher)
+> STEPS:
+
+* Creating mocked OpenGL functions inside src/engine/fakeGL.cpp
+  so that we won't break the application while we are migrating.
+ 
+* Replace all legacy OpenGL with modern / core openGL.
+
+
 # Scenengine
 > Engine for interactive media & games
 
