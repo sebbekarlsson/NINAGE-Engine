@@ -81,9 +81,9 @@ bool SDLOpenGL::init() {
             SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
             SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
         #else
-            std::cout << "OPENGL 3.0" << std::endl;
+            std::cout << "OPENGL 3.3" << std::endl;
             SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-            SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
+            SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
         #endif
 
         display = SDL_CreateWindow (
