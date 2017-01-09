@@ -27,6 +27,9 @@ void TestObj::tick(float delta) {
         game.getCurrentScene()->instantiate(new TestObj2(this->x, this->y));
         //game.getCurrentScene()->destantiate(this);
     }
+    if(game.keyboardDown(SDL_SCANCODE_SPACE)) {
+        game.getCurrentScene()->destantiate(this);
+    }
 }
 
 void TestObj::draw(float delta) {
