@@ -140,7 +140,8 @@ void SDLOpenGL::draw(float delta) {
     this->getCurrentScene()->draw(delta);
     glPopMatrix();
 
-    f_renderTexture();
+    //uncomment to test
+    //f_renderTexture();
 }
 
 /**
