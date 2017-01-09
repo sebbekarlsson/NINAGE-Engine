@@ -11,6 +11,8 @@
 > creating games.
 
 ## Compiling & Executing / Running
+        
+        git submodule init; git submodule sync; git submodule update
 
         # Compile
         make
