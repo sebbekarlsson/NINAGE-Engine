@@ -17,6 +17,7 @@ output:\
     SDLOpenGL.o\
     CollisionBox.o\
     Instance.o\
+    Entity.o\
     TestObj.o\
     TestObj2.o\
     SpriteImage.o\
@@ -30,6 +31,7 @@ output:\
 	    SDLOpenGL.o\
 	    CollisionBox.o\
 	    Instance.o\
+	    Entity.o\
 	    TestObj.o\
 	    TestObj2.o\
 	    SpriteImage.o\
@@ -57,6 +59,9 @@ CollisionBox.o: src/engine/CollisionBox.cpp src/engine/CollisionBox.h
 
 Instance.o: src/engine/Instance.cpp src/engine/Instance.h
 	g++ $(G_FLAGZ) -c src/engine/Instance.cpp
+
+Entity.o: src/engine/Entity.cpp src/engine/Entity.h
+	g++ $(G_FLAGZ) -c src/engine/Entity.cpp
 
 TestObj.o: src/engine/TestObj.cpp src/engine/TestObj.h
 	g++ $(G_FLAGZ) -c src/engine/TestObj.cpp
