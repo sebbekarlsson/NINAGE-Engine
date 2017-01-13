@@ -1,5 +1,4 @@
 #include "Scene.h"
-#include "TestScene.h"
 #include "SDLOpenGL.h"
 
 
@@ -14,10 +13,6 @@ SDLOpenGL::SDLOpenGL() {
 
     this->scenes = new std::vector<Scene*>();
     this->fonts = new std::map<std::string, TTF_Font*>();
-    
-    TestScene *ts = new TestScene();
-
-    this->scenes->push_back(ts);
 }
 
 /**

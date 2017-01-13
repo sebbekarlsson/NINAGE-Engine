@@ -1,6 +1,5 @@
-#include "engine/SDLOpenGL.h"
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_opengl.h>
+#include <scenengine/engine/SDLOpenGL.h>
+#include "MainScene.h"
 
 
 SDLOpenGL game;
@@ -8,6 +7,9 @@ const Uint8 *state = SDL_GetKeyboardState(NULL);
 int fpsBufferLength = 10;
 
 int main (int argc, char* args[]) {
+    MainScene *scene = new MainScene();
+    game.scenes->push_back(scene);
+
     game.init();
 
     float delta = 0;

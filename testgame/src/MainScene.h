@@ -1,15 +1,15 @@
 #ifndef TESTSCENE_H
 #define TESTSCENE_H
 
-#include "Scene.h"
+#include <scenengine/engine/Scene.h>
 
 
 class SDLOpenGL;
 extern SDLOpenGL game;
 
-class TestScene: public Scene {
+class MainScene: public Scene {
     public:
-        TestScene();
+        MainScene();
 
         void tick(float delta);
         void draw(float delta);

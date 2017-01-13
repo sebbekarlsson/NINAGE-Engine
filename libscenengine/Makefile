@@ -12,38 +12,12 @@ G_FLAGZ=-std=c++11
 
 $(info $(FLAGZ))
 
-output:\
-    main.o\
-    SDLOpenGL.o\
-    CollisionBox.o\
-    Instance.o\
-    Entity.o\
-    TestObj.o\
-    TestObj2.o\
-    SpriteImage.o\
-    Sprite.o\
-    Camera.o\
-    Scene.o\
-    TestScene.o\
-    Point.o
-	g++ $(FLAGZ)\
-	    main.o\
-	    SDLOpenGL.o\
-	    CollisionBox.o\
-	    Instance.o\
-	    Entity.o\
-	    TestObj.o\
-	    TestObj2.o\
-	    SpriteImage.o\
-	    Sprite.o\
-	    Camera.o\
-	    Scene.o\
-	    TestScene.o\
-	    Point.o\
-	    -o game.out
+OFILES=SDLOpenGL.o CollisionBox.o Instance.o Entity.o SpriteImage.o Sprite.o Camera.o Scene.o Point.o
 
-main.o: src/main.cpp
-	g++ $(G_FLAGZ) -c src/main.cpp
+LIBFILES=libscenengine.a libscenengine.so
+
+
+all: $(OFILES) $(LIBFILES)	
 
 SDLOpenGL.o: src/engine/SDLOpenGL.cpp src/engine/SDLOpenGL.h
 	g++ $(G_FLAGZ) -c src/engine/SDLOpenGL.cpp
@@ -63,24 +37,36 @@ Instance.o: src/engine/Instance.cpp src/engine/Instance.h
 Entity.o: src/engine/Entity.cpp src/engine/Entity.h
 	g++ $(G_FLAGZ) -c src/engine/Entity.cpp
 
-TestObj.o: src/engine/TestObj.cpp src/engine/TestObj.h
-	g++ $(G_FLAGZ) -c src/engine/TestObj.cpp
-
-TestObj2.o: src/engine/TestObj2.cpp src/engine/TestObj2.h
-	g++ $(G_FLAGZ) -c src/engine/TestObj2.cpp
-
 Camera.o: src/engine/Camera.cpp src/engine/Camera.h
 	g++ $(G_FLAGZ) -c src/engine/Camera.cpp
 
 Scene.o: src/engine/Scene.cpp src/engine/Scene.h
 	g++ $(G_FLAGZ) -c src/engine/Scene.cpp
 
-TestScene.o: src/engine/TestScene.cpp src/engine/TestScene.h
-	g++ $(G_FLAGZ) -c src/engine/TestScene.cpp
-
 Point.o: src/engine/utils/Point.cpp src/engine/utils/Point.h
 	g++ $(G_FLAGZ) -c src/engine/utils/Point.cpp
 
+libscenengine.a: $(OFILES)
+	ar rcs $@ $^
+
+libscenengine.so: $(OFILES)
+	ar rcs $@ $^
+
+install:
+	-rm /usr/local/lib/libscenengine.*
+	-rm -rf /usr/local/include/scenengine
+	make
+	mkdir -p scenengine/engine
+	mkdir -p scenengine/engine/utils
+	cp src/engine/*.h scenengine/engine/.
+	cp src/engine/utils/*.h scenengine/engine/utils/.
+	mv scenengine /usr/local/include/scenengine
+	mv libscenengine.a /usr/local/lib/libscenengine.a
+	mv libscenengine.so /usr/local/lib/libscenengine.so
+
 clean:
-	rm *.o
-	rm *.out
+	-rm -rf scenengine
+	-rm *.o
+	-rm *.out
+	-rm *.so
+	-rm *.a
