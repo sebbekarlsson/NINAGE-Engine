@@ -108,6 +108,14 @@ void Scene::drawDefault(float delta) {
     }
 }
 
+/**
+ * Initialize function
+ *
+ * This function calls the virtual function `init` which is used to 
+ * setup the scene, place out game objects etc...44
+ *
+ * @param float delta
+ */
 void Scene::initialize(float delta) {
     this->init(delta);
     this->initialized = true;

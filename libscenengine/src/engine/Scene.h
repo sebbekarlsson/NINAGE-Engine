@@ -25,8 +25,25 @@ class Scene {
         void drawDefault(float delta);
         void initialize(float delta);
 
+        /**
+         * Update logic for scene
+         *
+         * @param float delta
+         */
         virtual void tick(float delta) = 0;
+
+        /**
+         * Draw scene graphics
+         *
+         * @param float delta
+         */
         virtual void draw(float detla) = 0;
+
+        /**
+         * Initialize scene, place out game objects etc..
+         *
+         * @param float delta
+         */
         virtual void init(float delta) = 0;
 };
 
