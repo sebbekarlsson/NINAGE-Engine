@@ -21,6 +21,7 @@ class Instance {
 
         virtual void tick(float delta) = 0;
         virtual void draw(float delta) = 0;
+        virtual void scene(Instance * instance) = 0;
         
         bool intersectsWidth(Instance *instance);
 };

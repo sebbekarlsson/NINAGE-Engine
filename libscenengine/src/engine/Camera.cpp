@@ -27,3 +27,5 @@ void Camera::draw(float delta) {
     game.drawText("DELTA: " + std::to_string(delta), "assets/font/bits.ttf", 16);
     glPopMatrix();
 }
+
+void Camera::scene(Instance * instance) {}

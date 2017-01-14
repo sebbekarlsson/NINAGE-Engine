@@ -64,6 +64,11 @@ void Scene::tickDefault(float delta) {
         /* Update instance logic */
         (*it)->tick(delta);
 
+        for (std::vector<Instance*>::iterator it2 = this->instances->begin(); it2 != this->instances->end();) {
+            (*it2)->scene((*it));
+            ++it2;
+        }
+
         /* Everything went OK, so let us go to next instance */
         ++it;
     }
