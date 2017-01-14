@@ -122,6 +122,8 @@ bool SDLOpenGL::init() {
  * @param float delta
  */
 void SDLOpenGL::draw(float delta) {
+    if (!this->getCurrentScene()->initialized) { return; }
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glColor3f(1.0f,1.0f,1.0f);
@@ -142,6 +144,12 @@ void SDLOpenGL::draw(float delta) {
  * @param float delta
  */
 void SDLOpenGL::tick(float delta) {
+    if (!this->getCurrentScene()->initialized) {
+        this->getCurrentScene()->initialize(delta);
+
+        return;
+    }
+
     this->getCurrentScene()->tick(delta);
 }
 

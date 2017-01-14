@@ -13,6 +13,7 @@ class MainScene: public Scene {
 
         void tick(float delta);
         void draw(float delta);
+        void init(float delta);
 };
 
 #endif

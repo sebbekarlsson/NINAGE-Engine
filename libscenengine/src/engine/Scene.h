@@ -17,13 +17,17 @@ class Scene {
         std::vector<Instance*> *newInstances = new std::vector<Instance*>();
         Camera * camera;
 
+        bool initialized;
+
         void instantiate(Instance *instance);
         void destantiate(Instance *instance);
         void tickDefault(float delta);
         void drawDefault(float delta);
+        void initialize(float delta);
 
         virtual void tick(float delta) = 0;
         virtual void draw(float detla) = 0;
+        virtual void init(float delta) = 0;
 };
 
 #endif

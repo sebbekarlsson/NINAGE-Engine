@@ -2,7 +2,9 @@
 #include "Player.h"
 
 
-MainScene::MainScene(): Scene() {
+MainScene::MainScene(): Scene() {}
+
+void MainScene::init(float delta) {
     this->instantiate(new Player(game.getWidth() / 2, game.getHeight() / 2));
 }
 

@@ -29,7 +29,7 @@ void Scene::destantiate(Instance *instance) {
  */
 void Scene::tickDefault(float delta) {
     this->camera->tick(delta);
-    for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end();) {
+    for (std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end();) {
         
         /* Checking if instance should be deleted */
         if ((*it)->trash) {
@@ -69,7 +69,7 @@ void Scene::tickDefault(float delta) {
     }
 
     /* Remove objects / instances that are waiting for being removed */
-    for(std::vector<Instance*>::iterator it = this->newInstances->begin(); it != this->newInstances->end();) {
+    for (std::vector<Instance*>::iterator it = this->newInstances->begin(); it != this->newInstances->end();) {
         this->instances->push_back((*it));
 
         ++it;
@@ -83,7 +83,7 @@ void Scene::tickDefault(float delta) {
  */
 void Scene::drawDefault(float delta) {
     this->camera->draw(delta);
-    for(std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
+    for (std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
         glPushMatrix();
 
         if ((*it)->centeredOrigo) {
@@ -106,4 +106,9 @@ void Scene::drawDefault(float delta) {
 
         glPopMatrix();
     }
+}
+
+void Scene::initialize(float delta) {
+    this->init(delta);
+    this->initialized = true;
 }
