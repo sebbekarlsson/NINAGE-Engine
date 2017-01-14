@@ -18,9 +18,29 @@ class Instance {
         bool trash;
         Sprite *sprite;
         CollisionBox *collisionBox;
-
+        
+        /**
+         * Update logic for game object / instance
+         *
+         * @param float delta
+         */
         virtual void tick(float delta) = 0;
+
+        /**
+         * Draw graphics for game object / instance
+         *
+         * @param float delta
+         */
         virtual void draw(float delta) = 0;
+
+        /**
+         * Function that gives game object / instance access to the
+         * scene loop.
+         *
+         * This can be used to check for collisions etc..
+         *
+         * @param Instance* instance
+         */
         virtual void scene(Instance * instance) = 0;
         
         bool intersectsWidth(Instance *instance);
