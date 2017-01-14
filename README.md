@@ -1,6 +1,20 @@
 # Scenengine
 > Engine for interactive media & games.
 
+## Development
+> To make it easier to work on the core engine / lib, you can run
+> the `develop.sh` script.
+
+        ./develop.sh
+
+> The `develop.sh` script will do the following:
+* Compile and install the `core engine`
+* Compile and launch the `testgame`
+
+> You may use the `testgame` to test changes made in the `core engine`.
+> It does not matter if you push changes made in the `testgame` since it
+> was created for testing purposes.
+
 ## Getting started
 > Run the following commands:
 
