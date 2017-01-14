@@ -2,6 +2,8 @@
 #define ENTITY_H
 
 #include "Instance.h"
+#include "utils/EngineMath.h"
+#include <math.h>
 
 
 class Entity: public Instance {
@@ -10,6 +12,10 @@ class Entity: public Instance {
 
         float dx;
         float dy;
+        float friction;
+        
+        void updatePhysics(float delta);
+        void addForce(float degress, float force);
 };
 
 #endif

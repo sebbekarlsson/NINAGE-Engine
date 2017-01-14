@@ -12,7 +12,17 @@ G_FLAGZ=-std=c++11
 
 $(info $(FLAGZ))
 
-OFILES=SDLOpenGL.o CollisionBox.o Instance.o Entity.o SpriteImage.o Sprite.o Camera.o Scene.o Point.o
+OFILES=\
+       SDLOpenGL.o\
+       CollisionBox.o\
+       Instance.o\
+       Entity.o\
+       SpriteImage.o\
+       Sprite.o\
+       Camera.o\
+       Scene.o\
+       Point.o\
+       EngineMath.o
 
 LIBFILES=libscenengine.a libscenengine.so
 
@@ -45,6 +55,9 @@ Scene.o: src/engine/Scene.cpp src/engine/Scene.h
 
 Point.o: src/engine/utils/Point.cpp src/engine/utils/Point.h
 	g++ $(G_FLAGZ) -c src/engine/utils/Point.cpp
+
+EngineMath.o: src/engine/utils/EngineMath.cpp src/engine/utils/EngineMath.h
+	g++ $(G_FLAGZ) -c src/engine/utils/EngineMath.cpp
 
 libscenengine.a: $(OFILES)
 	ar rcs $@ $^

@@ -3,13 +3,13 @@
 
 #include <iostream>
 #include <scenengine/engine/SDLOpenGL.h>
-#include <scenengine/engine/Instance.h>
+#include <scenengine/engine/Entity.h>
 
 
 class SDLOpenGL;
 extern SDLOpenGL game;
 
-class Player: public Instance {
+class Player: public Entity {
     public:
         Player(float x, float y);
 
