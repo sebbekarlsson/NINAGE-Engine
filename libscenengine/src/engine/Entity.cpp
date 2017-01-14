@@ -7,6 +7,13 @@ Entity::Entity(float x, float y): Instance(x, y) {
     this->friction = 0.03f;
 }
 
+
+/**
+ * Updates physics, the goal is that
+ * delta-x and delta-y becomes `0`
+ *
+ * @param float delta
+ */
 void Entity::updatePhysics(float delta) {
     if (this->dx > 0) {
         if (this->dx - this->friction < 0) {
@@ -44,6 +51,13 @@ void Entity::updatePhysics(float delta) {
     this->y += this->dy * delta;
 }
 
+
+/**
+ * "Pushes" the object into a certain direction with specified force.
+ *
+ * @param float degrees
+ * @param float force
+ */
 void Entity::addForce(float degrees, float force) {
     this->dx += cos(EngineMath::toRadians(degrees)) * force;
     this->dy += sin(EngineMath::toRadians(degrees)) * force;
