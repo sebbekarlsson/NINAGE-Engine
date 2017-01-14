@@ -8,11 +8,13 @@ int fpsBufferLength = 10;
 
 int main (int argc, char* args[]) {
     game = new SDLOpenGL();
-
+    
+    /* SETUP GAME */
     MainScene *scene = new MainScene();
     game->init();
 
     game->addScene(scene);
+    /* END OF SETUP GAME */
 
     float delta = 0;
     Uint64 NOW = SDL_GetPerformanceCounter();
