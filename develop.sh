@@ -1,5 +1,4 @@
 cd libscenengine
-make clean
 make install
 
 cd ..

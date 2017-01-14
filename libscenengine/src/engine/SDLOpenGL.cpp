@@ -216,6 +216,13 @@ float SDLOpenGL::getFPS() {
 }
 
 /**
+ * Add a scene to the game scene-buffer.
+ */
+void SDLOpenGL::addScene(Scene *scene) {
+    this->scenes->push_back(scene);
+}
+
+/**
  * Load an image which can be drawn.
  *
  * @param std::string path

@@ -8,7 +8,7 @@ int fpsBufferLength = 10;
 
 int main (int argc, char* args[]) {
     MainScene *scene = new MainScene();
-    game.scenes->push_back(scene);
+    game.addScene(scene);
 
     game.init();
 
