@@ -98,5 +98,5 @@ float Entity::getMovingDirection() {
     float rad = atan2(deltaY, deltaX);
     float deg = rad * (180 / M_PI);
 
-    return deg - 90.0f;
+    return deg;
 }

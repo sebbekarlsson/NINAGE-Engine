@@ -11,7 +11,7 @@ void Car::tick(float delta) {
     this->addForce(0.0f, 0.003f); 
     this->addForce(90.0f, 0.003f);
 
-    this->rotation = this->getMovingDirection(); 
+    this->rotation = this->getMovingDirection() - 90.0f; 
 
     this->updatePhysics(delta);
 }

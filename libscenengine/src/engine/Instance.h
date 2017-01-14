@@ -43,7 +43,7 @@ class Instance {
          */
         virtual void scene(Instance * instance) = 0;
         
-        bool intersectsWidth(Instance *instance);
+        bool intersectsWith(Instance *instance);
 };
 
 #endif

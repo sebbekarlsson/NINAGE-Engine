@@ -14,7 +14,8 @@ OFILES=\
        main.o\
        MainScene.o\
        Player.o\
-       Car.o
+       Car.o\
+       Ball.o
 
 
 output: $(OFILES)
@@ -32,6 +33,8 @@ Player.o: src/Player.cpp src/Player.h
 Car.o: src/Car.cpp src/Car.h
 	g++ $(G_FLAGZ) -c src/Car.cpp
 
+Ball.o: src/Ball.cpp src/Ball.h
+	g++ $(G_FLAGZ) -c src/Ball.cpp
 
 clean:
 	-rm *.out

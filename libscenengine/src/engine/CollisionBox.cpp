@@ -25,6 +25,7 @@ void CollisionBox::draw(float delta) {
     glEnd();
     glEnable(GL_TEXTURE_2D);
     glPopMatrix();
+    glColor3f(1.0f, 1.0f, 1.0f);
 }
 
 /**

@@ -29,10 +29,10 @@ Instance::~Instance() {
  *
  * @return bool
  */
-bool Instance::intersectsWidth(Instance *instance) {
+bool Instance::intersectsWith(Instance *instance) {
     return
+        this->x <= instance->x+instance->collisionBox->width &&
         this->x+this->collisionBox->width >= instance->x &&
-        this->x+this->collisionBox->width <= instance->x+instance->collisionBox->width &&
-        this->y+this->collisionBox->height >= instance->y &&
-        this->y+this->collisionBox->height <= instance->y+instance->collisionBox->height;
+        this->y <= instance->y+instance->collisionBox->width &&
+        this->y+this->collisionBox->height >= instance->y;
 }
