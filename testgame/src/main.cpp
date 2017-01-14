@@ -1,12 +1,10 @@
 #include <scenengine/engine/SDLOpenGL.h>
-
+#include "MainScene.h"
 
 
 SDLOpenGL  *game;
 const Uint8 *state = SDL_GetKeyboardState(NULL);
 int fpsBufferLength = 10;
-
-#include "MainScene.h"
 
 int main (int argc, char* args[]) {
     game = new SDLOpenGL();
