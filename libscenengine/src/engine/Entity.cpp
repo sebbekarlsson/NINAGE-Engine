@@ -100,3 +100,11 @@ float Entity::getMovingDirection() {
 
     return deg;
 }
+
+bool Entity::intersectsWith(float delta, Entity * entity) {
+    return
+        this->x+(this->dx * delta) <= entity->x+entity->collisionBox->width+(entity->dx * delta) &&
+        this->x+this->collisionBox->width+(this->dx * delta) >= entity->x+(entity->dx * delta) &&
+        this->y+(this->dy * delta) <= entity->y+entity->collisionBox->width+(entity->dy * delta) &&
+        this->y+this->collisionBox->height+(this->dy * delta) >= entity->y+(entity->dy * delta);
+}

@@ -16,7 +16,7 @@ class Ball: public Entity {
 
         void tick(float delta);
         void draw(float delta);
-        void scene(Instance *instance);
+        void scene(float delta, Instance *instance);
 };
 
 #endif

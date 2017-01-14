@@ -39,9 +39,10 @@ class Instance {
          *
          * This can be used to check for collisions etc..
          *
+         * @param float delta
          * @param Instance* instance
          */
-        virtual void scene(Instance * instance) = 0;
+        virtual void scene(float delta, Instance * instance) = 0;
         
         bool intersectsWith(Instance *instance);
 };

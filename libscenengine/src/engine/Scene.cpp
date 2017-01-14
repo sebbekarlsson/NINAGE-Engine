@@ -67,7 +67,7 @@ void Scene::tickDefault(float delta) {
         /* give game objects access to loop */
         for (std::vector<Instance*>::iterator it2 = this->instances->begin(); it2 != this->instances->end();) {
             if ((*it) != (*it2)) {
-                (*it2)->scene((*it));
+                (*it2)->scene(delta, (*it));
             }
 
             ++it2;

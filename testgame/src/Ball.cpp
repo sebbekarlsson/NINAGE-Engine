@@ -18,12 +18,14 @@ void Ball::draw(float delta) {
     this->collisionBox->draw(delta);
 }
 
-void Ball::scene(Instance * instance) {
+void Ball::scene(float delta, Instance * instance) {
     if(dynamic_cast<Car*>(instance) == NULL) { return; }
 
     float dir = rand()%(360-0 + 1) + 0;
 
-    if (this->intersectsWith(instance)) {
-        this->addForce(dir, (((Entity*) instance)->dx + ((Entity*) instance)->dy));
+    Entity* en = (Entity*) instance;
+
+    if (this->intersectsWith(delta, en)) {
+        this->addForce(dir, en->dx + en->dy);
     }
 }

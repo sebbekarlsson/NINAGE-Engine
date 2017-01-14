@@ -20,6 +20,7 @@ class Entity: public Instance {
         void addForce(float degress, float force);
         void addRotation(float rotation);
         float getMovingDirection();
+        bool intersectsWith(float delta, Entity * entity);
 };
 
 #endif

@@ -21,4 +21,4 @@ void Car::draw(float delta) {
     this->collisionBox->draw(delta);
 }
 
-void Car::scene(Instance * instance) {}
+void Car::scene(float delta, Instance * instance) {}

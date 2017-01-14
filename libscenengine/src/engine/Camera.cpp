@@ -28,4 +28,4 @@ void Camera::draw(float delta) {
     glPopMatrix();
 }
 
-void Camera::scene(Instance * instance) {}
+void Camera::scene(float delta, Instance * instance) {}

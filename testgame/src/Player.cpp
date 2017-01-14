@@ -34,4 +34,4 @@ void Player::draw(float delta) {
     this->collisionBox->draw(delta);
 }
 
-void Player::scene(Instance * instance) {}
+void Player::scene(float delta, Instance * instance) {}
