@@ -12,10 +12,13 @@ class Entity: public Instance {
 
         float dx;
         float dy;
+        float drot;
         float friction;
+        float rotationFriction;
         
         void updatePhysics(float delta);
         void addForce(float degress, float force);
+        void addRotation(float rotation);
 };
 
 #endif

@@ -5,7 +5,7 @@
 
 
 class SDLOpenGL;
-extern SDLOpenGL game;
+extern SDLOpenGL *game;
 
 class MainScene: public Scene {
     public:

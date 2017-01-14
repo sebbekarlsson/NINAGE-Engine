@@ -1,18 +1,20 @@
 #include <scenengine/engine/SDLOpenGL.h>
-#include "MainScene.h"
 
 
-SDLOpenGL game;
+
+SDLOpenGL  *game;
 const Uint8 *state = SDL_GetKeyboardState(NULL);
 int fpsBufferLength = 10;
 
+#include "MainScene.h"
+
 int main (int argc, char* args[]) {
+    game = new SDLOpenGL();
+
     MainScene *scene = new MainScene();
-    game.init();
+    game->init();
 
-    game.addScene(scene);
-
-    
+    game->addScene(scene);
 
     float delta = 0;
     Uint64 NOW = SDL_GetPerformanceCounter();
@@ -22,22 +24,22 @@ int main (int argc, char* args[]) {
 
     SDL_Event e;
 
-    while (!game.quit) {
+    while (!game->quit) {
         NOW = SDL_GetPerformanceCounter();
         
         /* Making sure we can quit the game */
         while (SDL_PollEvent(&e) != 0) {
             if (e.type == SDL_QUIT) {
-                game.quit = true;
+                game->quit = true;
             } 
         }
 
         /* <GAME GRAPHICS & LOGIC> */
-        game.draw(delta);
-        game.tick(delta);
+        game->draw(delta);
+        game->tick(delta);
         /* </GAME GRAPHICS & LOGIC> */
 
-        SDL_GL_SwapWindow(game.display);
+        SDL_GL_SwapWindow(game->display);
         
         delta = (double)((NOW - LAST) * 1000 / (float)SDL_GetPerformanceFrequency());
         
@@ -52,7 +54,7 @@ int main (int argc, char* args[]) {
                 avDelta += (*it);
             }
 
-            game.FPS = (fpsBufferLength / ((avDelta / 1000) / fpsBufferLength)) / 10;
+            game->FPS = (fpsBufferLength / ((avDelta / 1000) / fpsBufferLength)) / 10;
 
             fpsBuffer->clear();
         }
@@ -60,7 +62,7 @@ int main (int argc, char* args[]) {
         LAST = NOW;
     }
 
-    game.close();
+    game->close();
 
     return 0;
 }

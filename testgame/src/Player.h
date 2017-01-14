@@ -7,7 +7,7 @@
 
 
 class SDLOpenGL;
-extern SDLOpenGL game;
+extern SDLOpenGL *game;
 
 class Player: public Entity {
     public:

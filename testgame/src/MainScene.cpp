@@ -5,7 +5,7 @@
 MainScene::MainScene(): Scene() {}
 
 void MainScene::init(float delta) {
-    this->instantiate(new Player(game.getWidth() / 2, game.getHeight() / 2));
+    this->instantiate(new Player(game->getWidth() / 2, game->getHeight() / 2));
 }
 
 void MainScene::tick(float delta) {

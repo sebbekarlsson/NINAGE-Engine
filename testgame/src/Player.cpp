@@ -2,27 +2,28 @@
 
 
 Player::Player(float x, float y) : Entity(x, y) {
-    this->sprite->addImage(game.loadImage("assets/ship.png"));
+    this->sprite->addImage(game->loadImage("assets/ship.png"));
     this->centeredOrigo = true;
 }
 
 void Player::tick(float delta) {
-    if (game.keyboardDown(SDL_SCANCODE_LEFT)) {
+    if (game->keyboardDown(SDL_SCANCODE_LEFT)) {
         this->addForce(180.0f, 0.05f);
         this->rotation -= 0.1f * delta;
+        this->addRotation(-0.09f);
     }
-    if (game.keyboardDown(SDL_SCANCODE_RIGHT)) {
+    if (game->keyboardDown(SDL_SCANCODE_RIGHT)) {
         this->addForce(0.0f, 0.05f);
-        this->rotation += 0.1f * delta;
+        this->addRotation(0.09f);
     }
-    if (game.keyboardDown(SDL_SCANCODE_UP)) {
+    if (game->keyboardDown(SDL_SCANCODE_UP)) {
         this->addForce(270.0f, 0.05f);
     }
-    if (game.keyboardDown(SDL_SCANCODE_DOWN)) {
+    if (game->keyboardDown(SDL_SCANCODE_DOWN)) {
         this->addForce(90.0f, 0.05f);
     }
-    if(game.keyboardDown(SDL_SCANCODE_SPACE)) {
-        game.getCurrentScene()->destantiate(this);
+    if(game->keyboardDown(SDL_SCANCODE_SPACE)) {
+        game->getCurrentScene()->destantiate(this);
     }
 
     this->updatePhysics(delta);
