@@ -10,7 +10,11 @@ else
     FLAGZ=`pkg-config --libs sdl2` $(G_FLAGZ) -std=c++11 -lscenengine -lGL -lglut -lSDL2_image -lSDL2_ttf -lGLU -g
 endif
 
-OFILES=main.o MainScene.o Player.o
+OFILES=\
+       main.o\
+       MainScene.o\
+       Player.o\
+       Car.o
 
 
 output: $(OFILES)
@@ -24,6 +28,9 @@ MainScene.o: src/MainScene.cpp src/MainScene.h
 
 Player.o: src/Player.cpp src/Player.h
 	g++ $(G_FLAGZ) -c src/Player.cpp
+
+Car.o: src/Car.cpp src/Car.h
+	g++ $(G_FLAGZ) -c src/Car.cpp
 
 
 clean:

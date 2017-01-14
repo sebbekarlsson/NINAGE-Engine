@@ -91,3 +91,12 @@ void Entity::addForce(float degrees, float force) {
 void Entity::addRotation(float rotation) {
     this->drot += rotation;
 }
+
+float Entity::getMovingDirection() {
+    float deltaX = this->dx - this->x;
+    float deltaY = this->dy - this->y;
+    float rad = atan2(deltaY, deltaX);
+    float deg = rad * (180 / M_PI);
+
+    return deg - 90.0f;
+}

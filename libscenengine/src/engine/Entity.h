@@ -19,6 +19,7 @@ class Entity: public Instance {
         void updatePhysics(float delta);
         void addForce(float degress, float force);
         void addRotation(float rotation);
+        float getMovingDirection();
 };
 
 #endif

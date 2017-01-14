@@ -2,7 +2,7 @@
 
 
 Player::Player(float x, float y) : Entity(x, y) {
-    this->sprite->addImage(game->loadImage("assets/ship.png"));
+    this->sprite->addImage(game->loadImage("assets/car.png"));
     this->centeredOrigo = true;
 }
 

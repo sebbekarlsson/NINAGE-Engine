@@ -1,11 +1,11 @@
 #include "MainScene.h"
-#include "Player.h"
+#include "Car.h"
 
 
 MainScene::MainScene(): Scene() {}
 
 void MainScene::init(float delta) {
-    this->instantiate(new Player(game->getWidth() / 2, game->getHeight() / 2));
+    this->instantiate(new Car(0.0f, 0.0f));
 }
 
 void MainScene::tick(float delta) {
