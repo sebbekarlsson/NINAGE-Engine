@@ -1,6 +1,25 @@
 # Scenengine
 > Engine for interactive media & games.
 
+## Requirements:
+* git
+* g++ compiler
+* Support for c++11
+* SDL2
+* SDL2 image
+* SDL2 ttf
+* OpenGL
+* GLUT
+
+## Getting started
+> Run the following commands:
+
+        git submodule init
+        git submodule update
+        git submodule sync
+
+> This will setup the project and make sure you have everything.
+
 ## Development
 > To make it easier to work on the core engine / lib, you can run
 > the `develop.sh` script.
@@ -15,23 +34,15 @@
 > It does not matter if you push changes made in the `testgame` since it
 > was created for testing purposes.
 
-## Getting started
-> Run the following commands:
-
-        git submodule init
-        git submodule update
-        git submodule sync
-
-> This will setup the project and make sure you have everything.
-
-> Now to compile and install the engine:
+## Manual development
+### Compiling and installing the engine:
 
         cd libscenengine
         sudo make install
 
 > This will install the engine into your system / computer.
 
-## Compiling the testgame
+### Compiling the testgame
 > To compile the testgame, make sure you have installed the engine first,
 > following the steps above.
 
