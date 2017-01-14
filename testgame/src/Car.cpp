@@ -1,5 +1,4 @@
 #include "Car.h"
-#include <cmath>
 
 
 Car::Car(float x, float y) : Entity(x, y) {
