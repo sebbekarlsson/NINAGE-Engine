@@ -21,11 +21,17 @@ void Ball::draw(float delta) {
 void Ball::scene(float delta, Instance * instance) {
     if(dynamic_cast<Car*>(instance) == NULL) { return; }
 
-    float dir = rand()%(360-0 + 1) + 0;
-
     Entity* en = (Entity*) instance;
+
+    float dir = (en->getMovingDirection(delta)) + 180.0f;
+    float rota = (rand()%((10)-0 + 1) + 0);
+
+    if (rand()%((2)-0 + 1) + 0 == 0) {
+        rota = -rota;
+    }
 
     if (this->intersectsWith(delta, en)) {
         this->addForce(dir, en->dx + en->dy);
+        this->addRotation(((float)rota) * 0.021f);
     }
 }

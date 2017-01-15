@@ -92,13 +92,17 @@ void Entity::addRotation(float rotation) {
     this->drot += rotation;
 }
 
-float Entity::getMovingDirection() {
-    float deltaX = this->dx - this->x;
-    float deltaY = this->dy - this->y;
-    float rad = atan2(deltaY, deltaX);
-    float deg = rad * (180 / M_PI);
-
-    return deg;
+/**
+ * Get the direction the object is moving in.
+ *
+ * @param float delta
+ *
+ * @return float
+ */
+float Entity::getMovingDirection(float delta) {
+    float deltaY = this->y - (this->y + (this->dy * delta));
+    float deltaX = this->x - (this->x + (this->dx * delta));
+    return (float) (atan2(deltaY, deltaX) * 180 / M_PI);
 }
 
 bool Entity::intersectsWith(float delta, Entity * entity) {

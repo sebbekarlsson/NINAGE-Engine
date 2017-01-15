@@ -1,5 +1,7 @@
 #include "Scene.h"
 #include "SDLOpenGL.h"
+#include <random>
+#include <time.h>
 
 
 SDLOpenGL::SDLOpenGL() {
@@ -13,6 +15,7 @@ SDLOpenGL::SDLOpenGL() {
 
     this->scenes = new std::vector<Scene*>();
     this->fonts = new std::map<std::string, TTF_Font*>();
+    srand (time(NULL));
 }
 
 /**
