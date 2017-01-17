@@ -77,15 +77,17 @@ void Scene::tickDefault(float delta) {
         /* Everything went OK, so let us go to next instance */
         ++it;
     }
+    
+    if (!this->newInstances->empty()) {
+        /* Add new objects that are waiting to be instantiated */
+        for (std::vector<Instance*>::iterator it = this->newInstances->begin(); it != this->newInstances->end();) {
+            this->instances->push_back((*it));
 
-    /* Remove objects / instances that are waiting for being removed */
-    for (std::vector<Instance*>::iterator it = this->newInstances->begin(); it != this->newInstances->end();) {
-        this->instances->push_back((*it));
-
-        ++it;
+            ++it;
+        }
+        
+        this->newInstances->clear();
     }
-
-    this->newInstances->clear();
 }
 
 /**
