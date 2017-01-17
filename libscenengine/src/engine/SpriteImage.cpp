@@ -4,20 +4,14 @@
 SpriteImage::SpriteImage(SDL_Surface *surface) {
     this->surface = surface;
     this->TextureID = 0;
+    this->bounded = false;
 }
 
 void SpriteImage::bind() {
-    glTexImage2D(GL_TEXTURE_2D,
-            0,
-            this->mode,
-            this->surface->w,
-            this->surface->h,
-            0,
-            this->mode,
-            GL_UNSIGNED_BYTE,
-            this->surface->pixels
-            );
-    glBindTexture(GL_TEXTURE_2D, this->TextureID);
+    if (!this->bounded) {
+        glBindTexture(GL_TEXTURE_2D, this->TextureID);
+        this->bounded = true;
+    }
 }
 
 int SpriteImage::getWidth() {

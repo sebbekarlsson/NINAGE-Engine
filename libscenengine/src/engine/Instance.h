@@ -16,6 +16,7 @@ class Instance {
         float rotation;
         bool centeredOrigo;
         bool trash;
+        bool interactive;
         Sprite *sprite;
         CollisionBox *collisionBox;
         

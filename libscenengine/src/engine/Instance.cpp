@@ -13,6 +13,7 @@ Instance::Instance(float x, float y) {
     this->trash = false;
     this->sprite = new Sprite();
     this->collisionBox = new CollisionBox(16.0f, 16.0f);
+    this->interactive = false;
 }
 
 /**
