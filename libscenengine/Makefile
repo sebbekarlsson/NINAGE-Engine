@@ -22,7 +22,8 @@ OFILES=\
        Camera.o\
        Scene.o\
        Point.o\
-       EngineMath.o
+       EngineMath.o\
+       Color.o
 
 LIBFILES=libscenengine.a libscenengine.so
 
@@ -58,6 +59,9 @@ Point.o: src/engine/utils/Point.cpp src/engine/utils/Point.h
 
 EngineMath.o: src/engine/utils/EngineMath.cpp src/engine/utils/EngineMath.h
 	g++ $(G_FLAGZ) -c src/engine/utils/EngineMath.cpp
+
+Color.o: src/engine/utils/Color.cpp src/engine/utils/Color.h
+	g++ $(G_FLAGZ) -c src/engine/utils/Color.cpp
 
 libscenengine.a: $(OFILES)
 	ar rcs $@ $^

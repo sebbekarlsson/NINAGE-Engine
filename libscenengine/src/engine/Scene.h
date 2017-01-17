@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "utils/Color.h"
 #include "Camera.h"
 
 
@@ -16,6 +17,7 @@ class Scene {
         std::vector<Instance*> *instances = new std::vector<Instance*>();
         std::vector<Instance*> *newInstances = new std::vector<Instance*>();
         Camera * camera;
+        Color * backgroundColor;
 
         bool initialized;
 
@@ -24,6 +26,7 @@ class Scene {
         void tickDefault(float delta);
         void drawDefault(float delta);
         void initialize(float delta);
+        void setBackgroundColor(Color * color);
 
         /**
          * Update logic for scene

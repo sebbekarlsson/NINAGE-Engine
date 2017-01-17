@@ -4,7 +4,9 @@
 #include <random>
 
 
-MainScene::MainScene(): Scene() {}
+MainScene::MainScene(): Scene() {
+    this->setBackgroundColor(new Color(0.2f, 0.2f, 0.1f, 1.0f));
+}
 
 void MainScene::init(float delta) {
     this->instantiate(new Car(0.0f, 0.0f));

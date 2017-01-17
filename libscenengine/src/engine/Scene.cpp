@@ -4,6 +4,7 @@
 
 Scene::Scene() {
     this->camera = new Camera(0, 0);
+    this->backgroundColor = new Color(0.0f, 0.0f, 0.0f, 1.0f);
 }
 
 /**
@@ -94,6 +95,13 @@ void Scene::tickDefault(float delta) {
  * Default scene graphics behavior
  */
 void Scene::drawDefault(float delta) {
+    glClearColor(
+        this->backgroundColor->r,
+        this->backgroundColor->g,
+        this->backgroundColor->b,
+        this->backgroundColor->a
+    );
+    
     this->camera->draw(delta);
     for (std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
         glPushMatrix();
@@ -131,4 +139,14 @@ void Scene::drawDefault(float delta) {
 void Scene::initialize(float delta) {
     this->init(delta);
     this->initialized = true;
+}
+
+/**
+ * Set backgroundColor of scene.
+ *
+ * @param Color * color
+ */
+void Scene::setBackgroundColor(Color * color) {
+    delete this->backgroundColor;
+    this->backgroundColor = color;
 }
