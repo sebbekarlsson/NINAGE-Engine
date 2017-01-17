@@ -7,6 +7,7 @@ Car::Car(float x, float y) : Entity(x, y) {
     this->centeredOrigo = true;
     this->friction = 0.001f;
     this->rotationFriction = 0.1f;
+    this->interactive = true;
 }
 
 void Car::tick(float delta) {

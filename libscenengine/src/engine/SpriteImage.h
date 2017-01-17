@@ -11,10 +11,12 @@ class SpriteImage {
         SpriteImage(SDL_Surface *surface);
 
         SDL_Surface * surface;
+        int mode = GL_RGBA;
         GLuint TextureID;
-        bool bounded;
+        bool bound;
 
         void bind();
+        void unbind();
         int getWidth();
         int getHeight();
 };

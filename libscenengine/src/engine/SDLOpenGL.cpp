@@ -242,17 +242,6 @@ void SDLOpenGL::addScene(Scene *scene) {
  */
 SpriteImage* SDLOpenGL::loadImage(std::string path) {
     SDL_Surface * surface = IMG_Load(path.c_str());
-    int mode = GL_RGBA;
-    glTexImage2D(GL_TEXTURE_2D,
-            0,
-            mode,
-            surface->w,
-            surface->h,
-            0,
-            mode,
-            GL_UNSIGNED_BYTE,
-            surface->pixels
-            );
     SpriteImage * image = new SpriteImage(&*surface);
 
     return image;

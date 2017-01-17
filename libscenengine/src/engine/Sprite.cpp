@@ -86,5 +86,6 @@ void Sprite::draw(float delta) {
     glVertex2f(this->getWidth(), 0.0f);
     glEnd();
 
+    this->getCurrentImage()->unbind();
     this->next();
 }
