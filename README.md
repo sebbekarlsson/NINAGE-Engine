@@ -2,6 +2,7 @@
 > **N**inage **I**s **N**ot **A** **G**ame **E**ngine
 
 > (But it can be used as a game engine)
+
 > It's purpose is to be an interactive media engine, games just happen
 > to fall into that catagory.
 
