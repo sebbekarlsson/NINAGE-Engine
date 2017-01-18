@@ -11,9 +11,9 @@ int main (int argc, char* args[]) {
     
     /* SETUP GAME */
     MainScene *scene = new MainScene();
-    game->init();
-
     game->addScene(scene);
+
+    game->init();
     /* END OF SETUP GAME */
 
     float delta = 0;
