@@ -1,3 +1,3 @@
-[submodule "Scenengine-examples"]
-	path = Scenengine-examples
-	url = git@github.com:sebbekarlsson/Scenengine-examples.git
+[submodule "NINAGE-examples"]
+	path = NINAGE-examples
+	url = git@github.com:sebbekarlsson/NINAGE-examples.git
