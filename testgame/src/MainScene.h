@@ -1,7 +1,7 @@
 #ifndef TESTSCENE_H
 #define TESTSCENE_H
 
-#include <scenengine/engine/Scene.h>
+#include <ninage/engine/Scene.h>
 
 
 class SDLOpenGL;

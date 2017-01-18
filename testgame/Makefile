@@ -5,9 +5,9 @@ $(info $(OS))
 G_FLAGZ=-std=c++11
 
 ifeq ($(OS), Darwin)
-    FLAGZ=`pkg-config --libs sdl2` $(G_FLAGZ) -lscenengine -framework OpenGL -framework GLUT -lSDL2_image -lSDL2_ttf -g
+    FLAGZ=`pkg-config --libs sdl2` $(G_FLAGZ) -lninage -framework OpenGL -framework GLUT -lSDL2_image -lSDL2_ttf -g
 else
-    FLAGZ=`pkg-config --libs sdl2` $(G_FLAGZ) -std=c++11 -lscenengine -lGL -lglut -lSDL2_image -lSDL2_ttf -lGLU -g
+    FLAGZ=`pkg-config --libs sdl2` $(G_FLAGZ) -std=c++11 -lninage -lGL -lglut -lSDL2_image -lSDL2_ttf -lGLU -g
 endif
 
 OFILES=\

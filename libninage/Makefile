@@ -25,7 +25,7 @@ OFILES=\
        EngineMath.o\
        Color.o
 
-LIBFILES=libscenengine.a libscenengine.so
+LIBFILES=libninage.a libninage.so
 
 
 all: $(OFILES) $(LIBFILES)	
@@ -63,26 +63,26 @@ EngineMath.o: src/engine/utils/EngineMath.cpp src/engine/utils/EngineMath.h
 Color.o: src/engine/utils/Color.cpp src/engine/utils/Color.h
 	g++ $(G_FLAGZ) -c src/engine/utils/Color.cpp
 
-libscenengine.a: $(OFILES)
+libninage.a: $(OFILES)
 	ar rcs $@ $^
 
-libscenengine.so: $(OFILES)
+libninage.so: $(OFILES)
 	ar rcs $@ $^
 
 install:
-	-rm /usr/local/lib/libscenengine.*
-	-rm -rf /usr/local/include/scenengine
+	-rm /usr/local/lib/libninage.*
+	-rm -rf /usr/local/include/ninage
 	make
-	mkdir -p scenengine/engine
-	mkdir -p scenengine/engine/utils
-	cp src/engine/*.h scenengine/engine/.
-	cp src/engine/utils/*.h scenengine/engine/utils/.
-	mv scenengine /usr/local/include/scenengine
-	mv libscenengine.a /usr/local/lib/libscenengine.a
-	mv libscenengine.so /usr/local/lib/libscenengine.so
+	mkdir -p ninage/engine
+	mkdir -p ninage/engine/utils
+	cp src/engine/*.h ninage/engine/.
+	cp src/engine/utils/*.h ninage/engine/utils/.
+	mv ninage /usr/local/include/ninage
+	mv libninage.a /usr/local/lib/libninage.a
+	mv libninage.so /usr/local/lib/libninage.so
 
 clean:
-	-rm -rf scenengine
+	-rm -rf ninage 
 	-rm *.o
 	-rm *.out
 	-rm *.so

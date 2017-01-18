@@ -1,4 +1,4 @@
-#include <scenengine/engine/SDLOpenGL.h>
+#include <ninage/engine/SDLOpenGL.h>
 #include "MainScene.h"
 
 

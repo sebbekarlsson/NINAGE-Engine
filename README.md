@@ -1,5 +1,9 @@
-# Scenengine
-> Engine for interactive media & games.
+# NINAGE ENGINE
+> **N**iage **I**s **N**ot **A** **G**ame **E**ngine
+> (But it can be used as a game engine)
+
+> It's purpose is to be an interactive media engine, games just happen
+> to fall into that catagory.
 
 ## Requirements:
 * git
@@ -37,7 +41,7 @@
 ## Manual development
 ### Compiling and installing the engine:
 
-        cd libscenengine
+        cd libninage
         sudo make install
 
 > This will install the engine into your system / computer.

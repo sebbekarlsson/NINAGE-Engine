@@ -1,4 +1,4 @@
-cd libscenengine
+cd libninage
 make install
 
 cd ..
