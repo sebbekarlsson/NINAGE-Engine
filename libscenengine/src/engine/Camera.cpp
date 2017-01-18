@@ -17,15 +17,19 @@ void Camera::tick(float delta) {}
  * GUI
  */
 void Camera::draw(float delta) {
+    Color * col = new Color(255.0f, 255.0f, 255.0f, 100.0f);
+
     glPushMatrix();
     glTranslatef(16.0f, 16.0f, 0.0f);
-    game->drawText("FPS: " + std::to_string(game->getFPS()), "assets/font/bits.ttf", 16);
+    game->drawText("FPS: " + std::to_string(game->getFPS()), "assets/font/bits.ttf", 16, col);
     glPopMatrix();
 
     glPushMatrix();
     glTranslatef(16.0f, 32.0f + 8.0f, 0.0f);
-    game->drawText("DELTA: " + std::to_string(delta), "assets/font/bits.ttf", 16);
+    game->drawText("DELTA: " + std::to_string(delta), "assets/font/bits.ttf", 16, col);
     glPopMatrix();
+
+    delete col;
 }
 
 void Camera::scene(float delta, Instance * instance) {}

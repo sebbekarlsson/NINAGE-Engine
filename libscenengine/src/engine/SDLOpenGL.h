@@ -47,7 +47,7 @@ class SDLOpenGL {
         void draw(float delta);
         void tick(float delta);
         void close();
-        void drawText(std::string message, std::string fontfile, int size);
+        void drawText(std::string message, std::string fontfile, int size, Color * color);
         void addScene(Scene * scene);
 
         float getFPS();

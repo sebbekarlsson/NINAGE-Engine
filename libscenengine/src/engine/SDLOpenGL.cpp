@@ -303,7 +303,7 @@ bool SDLOpenGL::isFontLoaded(std::string fontfile) {
  * @param std::string fontfile
  * @param std::string size
  */
-void SDLOpenGL::drawText(std::string message, std::string fontfile, int size) {
+void SDLOpenGL::drawText(std::string message, std::string fontfile, int size, Color* color) {
     glPushMatrix();
     GLuint texture;
     glGenTextures(1, &texture);
@@ -313,13 +313,16 @@ void SDLOpenGL::drawText(std::string message, std::string fontfile, int size) {
         this->loadFont(fontfile, size);
     }
 
-    TTF_Font *font = this->fonts->find(fontfile)->second;
+    TTF_Font& font = *this->fonts->find(fontfile)->second;
 
-    if (font == NULL) {
-      printf("TTF ERROR: %s", TTF_GetError());
+    if (&font == NULL) {
+        printf("TTF ERROR: %s", TTF_GetError());
     }
 
-    SDL_Surface * sFont = TTF_RenderText_Blended(font, message.c_str(), {255, 255, 255});
+    SDL_Surface * sFont = TTF_RenderText_Blended(
+            &font, message.c_str(),
+            {(Uint8)color->r, (Uint8)color->g, (Uint8)color->b}
+            );
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -343,6 +346,7 @@ void SDLOpenGL::drawText(std::string message, std::string fontfile, int size) {
     glEnd();
 
     glDeleteTextures(1, &texture);
-    SDL_FreeSurface(sFont);
     glPopMatrix();
+
+    SDL_FreeSurface(sFont);
 }
