@@ -7,7 +7,7 @@ const Uint8 *state = SDL_GetKeyboardState(NULL);
 int fpsBufferLength = 10;
 
 int main (int argc, char* args[]) {
-    game = new SDLOpenGL();
+    game = new SDLOpenGL(0, 0, 0, "");
     
     /* SETUP GAME */
     MainScene *scene = new MainScene();

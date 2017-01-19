@@ -16,7 +16,7 @@ extern const Uint8 *state;
 
 class SDLOpenGL {
     public:
-        SDLOpenGL();
+        SDLOpenGL(int width, int height, int scale, std::string title);
 
         int SCALE;
         int WIDTH;

@@ -4,17 +4,22 @@
 #include <time.h>
 
 
-SDLOpenGL::SDLOpenGL() {
-    this->SCALE = 2;
-    this->WIDTH = 640;
-    this->HEIGHT = WIDTH / 16 * 9;
-    this->TITLE = "GAME TITLE";
+SDLOpenGL::SDLOpenGL(int width, int height, int scale, std::string title) {
+    /* Set default values if they are not set */
+    if (!width) { this->WIDTH = 640; } else { this->SCALE = scale; }
+    if (!height) { this->HEIGHT = (WIDTH / 16 * 9); } else { this->WIDTH = width; }
+    if (!scale) { this->SCALE = 2; } else { this->SCALE = scale; }
+    if (title.empty()) { this->TITLE = "APP TITLE"; } else { this->TITLE = title; }
+    /* End of defaulting */
+
     this->quit = false;
     this->sceneIndex = 0;
     this->FPS = 0.0f;
 
     this->scenes = new std::vector<Scene*>();
     this->fonts = new std::map<std::string, TTF_Font*>();
+
+    // randomize the random seed
     srand (time(NULL));
 }
 
