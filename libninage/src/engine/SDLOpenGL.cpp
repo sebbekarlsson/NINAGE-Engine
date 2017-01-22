@@ -138,6 +138,9 @@ void SDLOpenGL::draw(float delta) {
     glColor3f(1.0f,1.0f,1.0f);
     
     glPushMatrix();
+    
+    this->getCurrentScene()->camera->draw(delta);
+
     glTranslatef(
         -this->getCurrentScene()->camera->x,
         -this->getCurrentScene()->camera->y,

@@ -66,14 +66,18 @@ void Scene::tickDefault(float delta) {
         (*it)->tick(delta);
         
         /* give game objects access to loop */
-        for (std::vector<Instance*>::iterator it2 = this->instances->begin(); it2 != this->instances->end();) {
+        /*
+         *
+         * I REALIZED THIS IS A BAD IDEA.
+         *
+         *for (std::vector<Instance*>::iterator it2 = this->instances->begin(); it2 != this->instances->end();) {
             if ((*it) == (*it2) || (*it)->interactive == false) { ++it2; continue; }
 
             (*it2)->scene(delta, (*it));
             
 
             ++it2;
-        }
+        }*/
 
         /* Everything went OK, so let us go to next instance */
         ++it;
@@ -102,7 +106,6 @@ void Scene::drawDefault(float delta) {
         this->backgroundColor->a
     );
     
-    this->camera->draw(delta);
     for (std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
         glPushMatrix();
 
