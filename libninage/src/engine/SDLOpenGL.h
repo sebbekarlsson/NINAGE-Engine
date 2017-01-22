@@ -15,12 +15,14 @@ class TestObj;
 extern const Uint8 *state;
 
 class SDLOpenGL {
-    public:
-        SDLOpenGL(int width, int height, int scale, std::string title);
-
+    private:
         int SCALE;
         int WIDTH;
         int HEIGHT;
+
+    public:
+        SDLOpenGL();
+
         int sceneIndex;
         float FPS;
         bool quit;

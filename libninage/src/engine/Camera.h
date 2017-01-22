@@ -1,14 +1,14 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "Instance.h"
+#include "Entity.h"
 #include "SDL2/SDL_ttf.h"
 
 
 class SDLOpenGL;
 extern SDLOpenGL *game;
 
-class Camera: public Instance {
+class Camera: public Entity {
     public:
         Camera(float x, float y);
 

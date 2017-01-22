@@ -5,12 +5,14 @@
 /**
  * Constructor
  */
-Camera::Camera(float x, float y) : Instance(x, y) {}
+Camera::Camera(float x, float y) : Entity(x, y) {}
 
 /**
  * Update logic for camera
  */
-void Camera::tick(float delta) {}
+void Camera::tick(float delta) {
+    this->updatePhysics(delta);
+}
 
 /**
  * This function is suppost to be used to draw

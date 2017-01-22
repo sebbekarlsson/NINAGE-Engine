@@ -4,13 +4,11 @@
 #include <time.h>
 
 
-SDLOpenGL::SDLOpenGL(int width, int height, int scale, std::string title) {
-    /* Set default values if they are not set */
-    if (!width) { this->WIDTH = 640; } else { this->SCALE = scale; }
-    if (!height) { this->HEIGHT = (WIDTH / 16 * 9); } else { this->WIDTH = width; }
-    if (!scale) { this->SCALE = 2; } else { this->SCALE = scale; }
-    if (title.empty()) { this->TITLE = "APP TITLE"; } else { this->TITLE = title; }
-    /* End of defaulting */
+SDLOpenGL::SDLOpenGL() {
+    this->WIDTH = 640;
+    this->HEIGHT = (WIDTH / 16 * 9);
+    this->SCALE = 2;
+    this->TITLE = "APP TITLE";
 
     this->quit = false;
     this->sceneIndex = 0;
