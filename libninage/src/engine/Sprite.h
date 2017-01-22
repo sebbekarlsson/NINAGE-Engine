@@ -13,6 +13,8 @@ class Sprite {
 
         std::vector<SpriteImage*> *images = new std::vector<SpriteImage*>();
         int imageIndex;
+        float animationDelay;
+        float animationTimer;
 
         void next();
         void addImage(SpriteImage *image);

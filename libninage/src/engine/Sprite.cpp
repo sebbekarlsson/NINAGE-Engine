@@ -6,6 +6,8 @@
  */
 Sprite::Sprite() {
     this->imageIndex = 0;
+    this->animationDelay = 0.0f;
+    this->animationTimer = 0.0f;
 }
 
 /**
@@ -87,5 +89,11 @@ void Sprite::draw(float delta) {
     glEnd();
 
     this->getCurrentImage()->unbind();
-    this->next();
+
+    if (this->animationTimer < this->animationDelay) {
+        this->animationTimer++;
+    } else {
+        this->next();
+        this->animationTimer = 0.0f;
+    }
 }
