@@ -94,7 +94,7 @@ bool SDLOpenGL::init() {
                 0,
                 WIDTH * SCALE,
                 HEIGHT * SCALE,
-                SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN
+                SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN/* | SDL_WINDOW_FULLSCREEN*/
                 );
 
         if (display == NULL) {
