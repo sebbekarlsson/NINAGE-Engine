@@ -43,7 +43,11 @@ bool SDLOpenGL::initGL() {
     glMatrixMode(GL_MODELVIEW);
 
     glDisable(GL_TEXTURE_2D);
-    glEnable(GL_DEPTH_TEST);
+    
+    #ifndef __APPLE__
+        glEnable(GL_DEPTH_TEST);
+    #endif
+    
     glDepthMask(GL_FALSE);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
