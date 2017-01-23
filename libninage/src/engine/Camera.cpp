@@ -5,7 +5,10 @@
 /**
  * Constructor
  */
-Camera::Camera(float x, float y) : Entity(x, y) {}
+Camera::Camera(float x, float y) : Entity(x, y) {
+    this->zoomPoint = new Point(0.0f, 0.0f);
+    this->zoom = 1.0f;
+}
 
 /**
  * Update logic for camera
@@ -32,6 +35,26 @@ void Camera::draw(float delta) {
     glPopMatrix();
 
     delete col;
+}
+
+/**
+ * Change the x and y value of the zoom point.
+ *
+ * @param float x
+ * @param float y
+ */
+void Camera::setZoomPoint(float x, float y) {
+    this->zoomPoint->x = x;
+    this->zoomPoint->y = y;
+}
+
+/**
+ * Get the reference of the zoom point
+ *
+ * @return Point&
+ */
+Point& Camera::getZoomPoint() {
+    return *this->zoomPoint;
 }
 
 void Camera::scene(float delta, Instance * instance) {}

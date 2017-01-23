@@ -148,7 +148,24 @@ void SDLOpenGL::draw(float delta) {
         -this->getCurrentScene()->camera->y,
         0
     );
+
+    glTranslatef(
+            this->getCurrentScene()->camera->getZoomPoint().x,
+            this->getCurrentScene()->camera->getZoomPoint().y,
+            0.0f
+            );
+    glScalef(
+            this->getCurrentScene()->camera->zoom,
+            this->getCurrentScene()->camera->zoom, 1.0f
+            );
+    glTranslatef(
+            -this->getCurrentScene()->camera->getZoomPoint().x,
+            -this->getCurrentScene()->camera->getZoomPoint().y,
+            0.0f
+            );
+
     this->getCurrentScene()->draw(delta);
+
     glPopMatrix();
 }
 
