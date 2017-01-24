@@ -51,7 +51,7 @@ void Camera::setZoomPoint(float x, float y) {
 /**
  * Get the reference of the zoom point
  *
- * @return Point&
+ * @return glm::vec2&
  */
 glm::vec2& Camera::getZoomPoint() {
     return *this->zoomPoint;
