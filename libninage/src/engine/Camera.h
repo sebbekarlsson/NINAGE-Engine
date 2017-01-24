@@ -2,7 +2,7 @@
 #define CAMERA_H
 
 #include "Entity.h"
-#include "utils/Point.h"
+#include <glm/vec2.hpp>
 #include "SDL2/SDL_ttf.h"
 
 
@@ -11,7 +11,7 @@ extern SDLOpenGL *game;
 
 class Camera: public Entity {
     private:
-        Point *zoomPoint;
+        glm::vec2 *zoomPoint;
 
     public:
         Camera(float x, float y);
@@ -22,7 +22,7 @@ class Camera: public Entity {
         void tick(float delta);
         void scene(float delta, Instance * instance);
         void setZoomPoint(float x, float y);
-        Point& getZoomPoint();
+        glm::vec2& getZoomPoint();
 };
 
 #endif

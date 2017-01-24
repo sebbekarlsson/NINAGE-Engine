@@ -15,6 +15,7 @@
 * SDL2 ttf
 * OpenGL
 * GLUT
+* [GLM](http://glm.g-truc.net/0.9.8/index.html)
 
 ## Getting started
 > Run the following commands:
