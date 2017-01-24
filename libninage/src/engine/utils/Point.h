@@ -1,6 +1,9 @@
 #ifndef POINT_H
 #define POINT_H
 
+/**
+ * @deprecated
+ */
 class Point {
     public:
         Point(float x, float y);
