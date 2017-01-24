@@ -7,7 +7,7 @@
 #include <vector>
 #include <map>
 #include "SpriteImage.h"
-#include "utils/Point.h"
+#include <glm/vec2.hpp> 
 #include "Scene.h"
 
 
@@ -41,7 +41,7 @@ class SDLOpenGL {
 
         SpriteImage* loadImage(std::string path);
         Scene* getCurrentScene();
-        Point getMousePosition();
+        glm::vec2 getMousePosition();
 
         int getWidth();
         int getHeight();

@@ -207,13 +207,13 @@ Scene* SDLOpenGL::getCurrentScene() {
  *
  * @return Point
  */
-Point SDLOpenGL::getMousePosition() {
+glm::vec2 SDLOpenGL::getMousePosition() {
     int mx = 0;
     int my = 0;
 
     SDL_GetMouseState(&mx, &my);
 
-    return Point((float)mx, (float)my);
+    return glm::vec2((float)mx, (float)my);
 }
 
 /**
