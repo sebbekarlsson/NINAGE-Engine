@@ -22,6 +22,10 @@ class Instance {
         float getX();
         float getY();
         float getZ();
+
+        void setX(float x);
+        void setY(float y);
+        void setZ(float z);
         
         /**
          * Update logic for game object / instance

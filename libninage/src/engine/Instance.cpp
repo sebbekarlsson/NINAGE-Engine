@@ -47,3 +47,15 @@ float Instance::getY() {
 float Instance::getZ() {
     return this->position->z;
 }
+
+void Instance::setX(float x) {
+    this->position->x = x;
+}
+
+void Instance::setY(float y) {
+    this->position->y = y;
+}
+
+void Instance::setZ(float z) {
+    this->position->z = z;
+}
