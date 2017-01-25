@@ -110,9 +110,9 @@ void Scene::drawDefault(float delta) {
         glPushMatrix();
 
         if ((*it)->centeredOrigo) {
-            glTranslatef((*it)->x - (*it)->sprite->getWidth()/2, (*it)->y - (*it)->sprite->getHeight()/2, 0.0f);
+            glTranslatef((*it)->getX() - (*it)->sprite->getWidth()/2, (*it)->getY() - (*it)->sprite->getHeight()/2, 0.0f);
         } else {
-            glTranslatef((*it)->x, (*it)->y, 0.0f); 
+            glTranslatef((*it)->getX(), (*it)->getY(), 0.0f); 
         }
 
         if ((*it)->centeredOrigo) {

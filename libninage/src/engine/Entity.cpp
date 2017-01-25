@@ -66,8 +66,8 @@ void Entity::updatePhysics(float delta) {
     }
 
     this->rotation += this->drot * delta;
-    this->x += this->dx * delta;
-    this->y += this->dy * delta;
+    this->position->x += this->dx * delta;
+    this->position->y += this->dy * delta;
 }
 
 
@@ -100,15 +100,15 @@ void Entity::addRotation(float rotation) {
  * @return float
  */
 float Entity::getMovingDirection(float delta) {
-    float deltaY = this->y - (this->y + (this->dy * delta));
-    float deltaX = this->x - (this->x + (this->dx * delta));
+    float deltaY = this->getY() - (this->getY() + (this->dy * delta));
+    float deltaX = this->getX() - (this->getX() + (this->dx * delta));
     return (float) (atan2(deltaY, deltaX) * 180 / M_PI);
 }
 
 bool Entity::intersectsWith(float delta, Entity * entity) {
     return
-        this->x+(this->dx * delta) <= entity->x+entity->collisionBox->width+(entity->dx * delta) &&
-        this->x+this->collisionBox->width+(this->dx * delta) >= entity->x+(entity->dx * delta) &&
-        this->y+(this->dy * delta) <= entity->y+entity->collisionBox->width+(entity->dy * delta) &&
-        this->y+this->collisionBox->height+(this->dy * delta) >= entity->y+(entity->dy * delta);
+        this->getX()+(this->dx * delta) <= entity->getX()+entity->collisionBox->width+(entity->dx * delta) &&
+        this->getX()+this->collisionBox->width+(this->dx * delta) >= entity->getX()+(entity->dx * delta) &&
+        this->getY()+(this->dy * delta) <= entity->getY()+entity->collisionBox->width+(entity->dy * delta) &&
+        this->getY()+this->collisionBox->height+(this->dy * delta) >= entity->getY()+(entity->dy * delta);
 }

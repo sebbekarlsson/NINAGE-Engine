@@ -144,8 +144,8 @@ void SDLOpenGL::draw(float delta) {
     this->getCurrentScene()->camera->draw(delta);
 
     glTranslatef(
-        -this->getCurrentScene()->camera->x,
-        -this->getCurrentScene()->camera->y,
+        -this->getCurrentScene()->camera->getX(),
+        -this->getCurrentScene()->camera->getY(),
         0
     );
 

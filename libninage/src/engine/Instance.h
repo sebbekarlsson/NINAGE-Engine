@@ -3,22 +3,25 @@
 
 #include "Sprite.h"
 #include "CollisionBox.h"
+#include <glm/vec3.hpp>
 
 
 class Instance {
     public:
         Instance(float x, float y);
         virtual ~Instance() = 0;
-
-        float x;
-        float y;
-        float z;
+        
         float rotation;
         bool centeredOrigo;
         bool trash;
         bool interactive;
         Sprite *sprite;
         CollisionBox *collisionBox;
+        glm::vec3 *position;
+
+        float getX();
+        float getY();
+        float getZ();
         
         /**
          * Update logic for game object / instance

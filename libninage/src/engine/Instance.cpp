@@ -5,9 +5,7 @@
  * Constructor
  */
 Instance::Instance(float x, float y) {
-    this->x = x;
-    this->y = y;
-    this->z = 0.0f;
+    this->position = new glm::vec3(x, y, 0.0f);
     this->rotation = 0.0f;
     this->centeredOrigo = false;
     this->trash = false;
@@ -32,8 +30,20 @@ Instance::~Instance() {
  */
 bool Instance::intersectsWith(Instance *instance) {
     return
-        this->x <= instance->x+instance->collisionBox->width &&
-        this->x+this->collisionBox->width >= instance->x &&
-        this->y <= instance->y+instance->collisionBox->width &&
-        this->y+this->collisionBox->height >= instance->y;
+        this->getX() <= instance->getX()+instance->collisionBox->width &&
+        this->getX()+this->collisionBox->width >= instance->getX() &&
+        this->getY() <= instance->getY()+instance->collisionBox->width &&
+        this->getY()+this->collisionBox->height >= instance->getY();
+}
+
+float Instance::getX() {
+    return this->position->x;
+}
+
+float Instance::getY() {
+    return this->position->y;
+}
+
+float Instance::getZ() {
+    return this->position->z;
 }
