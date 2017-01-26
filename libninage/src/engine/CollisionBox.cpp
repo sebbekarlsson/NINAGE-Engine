@@ -7,13 +7,15 @@
 CollisionBox::CollisionBox(float width, float height) {
     this->width = width;
     this->height = height;
+
+    this->offset = new glm::vec3(0.0f, 0.0f, -1.0f);
 }
 
 /**
  * Used to draw boundaries of the collisionbox
  */
 void CollisionBox::draw(float delta) {
-    glTranslatef(0.0f, 0.0f, -1.0f);
+    glTranslatef(this->getOffsetX(), this->getOffsetY(), this->getOffsetZ());
     glPushMatrix();
     glDisable(GL_TEXTURE_2D);
     glColor3f(1.0f, 0.0f, 0.0f);
@@ -37,4 +39,16 @@ void CollisionBox::draw(float delta) {
 void CollisionBox::setSize(float width, float height) {
     this->width = width;
     this->height = height;
+}
+
+float CollisionBox::getOffsetX() {
+    return this->offset->x;
+}
+
+float CollisionBox::getOffsetY() {
+    return this->offset->y;
+}
+
+float CollisionBox::getOffsetZ() {
+    return this->offset->z;
 }
