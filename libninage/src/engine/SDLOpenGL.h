@@ -20,6 +20,9 @@ class SDLOpenGL {
         int WIDTH;
         int HEIGHT;
 
+        bool initGL();
+        bool init();
+
     public:
         SDLOpenGL();
 
@@ -33,8 +36,6 @@ class SDLOpenGL {
         SDL_Window* display = NULL;
         SDL_GLContext context;
 
-        bool initGL();
-        bool init();
         bool keyboardDown(int keyCode);
         bool loadFont(std::string fontfile, int size);
         bool isFontLoaded(std::string fontfile);
@@ -45,12 +46,14 @@ class SDLOpenGL {
 
         int getWidth();
         int getHeight();
+        int run();
 
         void draw(float delta);
         void tick(float delta);
         void close();
         void drawText(std::string message, std::string fontfile, int size, Color * color);
         void addScene(Scene * scene);
+        void main();
 
         float getFPS();
 };

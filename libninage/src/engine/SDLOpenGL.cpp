@@ -378,3 +378,63 @@ void SDLOpenGL::drawText(std::string message, std::string fontfile, int size, Co
 
     SDL_FreeSurface(sFont);
 }
+
+int SDLOpenGL::run() {
+    int fpsBufferLength = 10;
+
+    /* SETUP GAME */
+    this->main();
+
+    this->init();
+    /* END OF SETUP GAME */
+
+    float delta = 0;
+    Uint64 NOW = SDL_GetPerformanceCounter();
+    Uint64 LAST = 0;
+
+    std::vector<int>* fpsBuffer = new std::vector<int>();
+
+    SDL_Event e;
+
+    while (!this->quit) {
+        NOW = SDL_GetPerformanceCounter();
+        
+        /* Making sure we can quit the game */
+        while (SDL_PollEvent(&e) != 0) {
+            if (e.type == SDL_QUIT) {
+                game->quit = true;
+            } 
+        }
+
+        /* <GAME GRAPHICS & LOGIC> */
+        this->draw(delta);
+        this->tick(delta);
+        /* </GAME GRAPHICS & LOGIC> */
+
+        SDL_GL_SwapWindow(game->display);
+        
+        delta = (double)((NOW - LAST) * 1000 / (float)SDL_GetPerformanceFrequency());
+        
+        /* Let's store 10 frame calculations */ 
+        if (fpsBuffer->size() < fpsBufferLength) {
+            fpsBuffer->push_back(delta);
+        } else {
+            /* Let's calculate the FPS */
+            float avDelta = 0;
+
+            for (std::vector<int>::iterator it = fpsBuffer->begin(); it != fpsBuffer->end(); ++it) {
+                avDelta += (*it);
+            }
+
+            this->FPS = (fpsBufferLength / ((avDelta / 1000) / fpsBufferLength)) / 10;
+
+            fpsBuffer->clear();
+        }
+
+        LAST = NOW;
+    }
+
+    this->close();
+
+    return 0;
+}
