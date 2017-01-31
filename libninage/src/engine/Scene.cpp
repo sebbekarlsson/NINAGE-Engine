@@ -65,20 +65,6 @@ void Scene::tickDefault(float delta) {
         /* Update instance logic */
         (*it)->tick(delta);
         
-        /* give game objects access to loop */
-        /*
-         *
-         * I REALIZED THIS IS A BAD IDEA.
-         *
-         *for (std::vector<Instance*>::iterator it2 = this->instances->begin(); it2 != this->instances->end();) {
-            if ((*it) == (*it2) || (*it)->interactive == false) { ++it2; continue; }
-
-            (*it2)->scene(delta, (*it));
-            
-
-            ++it2;
-        }*/
-
         /* Everything went OK, so let us go to next instance */
         ++it;
     }
