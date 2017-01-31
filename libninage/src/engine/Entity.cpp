@@ -105,6 +105,12 @@ float Entity::getMovingDirection(float delta) {
     return (float) (atan2(deltaY, deltaX) * 180 / M_PI);
 }
 
+/**
+ * Check if entity's collisionbox intersects with
+ * another entity's collisionbox.
+ *
+ * @return bool
+ */
 bool Entity::intersectsWith(float delta, Entity * entity) {
     return
         this->getX()+(this->dx * delta) <= entity->getX()+entity->collisionBox->width+(entity->dx * delta) &&
