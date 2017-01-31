@@ -379,14 +379,20 @@ void SDLOpenGL::drawText(std::string message, std::string fontfile, int size, Co
     SDL_FreeSurface(sFont);
 }
 
+/**
+ * Main loop of the application
+ *
+ * @return int
+ */
 int SDLOpenGL::run() {
     int fpsBufferLength = 10;
 
-    /* SETUP GAME */
+    /* -- main();
+     * This makes it possible for app developers to insert
+     * scenes and write startup logic.
+     */
     this->main();
-
     this->init();
-    /* END OF SETUP GAME */
 
     float delta = 0;
     Uint64 NOW = SDL_GetPerformanceCounter();
@@ -399,17 +405,17 @@ int SDLOpenGL::run() {
     while (!this->quit) {
         NOW = SDL_GetPerformanceCounter();
         
-        /* Making sure we can quit the game */
+        /* Making sure we can quit the app */
         while (SDL_PollEvent(&e) != 0) {
             if (e.type == SDL_QUIT) {
                 game->quit = true;
             } 
         }
 
-        /* <GAME GRAPHICS & LOGIC> */
+        /* <APP GRAPHICS & LOGIC> */
         this->draw(delta);
         this->tick(delta);
-        /* </GAME GRAPHICS & LOGIC> */
+        /* </APP GRAPHICS & LOGIC> */
 
         SDL_GL_SwapWindow(game->display);
         
