@@ -27,5 +27,3 @@ void Car::draw(float delta) {
     this->sprite->draw(delta);
     this->collisionBox->draw(delta);
 }
-
-void Car::scene(float delta, Instance * instance) {}
