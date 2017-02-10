@@ -14,5 +14,7 @@ void SDLOpenGL::main() {
 int main (int argc, char* args[]) {
     game = new SDLOpenGL();
 
+    game->randomizeSeed();
+
     return game->run();
 }

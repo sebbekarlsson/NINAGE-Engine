@@ -16,9 +16,6 @@ SDLOpenGL::SDLOpenGL() {
 
     this->scenes = new std::vector<Scene*>();
     this->fonts = new std::map<std::string, TTF_Font*>();
-
-    // randomize the random seed
-    srand (time(NULL));
 }
 
 /**
@@ -93,7 +90,7 @@ bool SDLOpenGL::init() {
         #endif
 
         display = SDL_CreateWindow (
-                "Game Title",
+                this->TITLE.c_str(),
                 0,
                 0,
                 WIDTH * SCALE,
@@ -377,6 +374,13 @@ void SDLOpenGL::drawText(std::string message, std::string fontfile, int size, Co
     glPopMatrix();
 
     SDL_FreeSurface(sFont);
+}
+
+/**
+ * Used to randomize the random functionality.
+ */
+void SDLOpenGL::randomizeSeed() {
+    srand (time(NULL));
 }
 
 /**
