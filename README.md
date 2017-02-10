@@ -6,6 +6,9 @@
 > It's purpose is to be an interactive media engine, games just happen
 > to fall into that catagory.
 
+## Documentation
+> [Documentation](DOCUMENTATION.md)
+
 ## Requirements:
 * git
 * g++ compiler
@@ -17,7 +20,7 @@
 * GLUT
 * [GLM](http://glm.g-truc.net/0.9.8/index.html)
 
-## Getting started
+## Getting Started
 > Run the following commands:
 
         git submodule init
@@ -40,7 +43,7 @@
 > It does not matter if you push changes made in the `testgame` since it
 > was created for testing purposes.
 
-## Manual development
+## Manual Development
 ### Compiling and installing the engine:
 
         cd libninage
