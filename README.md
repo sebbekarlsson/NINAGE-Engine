@@ -10,6 +10,7 @@
 > [Documentation](DOCUMENTATION.md)
 
 ## Getting Started
+* Make sure you have the [requirements](REQUIREMENTS.md).
 > Run the following commands:
 
         git submodule init

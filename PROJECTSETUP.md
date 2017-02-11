@@ -5,7 +5,7 @@
 > Make sure you have all the [requirements](REQUIREMENTS.md).
 
 
-## Your project
+## Your Project
 ### main.cpp
 > This is where your app starts.
 
@@ -35,6 +35,6 @@
             return app->run();
         }
 
-## More information
+## More Information
 > For more information on how to setup a project, please look at the
 > [testgame](testgame), or look at the [examples](https://github.com/sebbekarlsson/NINAGE-examples)
