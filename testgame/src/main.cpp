@@ -1,18 +1,18 @@
-#include <ninage/engine/SDLOpenGL.h>
+#include <ninage/engine/Ninage.h>
 #include "MainScene.h"
 
 
-SDLOpenGL  *game;
+Ninage  *game;
 const Uint8 *state = SDL_GetKeyboardState(NULL);
 
-void SDLOpenGL::main() {
+void Ninage::main() {
     MainScene *scene = new MainScene();
 
     this->addScene(scene);
 }
 
 int main (int argc, char* args[]) {
-    game = new SDLOpenGL();
+    game = new Ninage();
 
     game->randomizeSeed();
 

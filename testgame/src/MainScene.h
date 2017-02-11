@@ -4,8 +4,8 @@
 #include <ninage/engine/Scene.h>
 
 
-class SDLOpenGL;
-extern SDLOpenGL *game;
+class Ninage;
+extern Ninage *game;
 
 class MainScene: public Scene {
     public:

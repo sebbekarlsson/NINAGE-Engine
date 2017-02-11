@@ -13,7 +13,7 @@ G_FLAGZ=-std=c++11
 $(info $(FLAGZ))
 
 OFILES=\
-       SDLOpenGL.o\
+       Ninage.o\
        CollisionBox.o\
        Instance.o\
        Entity.o\
@@ -30,8 +30,8 @@ LIBFILES=libninage.a libninage.so
 
 all: $(OFILES) $(LIBFILES)	
 
-SDLOpenGL.o: src/engine/SDLOpenGL.cpp src/engine/SDLOpenGL.h
-	g++ $(G_FLAGZ) -c src/engine/SDLOpenGL.cpp
+Ninage.o: src/engine/Ninage.cpp src/engine/Ninage.h
+	g++ $(G_FLAGZ) -c src/engine/Ninage.cpp
 
 SpriteImage.o: src/engine/SpriteImage.cpp src/engine/SpriteImage.h
 	g++ $(G_FLAGZ) -c src/engine/SpriteImage.cpp

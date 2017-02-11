@@ -9,11 +9,11 @@
 ### main.cpp
 > This is where your app starts.
 
-        #include <ninage/engine/SDLOpenGL.h>
+        #include <ninage/engine/Ninage.h>
         #include "MainScene.h"
 
 
-        SDLOpenGL  *app;
+        Ninage  *app;
         const Uint8 *state = SDL_GetKeyboardState(NULL); // this is needed for keyboard & mouse input.
 
         /**
@@ -29,7 +29,7 @@
         }
 
         int main (int argc, char* args[]) {
-            app = new SDLOpenGL();
+            app = new Ninage();
             
             // Start the main loop, will return the state integer when canceled.
             return app->run();

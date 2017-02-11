@@ -1,4 +1,4 @@
-#include "SDLOpenGL.h"
+#include "Ninage.h"
 #include "Camera.h"
 
 

@@ -1,10 +1,10 @@
 #include "Scene.h"
-#include "SDLOpenGL.h"
+#include "Ninage.h"
 #include <random>
 #include <time.h>
 
 
-SDLOpenGL::SDLOpenGL() {
+Ninage::Ninage() {
     this->WIDTH = 640;
     this->HEIGHT = (WIDTH / 16 * 9);
     this->SCALE = 2;
@@ -23,7 +23,7 @@ SDLOpenGL::SDLOpenGL() {
  *
  * @return bool
  */
-bool SDLOpenGL::initGL() {
+bool Ninage::initGL() {
     bool success = true;
     GLenum error = GL_NO_ERROR;
 
@@ -71,7 +71,7 @@ bool SDLOpenGL::initGL() {
  *
  * @return bool
  */
-bool SDLOpenGL::init() {
+bool Ninage::init() {
     bool success = true;
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -129,7 +129,7 @@ bool SDLOpenGL::init() {
  *
  * @param float delta
  */
-void SDLOpenGL::draw(float delta) {
+void Ninage::draw(float delta) {
     if (!this->getCurrentScene()->initialized) { return; }
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -171,7 +171,7 @@ void SDLOpenGL::draw(float delta) {
  *
  * @param float delta
  */
-void SDLOpenGL::tick(float delta) {
+void Ninage::tick(float delta) {
     if (!this->getCurrentScene()->initialized) {
         this->getCurrentScene()->initialize(delta);
 
@@ -184,7 +184,7 @@ void SDLOpenGL::tick(float delta) {
 /**
  * This function is used to terminating and killing the program.
  */
-void SDLOpenGL::close() {
+void Ninage::close() {
     SDL_DestroyWindow(display);
     display = NULL;
     SDL_Quit(); 
@@ -195,7 +195,7 @@ void SDLOpenGL::close() {
  *
  * @return Scene
  */
-Scene* SDLOpenGL::getCurrentScene() {
+Scene* Ninage::getCurrentScene() {
     return this->scenes->at(this->sceneIndex);
 }
 
@@ -204,7 +204,7 @@ Scene* SDLOpenGL::getCurrentScene() {
  *
  * @return glm::vec2
  */
-glm::vec2 SDLOpenGL::getMousePosition() {
+glm::vec2 Ninage::getMousePosition() {
     int mx = 0;
     int my = 0;
 
@@ -220,7 +220,7 @@ glm::vec2 SDLOpenGL::getMousePosition() {
  *
  * @return bool
  */
-bool SDLOpenGL::keyboardDown(int keyCode) {
+bool Ninage::keyboardDown(int keyCode) {
     return state[keyCode];
 }
 
@@ -229,7 +229,7 @@ bool SDLOpenGL::keyboardDown(int keyCode) {
  *
  * @return Int
  */
-int SDLOpenGL::getWidth() {
+int Ninage::getWidth() {
     return this->WIDTH * this->SCALE;
 }
 
@@ -238,7 +238,7 @@ int SDLOpenGL::getWidth() {
  *
  * @return Int
  */
-int SDLOpenGL::getHeight() {
+int Ninage::getHeight() {
     return this->HEIGHT * this->SCALE; 
 }
 
@@ -247,14 +247,14 @@ int SDLOpenGL::getHeight() {
  *
  * @return float
  */
-float SDLOpenGL::getFPS() {
+float Ninage::getFPS() {
     return this->FPS;
 }
 
 /**
  * Add a scene to the game scene-buffer.
  */
-void SDLOpenGL::addScene(Scene *scene) {
+void Ninage::addScene(Scene *scene) {
     this->scenes->push_back(scene);
 }
 
@@ -265,7 +265,7 @@ void SDLOpenGL::addScene(Scene *scene) {
  *
  * @return SpriteImage
  */
-SpriteImage* SDLOpenGL::loadImage(std::string path) {
+SpriteImage* Ninage::loadImage(std::string path) {
     SDL_Surface * surface = IMG_Load(path.c_str());
     SpriteImage * image = new SpriteImage(&*surface);
 
@@ -280,7 +280,7 @@ SpriteImage* SDLOpenGL::loadImage(std::string path) {
  *
  * @return bool
  */
-bool SDLOpenGL::loadFont(std::string fontfile, int size) {
+bool Ninage::loadFont(std::string fontfile, int size) {
     if(TTF_Init() == -1)
     {
         return false;    
@@ -313,7 +313,7 @@ bool SDLOpenGL::loadFont(std::string fontfile, int size) {
  *
  * @return bool
  */
-bool SDLOpenGL::isFontLoaded(std::string fontfile) {
+bool Ninage::isFontLoaded(std::string fontfile) {
     std::map<std::string, TTF_Font*>::iterator it;
 
     it = this->fonts->find(fontfile);
@@ -328,7 +328,7 @@ bool SDLOpenGL::isFontLoaded(std::string fontfile) {
  * @param std::string fontfile
  * @param std::string size
  */
-void SDLOpenGL::drawText(std::string message, std::string fontfile, int size, Color* color) {
+void Ninage::drawText(std::string message, std::string fontfile, int size, Color* color) {
     glPushMatrix();
     GLuint texture;
     glGenTextures(1, &texture);
@@ -379,7 +379,7 @@ void SDLOpenGL::drawText(std::string message, std::string fontfile, int size, Co
 /**
  * Used to randomize the random functionality.
  */
-void SDLOpenGL::randomizeSeed() {
+void Ninage::randomizeSeed() {
     srand (time(NULL));
 }
 
@@ -388,7 +388,7 @@ void SDLOpenGL::randomizeSeed() {
  *
  * @return int
  */
-int SDLOpenGL::run() {
+int Ninage::run() {
     int fpsBufferLength = 10;
 
     /* -- main();

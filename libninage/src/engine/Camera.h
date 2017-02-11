@@ -6,8 +6,8 @@
 #include "SDL2/SDL_ttf.h"
 
 
-class SDLOpenGL;
-extern SDLOpenGL *game;
+class Ninage;
+extern Ninage *game;
 
 class Camera: public Entity {
     private:

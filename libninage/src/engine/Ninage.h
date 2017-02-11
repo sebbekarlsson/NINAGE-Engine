@@ -14,7 +14,7 @@
 class TestObj;
 extern const Uint8 *state;
 
-class SDLOpenGL {
+class Ninage {
     private:
         int SCALE;
         int WIDTH;
@@ -24,7 +24,7 @@ class SDLOpenGL {
         bool init();
 
     public:
-        SDLOpenGL();
+        Ninage();
 
         int sceneIndex;
         float FPS;
