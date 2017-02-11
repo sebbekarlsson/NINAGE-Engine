@@ -37,4 +37,4 @@
 
 ## More information
 > For more information on how to setup a project, please look at the
-> [testgame](testgame), or look at the [examples](NINAGE-examples)
+> [testgame](testgame), or look at the [examples](https://github.com/sebbekarlsson/NINAGE-examples)
