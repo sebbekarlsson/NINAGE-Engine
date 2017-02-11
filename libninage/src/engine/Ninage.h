@@ -1,5 +1,5 @@
-#ifndef SDLOPENGL_H
-#define SDLOPENGL_H
+#ifndef NINAGE_H
+#define NINAGE_H
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>

@@ -22,7 +22,7 @@
          *
          * This function will run at startup.
         */
-        void SDLOpenGL::main() {
+        void Ninage::main() {
             MainScene *scene = new MainScene();
 
             this->addScene(scene);
