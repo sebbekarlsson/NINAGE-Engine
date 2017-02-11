@@ -13,7 +13,7 @@ void Ninage::main() {
 
 int main (int argc, char* args[]) {
     game = new Ninage();
-
+    
     game->randomizeSeed();
 
     return game->run();

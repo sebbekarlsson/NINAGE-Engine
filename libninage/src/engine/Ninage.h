@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
+#include <GL/glu.h>
 #include <iostream>
 #include <vector>
 #include <map>
@@ -19,6 +20,7 @@ class Ninage {
         int SCALE;
         int WIDTH;
         int HEIGHT;
+        int VIEWMODE;
 
         bool initGL();
         bool init();
@@ -54,6 +56,7 @@ class Ninage {
         void drawText(std::string message, std::string fontfile, int size, Color * color);
         void addScene(Scene * scene);
         void randomizeSeed();
+        void setViewMode(int viewmode);
         void main();
 
         float getFPS();

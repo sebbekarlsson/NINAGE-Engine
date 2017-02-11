@@ -8,6 +8,7 @@ Ninage::Ninage() {
     this->WIDTH = 640;
     this->HEIGHT = (WIDTH / 16 * 9);
     this->SCALE = 2;
+    this->VIEWMODE = 0;
     this->TITLE = "APP TITLE";
 
     this->quit = false;
@@ -30,18 +31,27 @@ bool Ninage::initGL() {
     glClearColor(0, 0, 0, 0);
     glClearDepth(1.0f);
 
-    glViewport(0, 0, (WIDTH * SCALE), (HEIGHT * SCALE));
-
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
-    glOrtho(0, (WIDTH * SCALE), (HEIGHT * SCALE), 0, 1, -1);
+    glViewport(0, 0, (WIDTH * SCALE), (HEIGHT * SCALE));
+
+    switch (this->VIEWMODE) {
+        case 0:
+            glOrtho(0, (WIDTH * SCALE), (HEIGHT * SCALE), 0, 1, -1);
+        break;
+        case 1:
+            gluPerspective(80.0f, 0.0f, this->WIDTH / this->HEIGHT , 500.0f);
+        break;
+    }
 
     glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 
     glDisable(GL_TEXTURE_2D);
     
     #ifndef __APPLE__
+        std::cout << "DEPTH TEST ENABLED" << std::endl;
         glEnable(GL_DEPTH_TEST);
     #endif
     
@@ -78,7 +88,6 @@ bool Ninage::init() {
         printf("Could not initialize video: %s", SDL_GetError());
         success = false;
     } else {
-
         #ifdef __APPLE__
             std::cout << "OSX, OPENGL 2.1" << std::endl;
             SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
@@ -134,8 +143,6 @@ void Ninage::draw(float delta) {
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glColor3f(1.0f,1.0f,1.0f);
-    
     glPushMatrix();
     
     this->getCurrentScene()->camera->draw(delta);
@@ -381,6 +388,18 @@ void Ninage::drawText(std::string message, std::string fontfile, int size, Color
  */
 void Ninage::randomizeSeed() {
     srand (time(NULL));
+}
+
+/**
+ * Used to change the viewmode
+ *
+ * 0: orthographic
+ * 1: gluPerspective
+ *
+ * @param int viewmode
+ */
+void Ninage::setViewMode(int viewmode) {
+    this->VIEWMODE = viewmode;
 }
 
 /**

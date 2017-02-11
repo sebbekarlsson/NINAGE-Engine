@@ -36,26 +36,57 @@ bool Instance::intersectsWith(Instance *instance) {
         this->getY()+this->collisionBox->height >= instance->getY();
 }
 
+/**
+ * Get the X position of the instance
+ *
+ * @return float
+ */
 float Instance::getX() {
     return this->position->x;
 }
 
+/**
+ * Get the Y position of the instance
+ *
+ * @return float
+ */
 float Instance::getY() {
     return this->position->y;
 }
 
+/**
+ * Get the Z position of the instance
+ *
+ * @return float
+ */
 float Instance::getZ() {
     return this->position->z;
 }
 
+
+/**
+ * Set the X position of the instance
+ *
+ * @param float x
+ */
 void Instance::setX(float x) {
     this->position->x = x;
 }
 
+/**
+ * Set the Y position of the instance
+ *
+ * @param float y
+ */
 void Instance::setY(float y) {
     this->position->y = y;
 }
 
+/**
+ * Set the Z position of the instance
+ *
+ * @param float z
+ */
 void Instance::setZ(float z) {
     this->position->z = z;
 }
