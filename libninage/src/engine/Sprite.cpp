@@ -22,6 +22,8 @@ Sprite::~Sprite() {
  * (Will loop back to index 0 if it reaches end of vector)
  */
 void Sprite::next() {
+    if (this->images->empty()) { return; }
+
     if (this->imageIndex < this->images->size() - 1) {
         this->imageIndex++;
     } else {
@@ -45,6 +47,8 @@ void Sprite::addImage(SpriteImage *image) {
  * @return EasyImage
  */
 SpriteImage* Sprite::getCurrentImage() {
+    if (this->images->empty()) { return NULL; }
+
     return this->images->at(this->imageIndex);
 }
 
@@ -54,6 +58,8 @@ SpriteImage* Sprite::getCurrentImage() {
  * @return int
  */
 int Sprite::getWidth() {
+    if (this->getCurrentImage() == NULL) { return 0; }
+
     return this->getCurrentImage()->getWidth();
 }
 
@@ -63,6 +69,8 @@ int Sprite::getWidth() {
  * @return int
  */
 int Sprite::getHeight() {
+    if (this->getCurrentImage() == NULL) { return 0; }
+
     return this->getCurrentImage()->getHeight();
 }
 
@@ -72,6 +80,8 @@ int Sprite::getHeight() {
  * @param float delta
  */
 void Sprite::draw(float delta) {
+    if (this->getCurrentImage() == NULL) { return; }
+
     this->getCurrentImage()->bind();
 
     glBegin(GL_QUADS);

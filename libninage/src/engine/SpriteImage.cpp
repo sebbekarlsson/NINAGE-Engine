@@ -39,9 +39,13 @@ void SpriteImage::unbind() {
 }
 
 int SpriteImage::getWidth() {
+    if (!&this->surface) { return 0; }
+
     return this->surface->w; 
 }
 
 int SpriteImage::getHeight() {
+    if (!&this->surface) { return 0; }
+
     return this->surface->h;
 }
