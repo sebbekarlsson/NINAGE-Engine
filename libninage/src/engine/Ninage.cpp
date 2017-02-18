@@ -345,14 +345,15 @@ void Ninage::drawText(std::string message, std::string fontfile, int size, Color
         this->loadFont(fontfile, size);
     }
 
-    TTF_Font * font = this->fonts->find(fontfile)->second;
+    TTF_Font& font = *this->fonts->find(fontfile)->second;
 
-    if (font == NULL) {
+    if (this->fonts->find(fontfile)->second == NULL) {
         printf("TTF ERROR: %s", TTF_GetError());
+        return;
     }
 
     SDL_Surface * sFont = TTF_RenderText_Blended(
-            font, message.c_str(),
+            &font, message.c_str(),
             {(Uint8)color->r, (Uint8)color->g, (Uint8)color->b}
             );
 
@@ -380,7 +381,7 @@ void Ninage::drawText(std::string message, std::string fontfile, int size, Color
     glDeleteTextures(1, &texture);
     glPopMatrix();
 
-    SDL_FreeSurface(sFont);
+    SDL_FreeSurface(sFont); // a `delete sFont` is not needed because of this.
 }
 
 /**
