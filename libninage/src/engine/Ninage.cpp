@@ -345,14 +345,14 @@ void Ninage::drawText(std::string message, std::string fontfile, int size, Color
         this->loadFont(fontfile, size);
     }
 
-    TTF_Font& font = *this->fonts->find(fontfile)->second;
+    TTF_Font * font = this->fonts->find(fontfile)->second;
 
-    if (&font == NULL) {
+    if (font == NULL) {
         printf("TTF ERROR: %s", TTF_GetError());
     }
 
     SDL_Surface * sFont = TTF_RenderText_Blended(
-            &font, message.c_str(),
+            font, message.c_str(),
             {(Uint8)color->r, (Uint8)color->g, (Uint8)color->b}
             );
 
