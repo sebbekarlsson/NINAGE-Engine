@@ -3,9 +3,9 @@
 
 #include "Sprite.h"
 #include "CollisionBox.h"
-#include "Component.h"
 #include <glm/vec3.hpp>
 
+class Component;
 
 class Instance {
     public:

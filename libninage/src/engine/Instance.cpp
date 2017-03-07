@@ -1,4 +1,5 @@
 #include "Instance.h"
+#include "Component.h"
 
 
 /**
