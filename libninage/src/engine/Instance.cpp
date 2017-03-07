@@ -20,6 +20,7 @@ Instance::Instance(float x, float y) {
 Instance::~Instance() {
     delete this->sprite;
     delete this->collisionBox;
+    delete this->components;
 }
 
 /**
