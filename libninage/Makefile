@@ -23,7 +23,8 @@ OFILES=\
        Scene.o\
        Point.o\
        EngineMath.o\
-       Color.o
+       Color.o\
+       Component.o
 
 LIBFILES=libninage.a libninage.so
 
@@ -62,6 +63,9 @@ EngineMath.o: src/engine/utils/EngineMath.cpp src/engine/utils/EngineMath.h
 
 Color.o: src/engine/utils/Color.cpp src/engine/utils/Color.h
 	g++ $(G_FLAGZ) -c src/engine/utils/Color.cpp
+
+Component.o: src/engine/Component.cpp src/engine/Component.h
+	g++ $(G_FLAGZ) -c src/engine/Component.cpp
 
 libninage.a: $(OFILES)
 	ar rcs $@ $^

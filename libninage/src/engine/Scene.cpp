@@ -30,6 +30,7 @@ void Scene::destantiate(Instance *instance) {
  */
 void Scene::tickDefault(float delta) {
     this->camera->tick(delta);
+
     for (std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end();) {
         
         /* Checking if instance should be deleted */

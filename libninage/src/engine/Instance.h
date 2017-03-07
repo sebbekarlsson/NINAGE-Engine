@@ -3,6 +3,7 @@
 
 #include "Sprite.h"
 #include "CollisionBox.h"
+#include "Component.h"
 #include <glm/vec3.hpp>
 
 
@@ -10,6 +11,8 @@ class Instance {
     public:
         Instance(float x, float y);
         virtual ~Instance() = 0;
+
+        std::vector<Component*> *components = new std::vector<Component*>();
         
         float rotation;
         bool centeredOrigo;
@@ -26,6 +29,8 @@ class Instance {
         void setX(float x);
         void setY(float y);
         void setZ(float z);
+        void tickDefault(float delta);
+        void drawDefault(float delta);
         
         /**
          * Update logic for game object / instance
