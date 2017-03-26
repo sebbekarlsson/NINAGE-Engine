@@ -84,7 +84,6 @@ install:
 	mv libninage.so /usr/local/lib/libninage.so
 
 clean:
-	-rm -rf ninage 
 	-rm *.o
 	-rm *.out
 	-rm *.so
