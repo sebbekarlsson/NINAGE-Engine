@@ -1,5 +1,5 @@
-#include "Ninage.h"
-#include "Camera.h"
+#include "../ninage/engine/Ninage.h"
+#include "../ninage/engine/Camera.h"
 
 
 /**

@@ -1,4 +1,4 @@
-#include "Sprite.h"
+#include "../ninage/engine/Sprite.h"
 
 
 /**

@@ -1,4 +1,4 @@
-#include "SpriteImage.h"
+#include "../ninage/engine/SpriteImage.h"
 #include <iostream>
 
 

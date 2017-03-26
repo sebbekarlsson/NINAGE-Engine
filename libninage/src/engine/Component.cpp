@@ -1,4 +1,4 @@
-#include "Component.h"
+#include "../ninage/engine/Component.h"
 
 
 Component::Component(Instance &instance) {
