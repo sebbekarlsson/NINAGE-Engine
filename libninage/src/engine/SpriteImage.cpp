@@ -8,6 +8,10 @@ SpriteImage::SpriteImage(SDL_Surface *surface) {
     this->bound = false;
 }
 
+/**
+ * Binds the texture to the current OpenGL context, so that
+ * it can be used for example texture coordinates.
+ */
 void SpriteImage::bind() {
     if (!this->bound) {
         glGenTextures(1, &this->TextureID);
@@ -34,16 +38,29 @@ void SpriteImage::bind() {
     }
 }
 
+/**
+ * Unbinds / removes the texture from the current OpenGL context.
+ */
 void SpriteImage::unbind() {
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
+/**
+ * Get the width of the texture / surface.
+ *
+ * @return int
+ */
 int SpriteImage::getWidth() {
     if (this->surface == NULL) { return 0; }
 
     return this->surface->w; 
 }
 
+/**
+ * Get the height of the texture / surface.
+ *
+ * @return int
+ */
 int SpriteImage::getHeight() {
     if (this->surface == NULL) { return 0; }
 
