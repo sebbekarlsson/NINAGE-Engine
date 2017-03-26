@@ -74,9 +74,11 @@ libninage.so: $(OFILES)
 	ar rcs $@ $^
 
 install:
+	-rm /opt/ninage
 	-rm /usr/local/lib/libninage.*
 	-rm -rf /usr/local/include/ninage
 	make
+	cp -r ninage /opt/ninage
 	cp -r src/ninage /usr/local/include/ninage
 	mv libninage.a /usr/local/lib/libninage.a
 	mv libninage.so /usr/local/lib/libninage.so
