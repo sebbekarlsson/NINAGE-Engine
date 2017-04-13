@@ -1,6 +1,8 @@
 # NINAGE ENGINE
 > **N**inage **I**s **N**ot **A** **G**ame **E**ngine
+
 > ![alt text](77599_vrlrc_engine_sm.gif)
+
 > (But it can be used as a game engine)
 
 > It's purpose is to be an interactive media engine, games just happen
