@@ -4,8 +4,6 @@
 #include <time.h>
 
 
-
-
 Ninage::Ninage() {
     this->WIDTH = 640;
     this->HEIGHT = (WIDTH / 16 * 9);
