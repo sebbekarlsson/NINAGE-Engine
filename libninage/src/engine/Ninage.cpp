@@ -4,6 +4,8 @@
 #include <time.h>
 
 
+
+
 Ninage::Ninage() {
     this->WIDTH = 640;
     this->HEIGHT = (WIDTH / 16 * 9);
@@ -53,7 +55,14 @@ bool Ninage::initGL() {
     #ifndef __APPLE__
         std::cout << "DEPTH TEST ENABLED" << std::endl;
         glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_LEQUAL);
+        
+        if (this->vendorIsInvidia()) {
+            std::cout << "NVIDIA detected, we will use GL_LEQUAL" << std::endl;
+            glDepthFunc(GL_LEQUAL);
+        } else {
+            std::cout << "Free from NVIDIA! we will use GL_GREATER" << std::endl;
+            glDepthFunc(GL_GREATER);
+        }
     #endif
     
     glDepthMask(GL_FALSE);
@@ -402,6 +411,29 @@ void Ninage::randomizeSeed() {
  */
 void Ninage::setViewMode(int viewmode) {
     this->VIEWMODE = viewmode;
+}
+
+/**
+ * Get the graphics driver that is being used.
+ *
+ * @return const GLuByte*
+ */
+const GLubyte* Ninage::getVendor() {
+    return glGetString(GL_VENDOR); 
+}
+
+/**
+ * Check if vendor is Nvidia
+ *
+ * @return bool
+ */
+bool Ninage::vendorIsInvidia() {
+    std::string vendor = std::string(
+        reinterpret_cast<const char*>(this->getVendor())
+    );
+    std::transform(vendor.begin(), vendor.end(), vendor.begin(), ::tolower);
+    
+    return vendor.find("nvidia") != std::string::npos;
 }
 
 /**

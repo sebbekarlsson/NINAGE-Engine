@@ -30,6 +30,7 @@ class Ninage {
 
         bool initGL();
         bool init();
+        bool vendorIsInvidia();
 
     public:
         Ninage();
@@ -65,6 +66,8 @@ class Ninage {
         void setViewMode(int viewmode);
         void main();
 
+        const GLubyte* getVendor();
+        
         float getFPS();
 };
 
