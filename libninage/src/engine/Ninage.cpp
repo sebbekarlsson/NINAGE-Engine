@@ -53,7 +53,7 @@ bool Ninage::initGL() {
     #ifndef __APPLE__
         std::cout << "DEPTH TEST ENABLED" << std::endl;
         glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_GREATER);
+        glDepthFunc(GL_LEQUAL);
     #endif
     
     glDepthMask(GL_FALSE);
