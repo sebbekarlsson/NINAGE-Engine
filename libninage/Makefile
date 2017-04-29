@@ -3,9 +3,9 @@ OS := $(shell uname)
 $(info $(OS))
 
 ifeq ($(OS), Darwin)
-    FLAGZ=`pkg-config --libs sdl2` -std=c++11 -framework OpenGL -framework GLUT -lSDL2_image -lSDL2_ttf -g
+    FLAGZ=`pkg-config --libs sdl2` -Wall -std=c++11 -framework OpenGL -framework GLUT -lSDL2_image -lSDL2_ttf -g
 else
-    FLAGZ=`pkg-config --libs sdl2` -std=c++11 -lGL -lglut -lSDL2_image -lSDL2_ttf -g
+    FLAGZ=`pkg-config --libs sdl2` -Wall -std=c++11 -lGL -lglut -lSDL2_image -lSDL2_ttf -g
 endif
 
 G_FLAGZ=-std=c++11
