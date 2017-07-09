@@ -1,5 +1,5 @@
-#include "../ninage/engine/Instance.h"
-#include "../ninage/engine/Component.h"
+#include "includes/Instance.h"
+#include "includes/Component.h"
 
 
 /**

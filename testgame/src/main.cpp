@@ -1,4 +1,4 @@
-#include <ninage/engine/Ninage.h>
+#include <ninage/Ninage.h>
 #include "MainScene.h"
 
 

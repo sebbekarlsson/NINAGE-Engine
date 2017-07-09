@@ -1,7 +1,7 @@
 #ifndef TESTSCENE_H
 #define TESTSCENE_H
 
-#include <ninage/engine/Scene.h>
+#include <ninage/Scene.h>
 
 
 class Ninage;

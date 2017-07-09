@@ -1,5 +1,5 @@
-#include "../ninage/engine/Scene.h"
-#include "../ninage/engine/Ninage.h"
+#include "includes/Scene.h"
+#include "includes/Ninage.h"
 #include <random>
 #include <time.h>
 

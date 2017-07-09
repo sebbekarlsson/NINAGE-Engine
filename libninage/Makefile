@@ -31,41 +31,41 @@ LIBFILES=libninage.a libninage.so
 
 all: $(OFILES) $(LIBFILES)	
 
-Ninage.o: src/engine/Ninage.cpp src/ninage/engine/Ninage.h
-	g++ $(G_FLAGZ) -c src/engine/Ninage.cpp
+Ninage.o: src/Ninage.cpp src/includes/Ninage.h
+	g++ $(G_FLAGZ) -c src/Ninage.cpp
 
-SpriteImage.o: src/engine/SpriteImage.cpp src/ninage/engine/SpriteImage.h
-	g++ $(G_FLAGZ) -c src/engine/SpriteImage.cpp
+SpriteImage.o: src/SpriteImage.cpp src/includes/SpriteImage.h
+	g++ $(G_FLAGZ) -c src/SpriteImage.cpp
 
-Sprite.o: src/engine/Sprite.cpp src/ninage/engine/Sprite.h
-	g++ $(G_FLAGZ) -c src/engine/Sprite.cpp
+Sprite.o: src/Sprite.cpp src/includes/Sprite.h
+	g++ $(G_FLAGZ) -c src/Sprite.cpp
 
-CollisionBox.o: src/engine/CollisionBox.cpp src/ninage/engine/CollisionBox.h
-	g++ $(G_FLAGZ) -c src/engine/CollisionBox.cpp
+CollisionBox.o: src/CollisionBox.cpp src/includes/CollisionBox.h
+	g++ $(G_FLAGZ) -c src/CollisionBox.cpp
 
-Instance.o: src/engine/Instance.cpp src/ninage/engine/Instance.h
-	g++ $(G_FLAGZ) -c src/engine/Instance.cpp
+Instance.o: src/Instance.cpp src/includes/Instance.h
+	g++ $(G_FLAGZ) -c src/Instance.cpp
 
-Entity.o: src/engine/Entity.cpp src/ninage/engine/Entity.h
-	g++ $(G_FLAGZ) -c src/engine/Entity.cpp
+Entity.o: src/Entity.cpp src/includes/Entity.h
+	g++ $(G_FLAGZ) -c src/Entity.cpp
 
-Camera.o: src/engine/Camera.cpp src/ninage/engine/Camera.h
-	g++ $(G_FLAGZ) -c src/engine/Camera.cpp
+Camera.o: src/Camera.cpp src/includes/Camera.h
+	g++ $(G_FLAGZ) -c src/Camera.cpp
 
-Scene.o: src/engine/Scene.cpp src/ninage/engine/Scene.h
-	g++ $(G_FLAGZ) -c src/engine/Scene.cpp
+Scene.o: src/Scene.cpp src/includes/Scene.h
+	g++ $(G_FLAGZ) -c src/Scene.cpp
 
-Point.o: src/engine/utils/Point.cpp src/ninage/engine/utils/Point.h
-	g++ $(G_FLAGZ) -c src/engine/utils/Point.cpp
+Point.o: src/utils/Point.cpp src/includes/utils/Point.h
+	g++ $(G_FLAGZ) -c src/utils/Point.cpp
 
-EngineMath.o: src/engine/utils/EngineMath.cpp src/ninage/engine/utils/EngineMath.h
-	g++ $(G_FLAGZ) -c src/engine/utils/EngineMath.cpp
+EngineMath.o: src/utils/EngineMath.cpp src/includes/utils/EngineMath.h
+	g++ $(G_FLAGZ) -c src/utils/EngineMath.cpp
 
-Color.o: src/engine/utils/Color.cpp src/ninage/engine/utils/Color.h
-	g++ $(G_FLAGZ) -c src/engine/utils/Color.cpp
+Color.o: src/utils/Color.cpp src/includes/utils/Color.h
+	g++ $(G_FLAGZ) -c src/utils/Color.cpp
 
-Component.o: src/engine/Component.cpp src/ninage/engine/Component.h
-	g++ $(G_FLAGZ) -c src/engine/Component.cpp
+Component.o: src/Component.cpp src/includes/Component.h
+	g++ $(G_FLAGZ) -c src/Component.cpp
 
 libninage.a: $(OFILES)
 	ar rcs $@ $^
@@ -79,7 +79,7 @@ install:
 	-rm -rf /usr/local/include/ninage
 	make
 	cp -r ninage /usr/local/opt/ninage
-	cp -r src/ninage /usr/local/include/ninage
+	cp -r src/includes /usr/local/include/ninage
 	mv libninage.a /usr/local/lib/libninage.a
 	mv libninage.so /usr/local/lib/libninage.so
 

@@ -2,8 +2,8 @@
 #define TESTOBJ_H
 
 #include <iostream>
-#include <ninage/engine/Ninage.h>
-#include <ninage/engine/Entity.h>
+#include <ninage/Ninage.h>
+#include <ninage/Entity.h>
 
 
 class Ninage;

@@ -1,5 +1,5 @@
-#include "../ninage/engine/Scene.h"
-#include "../ninage/engine/Instance.h"
+#include "includes/Scene.h"
+#include "includes/Instance.h"
 
 
 Scene::Scene() {
