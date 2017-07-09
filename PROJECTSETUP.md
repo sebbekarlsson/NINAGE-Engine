@@ -9,7 +9,7 @@
 ### main.cpp
 > This is where your app starts.
 
-        #include <ninage/engine/Ninage.h>
+        #include <ninage/Ninage.h>
         #include "MainScene.h"
 
 
