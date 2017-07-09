@@ -2,12 +2,12 @@ OS := $(shell uname)
 
 $(info $(OS))
 
-G_FLAGZ=-std=c++11
+G_FLAGZ=-std=c++11 -Wall -g
 
 ifeq ($(OS), Darwin)
-    FLAGZ=`pkg-config --libs sdl2` $(G_FLAGZ) -lninage -framework OpenGL -framework GLUT -lSDL2_image -lSDL2_ttf -g
+    FLAGZ=$(G_FLAGZ) -lninage -framework OpenGL -framework GLUT -lSDL2_image -lSDL2_ttf -lSDL2
 else
-    FLAGZ=`pkg-config --libs sdl2` $(G_FLAGZ) -std=c++11 -lninage -lGL -lglut -lSDL2_image -lSDL2_ttf -lGLU -g
+    FLAGZ=$(G_FLAGZ) -std=c++11 -lninage -lGL -lglut -lSDL2_image -lSDL2_ttf -lGLU -lSDL2
 endif
 
 OFILES=\

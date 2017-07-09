@@ -3,12 +3,12 @@ OS := $(shell uname)
 $(info $(OS))
 
 ifeq ($(OS), Darwin)
-    FLAGZ=`pkg-config --libs sdl2` -Wall -std=c++11 -framework OpenGL -framework GLUT -lSDL2_image -lSDL2_ttf -g
+    FLAGZ=-Wall -std=c++11 -framework OpenGL -framework GLUT -lSDL2_image -lSDL2_ttf -lSDL2 -g
 else
-    FLAGZ=`pkg-config --libs sdl2` -Wall -std=c++11 -lGL -lglut -lSDL2_image -lSDL2_ttf -g
+    FLAGZ=-Wall -std=c++11 -lGL -lglut -lSDL2_image -lSDL2_ttf -lSDL2 -g
 endif
 
-G_FLAGZ=-std=c++11
+G_FLAGZ=-std=c++11 -Wall -g
 
 $(info $(FLAGZ))
 
@@ -74,11 +74,11 @@ libninage.so: $(OFILES)
 	ar rcs $@ $^
 
 install:
-	-rm /opt/ninage
+	-rm /usr/local/opt/ninage
 	-rm /usr/local/lib/libninage.*
 	-rm -rf /usr/local/include/ninage
 	make
-	cp -r ninage /opt/ninage
+	cp -r ninage /usr/local/opt/ninage
 	cp -r src/ninage /usr/local/include/ninage
 	mv libninage.a /usr/local/lib/libninage.a
 	mv libninage.so /usr/local/lib/libninage.so
