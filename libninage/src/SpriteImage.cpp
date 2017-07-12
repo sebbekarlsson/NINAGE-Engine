@@ -51,7 +51,8 @@ void SpriteImage::unbind() {
  * @return int
  */
 int SpriteImage::getWidth() {
-    if (this->surface == NULL) { return 0; }
+    if (this->surface == NULL)
+        return 0;
 
     return this->surface->w; 
 }
@@ -62,7 +63,8 @@ int SpriteImage::getWidth() {
  * @return int
  */
 int SpriteImage::getHeight() {
-    if (this->surface == NULL) { return 0; }
+    if (this->surface == NULL)
+        return 0;
 
     return this->surface->h;
 }

@@ -26,7 +26,8 @@ Ninage::Ninage() {
  */
 bool Ninage::initGL() {
     bool success = true;
-    GLenum error = GL_NO_ERROR;
+    //GLenum error = GL_NO_ERROR;
+    /* TODO: proper error handling */
 
     glClearColor(0, 0, 0, 0);
     glClearDepth(1.0f);
