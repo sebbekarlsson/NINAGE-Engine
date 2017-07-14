@@ -49,8 +49,8 @@
 
 > Run these commands to compile and start the testgame:
 
-        cd testapp
+        cd testgame
         make
-        ./app.out
+        ./game.out
 
 > The app should be up and running.
