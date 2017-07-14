@@ -21,36 +21,7 @@ void Camera::tick(float delta) {
  * This function is suppost to be used to draw
  * GUI
  */
-void Camera::draw(float delta) {
-    /* ==== THIS IS BAD ==== 
-     * Color * col = new Color(255.0f, 255.0f, 255.0f, 100.0f);
-
-    glPushMatrix();
-    glTranslatef(16.0f, 16.0f, 0.0f);
-    
-    game->drawText(
-            "FPS: " + std::to_string(game->getFPS()),
-            "/usr/local/share/ninage/assets/font/bits.ttf",
-            16,
-            col
-    );
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(16.0f, 32.0f + 8.0f, 0.0f);
-    
-    game->drawText(
-            "DELTA: " + std::to_string(delta),
-            "/usr/local/share/ninage/assets/font/bits.ttf",
-            16,
-            col
-    );
-
-    glPopMatrix();
-
-    delete col;*/
-}
+void Camera::draw(float delta) { /* silence */ }
 
 /**
  * Change the x and y value of the zoom point.
