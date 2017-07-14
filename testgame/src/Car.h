@@ -7,7 +7,7 @@
 
 
 class Ninage;
-extern Ninage *game;
+extern Ninage *app;
 
 class Car: public Entity {
     public:

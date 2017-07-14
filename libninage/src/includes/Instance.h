@@ -33,14 +33,14 @@ class Instance {
         void drawDefault(float delta);
         
         /**
-         * Update logic for game object / instance
+         * Update logic for object / instance
          *
          * @param float delta
          */
         virtual void tick(float delta) = 0;
 
         /**
-         * Draw graphics for game object / instance
+         * Draw graphics for object / instance
          *
          * @param float delta
          */

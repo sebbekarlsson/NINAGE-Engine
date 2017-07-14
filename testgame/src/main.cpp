@@ -2,7 +2,7 @@
 #include "MainScene.h"
 
 
-Ninage  *game;
+Ninage  *app;
 const Uint8 *state = SDL_GetKeyboardState(NULL);
 
 void Ninage::main() {
@@ -12,9 +12,9 @@ void Ninage::main() {
 }
 
 int main (int argc, char* args[]) {
-    game = new Ninage();
+    app = new Ninage();
 
-    game->randomizeSeed();
+    app->randomizeSeed();
 
-    return game->run();
+    return app->run();
 }

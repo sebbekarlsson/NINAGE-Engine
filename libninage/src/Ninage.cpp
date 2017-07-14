@@ -268,7 +268,7 @@ float Ninage::getFPS() {
 }
 
 /**
- * Add a scene to the game scene-buffer.
+ * Add a scene to the scene-buffer.
  */
 void Ninage::addScene(Scene *scene) {
     this->scenes->push_back(scene);
@@ -437,7 +437,7 @@ bool Ninage::vendorIsInvidia() {
 }
 
 /**
- * Main loop of the application
+ * Main loop of the thislication
  *
  * @return int
  */
@@ -445,7 +445,7 @@ int Ninage::run() {
     int fpsBufferLength = 10;
 
     /* -- main();
-     * This makes it possible for app developers to insert
+     * This makes it possible for this developers to insert
      * scenes and write startup logic.
      */
     this->main();
@@ -462,10 +462,10 @@ int Ninage::run() {
     while (!this->quit) {
         NOW = SDL_GetPerformanceCounter();
         
-        /* Making sure we can quit the app */
+        /* Making sure we can quit the this */
         while (SDL_PollEvent(&e) != 0) {
             if (e.type == SDL_QUIT) {
-                game->quit = true;
+                this->quit = true;
             } 
         }
 
@@ -474,7 +474,7 @@ int Ninage::run() {
         this->tick(delta);
         /* </APP GRAPHICS & LOGIC> */
 
-        SDL_GL_SwapWindow(game->display);
+        SDL_GL_SwapWindow(this->display);
         
         delta = (double)((NOW - LAST) * 1000 / (float)SDL_GetPerformanceFrequency());
         

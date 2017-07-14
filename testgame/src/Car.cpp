@@ -3,7 +3,7 @@
 
 
 Car::Car(float x, float y) : Entity(x, y) {
-    this->sprite->addImage(game->loadImage("assets/car.png"));
+    this->sprite->addImage(app->loadImage("assets/car.png"));
     this->centeredOrigo = true;
     this->friction = 0.001f;
     this->rotationFriction = 0.1f;

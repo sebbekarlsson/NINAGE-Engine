@@ -5,7 +5,7 @@
 
 
 class Ninage;
-extern Ninage *game;
+extern Ninage *app;
 
 class MainScene: public Scene {
     public:

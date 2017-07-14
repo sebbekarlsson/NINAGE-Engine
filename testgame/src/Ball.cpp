@@ -4,7 +4,7 @@
 
 
 Ball::Ball(float x, float y): Entity(x, y) {
-    this->sprite->addImage(game->loadImage("assets/ball.png"));
+    this->sprite->addImage(app->loadImage("assets/ball.png"));
     this->centeredOrigo = true;
     this->friction = 0.001f;
 }

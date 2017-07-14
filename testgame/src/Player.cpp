@@ -2,28 +2,28 @@
 
 
 Player::Player(float x, float y) : Entity(x, y) {
-    this->sprite->addImage(game->loadImage("assets/car.png"));
+    this->sprite->addImage(app->loadImage("assets/car.png"));
     this->centeredOrigo = true;
 }
 
 void Player::tick(float delta) {
-    if (game->keyboardDown(SDL_SCANCODE_LEFT)) {
+    if (app->keyboardDown(SDL_SCANCODE_LEFT)) {
         this->addForce(180.0f, 0.05f);
         this->rotation -= 0.1f * delta;
         this->addRotation(-0.09f);
     }
-    if (game->keyboardDown(SDL_SCANCODE_RIGHT)) {
+    if (app->keyboardDown(SDL_SCANCODE_RIGHT)) {
         this->addForce(0.0f, 0.05f);
         this->addRotation(0.09f);
     }
-    if (game->keyboardDown(SDL_SCANCODE_UP)) {
+    if (app->keyboardDown(SDL_SCANCODE_UP)) {
         this->addForce(270.0f, 0.05f);
     }
-    if (game->keyboardDown(SDL_SCANCODE_DOWN)) {
+    if (app->keyboardDown(SDL_SCANCODE_DOWN)) {
         this->addForce(90.0f, 0.05f);
     }
-    if(game->keyboardDown(SDL_SCANCODE_SPACE)) {
-        game->getCurrentScene()->destantiate(this);
+    if(app->keyboardDown(SDL_SCANCODE_SPACE)) {
+        app->getCurrentScene()->destantiate(this);
     }
 
     this->updatePhysics(delta);

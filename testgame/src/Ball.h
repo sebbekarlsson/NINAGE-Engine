@@ -8,7 +8,7 @@
 
 
 class Ninage;
-extern Ninage *game;
+extern Ninage *app;
 
 class Ball: public Entity {
     public:

@@ -12,7 +12,7 @@ void MainScene::init(float delta) {
     this->instantiate(new Car(0.0f, 0.0f));
 
     for (int i = 0; i < 32; i++) {
-        this->instantiate(new Ball(rand()%(game->getWidth()-0 + 1) + 0, rand()%(game->getHeight()-0 + 1) + 0));
+        this->instantiate(new Ball(rand()%(app->getWidth()-0 + 1) + 0, rand()%(app->getHeight()-0 + 1) + 0));
     }
 }
 

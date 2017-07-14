@@ -3,9 +3,9 @@
 
 > ![alt text](77599_vrlrc_engine_sm.gif)
 
-> (But it can be used as a game engine)
+> (But it can be used as a app engine)
 
-> It's purpose is to be an interactive media engine, games just happen
+> It's purpose is to be an interactive media engine, apps just happen
 > to fall into that catagory.
 
 ## Documentation
@@ -29,10 +29,10 @@
 
 > The `develop.sh` script will do the following:
 * Compile and install the `core engine`
-* Compile and launch the `testgame`
+* Compile and launch the `testapp`
 
-> You may use the `testgame` to test changes made in the `core engine`.
-> It does not matter if you push changes made in the `testgame` since it
+> You may use the `testapp` to test changes made in the `core engine`.
+> It does not matter if you push changes made in the `testapp` since it
 > was created for testing purposes.
 
 ## Manual Development
@@ -43,14 +43,14 @@
 
 > This will install the engine into your system / computer.
 
-### Compiling the testgame
-> To compile the testgame, make sure you have installed the engine first,
+### Compiling the testapp
+> To compile the testapp, make sure you have installed the engine first,
 > following the steps above.
 
-> Run these commands to compile and start the testgame:
+> Run these commands to compile and start the testapp:
 
-        cd testgame
+        cd testapp
         make
-        ./game.out
+        ./app.out
 
-> The game should be up and running.
+> The app should be up and running.
