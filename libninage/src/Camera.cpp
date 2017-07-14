@@ -22,7 +22,8 @@ void Camera::tick(float delta) {
  * GUI
  */
 void Camera::draw(float delta) {
-    Color * col = new Color(255.0f, 255.0f, 255.0f, 100.0f);
+    /* ==== THIS IS BAD ==== 
+     * Color * col = new Color(255.0f, 255.0f, 255.0f, 100.0f);
 
     glPushMatrix();
     glTranslatef(16.0f, 16.0f, 0.0f);
@@ -48,7 +49,7 @@ void Camera::draw(float delta) {
 
     glPopMatrix();
 
-    delete col;
+    delete col;*/
 }
 
 /**
