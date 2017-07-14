@@ -430,6 +430,7 @@ bool Ninage::vendorIsInvidia() {
     std::string vendor = std::string(
         reinterpret_cast<const char*>(this->getVendor())
     );
+
     std::transform(vendor.begin(), vendor.end(), vendor.begin(), ::tolower);
     
     return vendor.find("nvidia") != std::string::npos;
