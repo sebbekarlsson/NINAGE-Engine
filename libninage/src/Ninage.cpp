@@ -437,7 +437,7 @@ bool Ninage::vendorIsInvidia() {
 }
 
 /**
- * Main loop of the thislication
+ * Main loop of the application
  *
  * @return int
  */
@@ -445,7 +445,7 @@ int Ninage::run() {
     int fpsBufferLength = 10;
 
     /* -- main();
-     * This makes it possible for this developers to insert
+     * This makes it possible for app developers to insert
      * scenes and write startup logic.
      */
     this->main();
@@ -462,7 +462,7 @@ int Ninage::run() {
     while (!this->quit) {
         NOW = SDL_GetPerformanceCounter();
         
-        /* Making sure we can quit the this */
+        /* Making sure we can quit the app */
         while (SDL_PollEvent(&e) != 0) {
             if (e.type == SDL_QUIT) {
                 this->quit = true;
