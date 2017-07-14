@@ -43,7 +43,7 @@ class Scene {
         virtual void draw(float detla) = 0;
 
         /**
-         * Initialize scene, place out game objects etc..
+         * Initialize scene, place out objects etc..
          *
          * @param float delta
          */

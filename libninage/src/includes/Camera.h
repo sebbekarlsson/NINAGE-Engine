@@ -6,8 +6,9 @@
 #include "SDL2/SDL_ttf.h"
 
 
-class Ninage;
-extern Ninage *game;
+/* Not needed, this is bad */
+//class Ninage;
+//extern Ninage *VARNAME;
 
 class Camera: public Entity {
     private:
