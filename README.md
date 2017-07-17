@@ -51,6 +51,6 @@
 
         cd testgame
         make
-        ./game.out
+        ./app.out
 
 > The app should be up and running.
