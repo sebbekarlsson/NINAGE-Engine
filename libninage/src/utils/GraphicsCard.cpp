@@ -19,7 +19,6 @@ void GraphicsCard::drawText(
     Color* color,
     int size
 ) {
-    glPushMatrix();
     GLuint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
@@ -54,7 +53,8 @@ void GraphicsCard::drawText(
         GL_UNSIGNED_BYTE,
         sFont->pixels
     );
-
+    
+    glPushMatrix();
     glBegin(GL_QUADS);
     
     glTexCoord2f(0,0);
@@ -70,9 +70,9 @@ void GraphicsCard::drawText(
     glVertex2f(0, sFont->h);
     
     glEnd();
+    glPopMatrix();
 
     glDeleteTextures(1, &texture);
-    glPopMatrix();
 
     SDL_FreeSurface(sFont); // a `delete sFont` is not needed because of this.
 }
