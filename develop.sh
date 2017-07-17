@@ -14,6 +14,6 @@ cd ..
 
 cd $app
 make
-./game.out
+./app.out
 
 cd ..

@@ -19,7 +19,7 @@ OFILES=\
 
 
 output: $(OFILES)
-	g++ $(OFILES) $(FLAGZ) -o game.out
+	g++ $(OFILES) $(FLAGZ) -o app.out
 
 main.o: src/main.cpp
 	g++ $(G_FLAGZ) -c src/main.cpp
