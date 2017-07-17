@@ -2,6 +2,8 @@
 #include "Car.h"
 #include "Ball.h"
 #include <random>
+#include <ninage/utils/GraphicsCard.h>
+#include <ninage/utils/Color.h>
 
 
 MainScene::MainScene(): Scene() {
@@ -22,4 +24,15 @@ void MainScene::tick(float delta) {
 
 void MainScene::draw(float delta) {
     this->drawDefault(delta);
+
+    Color* col = new Color(100.0f, 255.0f, 23.0f, 100.0f);
+
+    GraphicsCard::drawText(
+        "HELLO THERE",
+        "/usr/local/share/ninage/assets/font/bits.ttf",
+        col,
+        16
+    );
+
+    delete col;
 }

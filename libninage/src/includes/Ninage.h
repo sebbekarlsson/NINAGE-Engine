@@ -60,7 +60,6 @@ class Ninage {
         void draw(float delta);
         void tick(float delta);
         void close();
-        void drawText(std::string message, std::string fontfile, int size, Color * color);
         void addScene(Scene * scene);
         void randomizeSeed();
         void setViewMode(int viewmode);

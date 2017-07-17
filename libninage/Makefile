@@ -24,6 +24,7 @@ OFILES=\
        Point.o\
        EngineMath.o\
        Color.o\
+       GraphicsCard.o\
        Component.o
 
 LIBFILES=libninage.a libninage.so
@@ -63,6 +64,9 @@ EngineMath.o: src/utils/EngineMath.cpp src/includes/utils/EngineMath.h
 
 Color.o: src/utils/Color.cpp src/includes/utils/Color.h
 	g++ $(G_FLAGZ) -c src/utils/Color.cpp
+
+GraphicsCard.o: src/utils/GraphicsCard.cpp src/includes/utils/GraphicsCard.h
+	g++ $(G_FLAGZ) -c src/utils/GraphicsCard.cpp
 
 Component.o: src/Component.cpp src/includes/Component.h
 	g++ $(G_FLAGZ) -c src/Component.cpp
