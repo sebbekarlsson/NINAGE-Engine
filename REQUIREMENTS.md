@@ -13,3 +13,6 @@
 > If you are running MacOS,
 > you can install some of the requirements using
 > [this script][install_requirements_mac.sh]
+
+## Linux Users
+> Linux users probably knows what to do.
