@@ -8,3 +8,8 @@
 * OpenGL
 * GLUT
 * [GLM](http://glm.g-truc.net/0.9.8/index.html)
+
+## MacOS
+> If you are running MacOS,
+> you can install some of the requirements using
+> [this script][install_requirements_mac.sh]
