@@ -76,3 +76,27 @@ void GraphicsCard::drawText(
 
     SDL_FreeSurface(sFont); // a `delete sFont` is not needed because of this.
 }
+
+/**
+ * Get the graphics driver that is being used.
+ *
+ * @return const GLuByte*
+ */
+const GLubyte* GraphicsCard::getVendor() {
+    return glGetString(GL_VENDOR); 
+}
+
+/**
+ * Check if vendor is Nvidia
+ *
+ * @return bool
+ */
+bool GraphicsCard::vendorIsInvidia() {
+    std::string vendor = std::string(
+        reinterpret_cast<const char*>(GraphicsCard::getVendor())
+    );
+
+    std::transform(vendor.begin(), vendor.end(), vendor.begin(), ::tolower);
+    
+    return vendor.find("nvidia") != std::string::npos;
+}

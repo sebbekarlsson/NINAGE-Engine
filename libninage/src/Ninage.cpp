@@ -1,5 +1,6 @@
 #include "includes/Scene.h"
 #include "includes/Ninage.h"
+#include "includes/utils/GraphicsCard.h"
 #include <random>
 #include <time.h>
 
@@ -55,7 +56,7 @@ bool Ninage::initGL() {
         std::cout << "DEPTH TEST ENABLED" << std::endl;
         glEnable(GL_DEPTH_TEST);
         
-        if (this->vendorIsInvidia()) {
+        if (GraphicsCard::vendorIsInvidia()) {
             std::cout << "NVIDIA detected, we will use GL_LEQUAL" << std::endl;
             glDepthFunc(GL_LEQUAL);
         } else {
@@ -342,7 +343,7 @@ bool Ninage::isFontLoaded(std::string fontfile) {
  * Used to randomize the random functionality.
  */
 void Ninage::randomizeSeed() {
-    srand (time(NULL));
+    srand(time(NULL));
 }
 
 /**
@@ -355,30 +356,6 @@ void Ninage::randomizeSeed() {
  */
 void Ninage::setViewMode(int viewmode) {
     this->VIEWMODE = viewmode;
-}
-
-/**
- * Get the graphics driver that is being used.
- *
- * @return const GLuByte*
- */
-const GLubyte* Ninage::getVendor() {
-    return glGetString(GL_VENDOR); 
-}
-
-/**
- * Check if vendor is Nvidia
- *
- * @return bool
- */
-bool Ninage::vendorIsInvidia() {
-    std::string vendor = std::string(
-        reinterpret_cast<const char*>(this->getVendor())
-    );
-
-    std::transform(vendor.begin(), vendor.end(), vendor.begin(), ::tolower);
-    
-    return vendor.find("nvidia") != std::string::npos;
 }
 
 /**

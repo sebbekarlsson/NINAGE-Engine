@@ -13,6 +13,11 @@ namespace GraphicsCard {
         Color * color,
         int size
     );
+    
+    const GLubyte* getVendor();
+    
+    bool vendorIsInvidia();
+
 };
 
 #endif
