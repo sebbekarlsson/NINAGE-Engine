@@ -6,6 +6,7 @@
 
 namespace EngineMath {
     float toRadians(float degrees);
+    float toZero(float x, float friction);
 };
 
 #endif

@@ -14,7 +14,9 @@ class Instance {
 
         std::vector<Component*> *components = new std::vector<Component*>();
         
-        float rotation;
+        float xrotation;
+        float yrotation;
+        float zrotation;
         bool centeredOrigo;
         bool trash;
         bool interactive;

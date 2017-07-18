@@ -13,13 +13,15 @@ class Entity: public Instance {
         float dx;
         float dy;
         float dz;
-        float drot;
+        float dxrot;
+        float dyrot;
+        float dzrot;
         float friction;
         float rotationFriction;
         
         void updatePhysics(float delta);
         void addForce(float degress, float force);
-        void addRotation(float rotation);
+        void addRotation(float rotation, int axis);
         float getMovingDirection(float delta);
         bool intersectsWith(float delta, Entity * entity);
 };

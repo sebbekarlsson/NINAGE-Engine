@@ -7,7 +7,9 @@
  */
 Instance::Instance(float x, float y, float z) {
     this->position = new glm::vec3(x, y, z);
-    this->rotation = 0.0f;
+    this->xrotation = 0.0f;
+    this->yrotation = 0.0f;
+    this->zrotation = 0.0f;
     this->centeredOrigo = false;
     this->trash = false;
     this->sprite = new Sprite();
