@@ -4,9 +4,8 @@
 #include <cmath>
 
 
-class EngineMath {
-    public:
-        static float toRadians(float degrees);
+namespace EngineMath {
+    float toRadians(float degrees);
 };
 
 #endif
