@@ -1,6 +1,7 @@
 #include "../includes/Ninage.h"
 #include "../includes/utils/GraphicsCard.h"
 
+
 /**
  * Used to draw text using OpenGL technology,
  * will load font if it is not already loaded.
