@@ -21,8 +21,8 @@ Entity::Entity(float x, float y, float z): Instance(x, y, z) {
  */
 void Entity::updatePhysics(float delta) {
     dx = EngineMath::toZero(dx, friction);
-    dy = EngineMath::toZero(dx, friction);
-    dz = EngineMath::toZero(dx, friction);
+    dy = EngineMath::toZero(dy, friction);
+    dz = EngineMath::toZero(dz, friction);
     
     dxrot = EngineMath::toZero(dxrot, rotationFriction);
     dyrot = EngineMath::toZero(dyrot, rotationFriction);
