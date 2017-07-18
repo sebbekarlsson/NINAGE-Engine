@@ -17,8 +17,8 @@ float EngineMath::toRadians(float degrees) {
  * This method will decrease the value of a variable until
  * it becomes `0` (zero).
  *
- * @param x
- * @param friction
+ * @param float x
+ * @param float friction
  *
  * @return float
  */
