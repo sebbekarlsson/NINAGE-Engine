@@ -9,7 +9,7 @@ class Component;
 
 class Instance {
     public:
-        Instance(float x, float y);
+        Instance(float x, float y, float z);
         virtual ~Instance() = 0;
 
         std::vector<Component*> *components = new std::vector<Component*>();

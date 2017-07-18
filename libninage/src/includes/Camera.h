@@ -15,7 +15,7 @@ class Camera: public Entity {
         glm::vec2 *zoomPoint;
 
     public:
-        Camera(float x, float y);
+        Camera(float x, float y, float z);
 
         float zoom;
 

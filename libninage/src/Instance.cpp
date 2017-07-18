@@ -5,8 +5,8 @@
 /**
  * Constructor
  */
-Instance::Instance(float x, float y) {
-    this->position = new glm::vec3(x, y, 0.0f);
+Instance::Instance(float x, float y, float z) {
+    this->position = new glm::vec3(x, y, z);
     this->rotation = 0.0f;
     this->centeredOrigo = false;
     this->trash = false;

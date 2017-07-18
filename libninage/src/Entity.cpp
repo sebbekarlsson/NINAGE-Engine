@@ -1,9 +1,10 @@
 #include "includes/Entity.h"
 
 
-Entity::Entity(float x, float y): Instance(x, y) {
+Entity::Entity(float x, float y, float z): Instance(x, y, z) {
     this->dx = 0.0f;
     this->dy = 0.0f;
+    this->dz = 0.0f;
     this->drot = 0.0f;
     this->friction = 0.03f;
     this->rotationFriction = 0.06f;
@@ -48,7 +49,23 @@ void Entity::updatePhysics(float delta) {
             this->dy += this->friction;
         }
     }
+   
+    if (this->dz > 0) {
+        if (this->dz - this->friction < 0) {
+            this->dz = 0.0f;
+        } else {
+            this->dz -= this->friction;
+        }
+    }
 
+    if (this->dz < 0) {
+        if (this->dz + this->friction > 0) {
+            this->dz = 0.0f;
+        } else {
+            this->dz += this->friction;
+        }
+    }
+    
     if (this->drot > 0) {
         if (this->drot - this->rotationFriction < 0) {
             this->drot = 0.0f;

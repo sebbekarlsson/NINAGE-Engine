@@ -8,10 +8,11 @@
 
 class Entity: public Instance {
     public:
-        Entity(float x, float y);
+        Entity(float x, float y, float z);
 
         float dx;
         float dy;
+        float dz;
         float drot;
         float friction;
         float rotationFriction;
