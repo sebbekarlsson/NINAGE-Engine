@@ -106,8 +106,8 @@ void Scene::drawDefault(float delta) {
             glTranslatef(((*it)->sprite->getWidth()/2), ((*it)->sprite->getHeight()/2), 0);
         }
 
-        glRotatef((*it)->xrotation, 0.0f, 0.0f, 1.0f);
-        glRotatef((*it)->yrotation, 0.0f, 0.0f, 1.0f);
+        glRotatef((*it)->xrotation, 1.0f, 0.0f, 0.0f);
+        glRotatef((*it)->yrotation, 0.0f, 1.0f, 0.0f);
         glRotatef((*it)->zrotation, 0.0f, 0.0f, 1.0f);
 
         if ((*it)->centeredOrigo) {
