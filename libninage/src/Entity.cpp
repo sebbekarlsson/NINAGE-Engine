@@ -15,7 +15,7 @@ Entity::Entity(float x, float y, float z): Instance(x, y, z) {
 
 /**
  * Updates physics, the goal is that
- * delta-x and delta-y becomes `0`
+ * delta-x, delta-y, delta-z becomes `0`
  *
  * @param float delta
  */
@@ -54,6 +54,7 @@ void Entity::addForce(float degrees, float force) {
  * "Pushes" or adds rotation to the object.
  *
  * @param float rotation
+ * @param int axis (0 = x, 1 = y, 2 = z)
  */
 void Entity::addRotation(float rotation, int axis) {
     switch (axis) {
