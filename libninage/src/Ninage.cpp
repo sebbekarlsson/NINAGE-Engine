@@ -43,7 +43,9 @@ bool Ninage::initGL() {
             glOrtho(0, (WIDTH * SCALE), (HEIGHT * SCALE), 0, 1, -1);
         break;
         case 1:
-            gluPerspective(80.0f, 0.0f, this->WIDTH / this->HEIGHT , 500.0f);
+            glMatrixMode(GL_PROJECTION);
+            glLoadIdentity();
+            gluPerspective(60.0f, (float) WIDTH / HEIGHT, 0.01f, 500.0f);
         break;
     }
 
