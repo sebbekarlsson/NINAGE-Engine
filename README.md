@@ -8,6 +8,9 @@
 > It's purpose is to be an interactive media engine, games just happen
 > to fall into that catagory.
 
+## License
+> [GNU General Public License](LICENSE.md)
+
 ## Supported Dimensions
 * 2D
 * 3D
