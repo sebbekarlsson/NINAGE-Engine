@@ -38,7 +38,6 @@ bool Ninage::initGL() {
 
     switch (this->VIEWMODE) {
         case 0:
-            //glViewport(0, 0, (WIDTH * SCALE), (HEIGHT * SCALE));
             glOrtho(0, (WIDTH * SCALE), (HEIGHT * SCALE), 0, 1, -1);
         break;
         case 1:
