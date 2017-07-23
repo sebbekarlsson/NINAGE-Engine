@@ -8,6 +8,10 @@
 > It's purpose is to be an interactive media engine, games just happen
 > to fall into that catagory.
 
+## Supported Dimensions
+* 2D
+* 3D
+
 ## Documentation
 > [Documentation](DOCUMENTATION.md)
 
