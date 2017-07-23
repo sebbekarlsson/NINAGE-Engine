@@ -97,13 +97,13 @@ void Scene::drawDefault(float delta) {
         glPushMatrix();
 
         if ((*it)->centeredOrigo) {
-            glTranslatef((*it)->getX() - (*it)->sprite->getWidth()/2, (*it)->getY() - (*it)->sprite->getHeight()/2, 0.0f);
+            glTranslatef((*it)->getX() - (*it)->collisionBox->width/2, (*it)->getY() - (*it)->collisionBox->height/2, (*it)->getZ() - (*it)->collisionBox->depth);
         } else {
-            glTranslatef((*it)->getX(), (*it)->getY(), 0.0f); 
+            glTranslatef((*it)->getX(), (*it)->getY(), (*it)->getZ()); 
         }
 
         if ((*it)->centeredOrigo) {
-            glTranslatef(((*it)->sprite->getWidth()/2), ((*it)->sprite->getHeight()/2), 0);
+            glTranslatef(((*it)->collisionBox->width/2), ((*it)->collisionBox->height/2), ((*it)->collisionBox->depth/2));
         }
 
         glRotatef((*it)->xrotation, 1.0f, 0.0f, 0.0f);
@@ -111,7 +111,7 @@ void Scene::drawDefault(float delta) {
         glRotatef((*it)->zrotation, 0.0f, 0.0f, 1.0f);
 
         if ((*it)->centeredOrigo) {
-            glTranslatef(-((*it)->sprite->getWidth()/2), -((*it)->sprite->getHeight()/2), 0);
+            glTranslatef(-((*it)->collisionBox->width/2), -((*it)->collisionBox->height/2), -(*it)->collisionBox->depth);
         }
 
         (*it)->draw(delta);

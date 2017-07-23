@@ -33,6 +33,7 @@ class Instance {
         void setZ(float z);
         void tickDefault(float delta);
         void drawDefault(float delta);
+        void syncCollisionBoxWithSprite(float delta);
         
         /**
          * Update logic for object / instance

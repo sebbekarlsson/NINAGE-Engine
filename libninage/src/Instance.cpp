@@ -13,7 +13,7 @@ Instance::Instance(float x, float y, float z) {
     this->centeredOrigo = false;
     this->trash = false;
     this->sprite = new Sprite();
-    this->collisionBox = new CollisionBox(16.0f, 16.0f);
+    this->collisionBox = new CollisionBox(16.0f, 16.0f, 16.0f);
     this->interactive = false;
 }
 
@@ -93,6 +93,17 @@ void Instance::setY(float y) {
  */
 void Instance::setZ(float z) {
     this->position->z = z;
+}
+
+
+/**
+ * Will set the collisionbox size to the same size as the sprite.
+ */
+void Instance::syncCollisionBoxWithSprite(float delta) {
+    this->collisionBox->setSize(
+            this->sprite->getWidth(),
+            this->sprite->getHeight()
+    );
 }
 
 /**
