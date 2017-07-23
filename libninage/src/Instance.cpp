@@ -115,7 +115,7 @@ void Instance::tickDefault(float delta) {
  */
 void Instance::drawDefault(float delta) {
     for (std::vector<Component*>::iterator it = this->components->begin(); it != this->components->end();) {
-        (*it)->tick(delta);
+        (*it)->draw(delta);
 
         ++it;
     }
