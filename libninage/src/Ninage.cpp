@@ -36,28 +36,19 @@ bool Ninage::initGL() {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
-    glViewport(0, 0, (WIDTH * SCALE), (HEIGHT * SCALE));
-
     switch (this->VIEWMODE) {
         case 0:
+            //glViewport(0, 0, (WIDTH * SCALE), (HEIGHT * SCALE));
             glOrtho(0, (WIDTH * SCALE), (HEIGHT * SCALE), 0, 1, -1);
         break;
         case 1:
-            glMatrixMode(GL_PROJECTION);
-            glLoadIdentity();
-            gluPerspective(60.0f, (float) WIDTH / HEIGHT, 0.01f, 500.0f);
+            gluPerspective(45.0f, (float) WIDTH / HEIGHT, 1.0f, 500.0f);
         break;
     }
-
+    
     glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-
-    glDisable(GL_TEXTURE_2D);
     
     #ifndef __APPLE__
-        std::cout << "DEPTH TEST ENABLED" << std::endl;
-        glEnable(GL_DEPTH_TEST);
-        
         if (GraphicsCard::vendorIsInvidia()) {
             std::cout << "NVIDIA detected, we will use GL_LEQUAL" << std::endl;
             glDepthFunc(GL_LEQUAL);
@@ -66,10 +57,15 @@ bool Ninage::initGL() {
             glDepthFunc(GL_GREATER);
         }
     #endif
-    
-    glDepthMask(GL_FALSE);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    glDisable(GL_TEXTURE_2D);
+    glEnable(GL_DEPTH_TEST);
+    //glEnable(GL_LIGHTING);
+    //glEnable(GL_LIGHT0);
+    glEnable(GL_NORMALIZE);
+    glDisable(GL_COLOR_MATERIAL);
     glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_TEXTURE_2D);
 
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -151,9 +147,10 @@ bool Ninage::init() {
  * @param float delta
  */
 void Ninage::draw(float delta) {
-    if (!this->getCurrentScene()->initialized) { return; }
+    if (!this->getCurrentScene()->initialized)
+        return;
 
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
     glPushMatrix();
     
