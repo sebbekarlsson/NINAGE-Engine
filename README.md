@@ -1,7 +1,7 @@
 # NINAGE ENGINE
 > **N**inage **I**s **N**ot **A** **G**ame **E**ngine
 
-> ![alt text](77599_vrlrc_engine_sm.gif)
+> ![alt text](screenshots/display.jpg)
 
 > (But it can be used as a game engine)
 
