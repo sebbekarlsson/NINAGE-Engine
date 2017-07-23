@@ -9,12 +9,14 @@ class Component;
 
 class Instance {
     public:
-        Instance(float x, float y);
+        Instance(float x, float y, float z);
         virtual ~Instance() = 0;
 
         std::vector<Component*> *components = new std::vector<Component*>();
         
-        float rotation;
+        float xrotation;
+        float yrotation;
+        float zrotation;
         bool centeredOrigo;
         bool trash;
         bool interactive;
@@ -31,6 +33,7 @@ class Instance {
         void setZ(float z);
         void tickDefault(float delta);
         void drawDefault(float delta);
+        void syncCollisionBoxWithSprite(float delta);
         
         /**
          * Update logic for object / instance

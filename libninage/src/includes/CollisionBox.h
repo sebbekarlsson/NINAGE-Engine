@@ -7,12 +7,13 @@
 
 class CollisionBox {
     public:
-        CollisionBox(float WIDTH, float HEIGHT);
+        CollisionBox(float width, float height, float depth);
 
         glm::vec3 *offset;
 
         float width;
         float height;
+        float depth;
 
         void draw(float delta);
         void setSize(float width, float height);

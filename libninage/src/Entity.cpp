@@ -1,10 +1,13 @@
 #include "includes/Entity.h"
 
 
-Entity::Entity(float x, float y): Instance(x, y) {
+Entity::Entity(float x, float y, float z): Instance(x, y, z) {
     this->dx = 0.0f;
     this->dy = 0.0f;
-    this->drot = 0.0f;
+    this->dz = 0.0f;
+    this->dxrot = 0.0f;
+    this->dyrot = 0.0f;
+    this->dzrot = 0.0f;
     this->friction = 0.03f;
     this->rotationFriction = 0.06f;
 }
@@ -12,62 +15,26 @@ Entity::Entity(float x, float y): Instance(x, y) {
 
 /**
  * Updates physics, the goal is that
- * delta-x and delta-y becomes `0`
+ * delta-x, delta-y, delta-z becomes `0`
  *
  * @param float delta
  */
 void Entity::updatePhysics(float delta) {
-    if (this->dx > 0) {
-        if (this->dx - this->friction < 0) {
-            this->dx = 0.0f;
-        } else {
-            this->dx -= this->friction;
-        }
-    }
+    dx = EngineMath::toZero(dx, friction);
+    dy = EngineMath::toZero(dy, friction);
+    dz = EngineMath::toZero(dz, friction);
     
-    if (this->dx < 0) {
-        if (this->dx + this->friction > 0) {
-            this->dx = 0.0f;
-        } else {
-            this->dx += this->friction;
-        }
-    }
+    dxrot = EngineMath::toZero(dxrot, rotationFriction);
+    dyrot = EngineMath::toZero(dyrot, rotationFriction);
+    dzrot = EngineMath::toZero(dzrot, rotationFriction);
 
-    if (this->dy > 0) {
-        if (this->dy - this->friction < 0) {
-            this->dy = 0.0f;
-        } else {
-            this->dy -= this->friction;
-        }
-    }
-
-    if (this->dy < 0) {
-        if (this->dy + this->friction > 0) {
-            this->dy = 0.0f;
-        } else {
-            this->dy += this->friction;
-        }
-    }
-
-    if (this->drot > 0) {
-        if (this->drot - this->rotationFriction < 0) {
-            this->drot = 0.0f;
-        } else {
-            this->drot -= this->rotationFriction;
-        }
-    }
-
-    if (this->drot < 0) {
-        if (this->drot + this->rotationFriction > 0) {
-            this->drot = 0.0f;
-        } else {
-            this->drot += this->rotationFriction;
-        }
-    }
-
-    this->rotation += this->drot * delta;
+    this->xrotation += this->dxrot * delta;
+    this->yrotation += this->dyrot * delta;
+    this->zrotation += this->dzrot * delta;
+    
     this->position->x += this->dx * delta;
     this->position->y += this->dy * delta;
+    this->position->z += this->dz * delta;
 }
 
 
@@ -87,9 +54,20 @@ void Entity::addForce(float degrees, float force) {
  * "Pushes" or adds rotation to the object.
  *
  * @param float rotation
+ * @param int axis (0 = x, 1 = y, 2 = z)
  */
-void Entity::addRotation(float rotation) {
-    this->drot += rotation;
+void Entity::addRotation(float rotation, int axis) {
+    switch (axis) {
+        case 0:
+            this->dxrot += rotation;
+        break;
+        case 1:
+            this->dyrot += rotation;
+        break;
+        case 2:
+           this->dzrot += rotation;
+        break;
+    }
 }
 
 /**

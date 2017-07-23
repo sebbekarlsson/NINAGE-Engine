@@ -17,7 +17,7 @@ void SpriteImage::bind() {
         glGenTextures(1, &this->TextureID);
         glBindTexture(GL_TEXTURE_2D, this->TextureID);
 
-        glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
         glTexImage2D(GL_TEXTURE_2D,

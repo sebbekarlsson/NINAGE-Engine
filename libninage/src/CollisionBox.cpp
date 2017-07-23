@@ -4,9 +4,10 @@
 /**
  * Constructor
  */
-CollisionBox::CollisionBox(float width, float height) {
+CollisionBox::CollisionBox(float width, float height, float depth) {
     this->width = width;
     this->height = height;
+    this->depth = depth;
 
     this->offset = new glm::vec3(0.0f, 0.0f, -1.0f);
 }

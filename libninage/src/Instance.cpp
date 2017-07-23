@@ -5,13 +5,15 @@
 /**
  * Constructor
  */
-Instance::Instance(float x, float y) {
-    this->position = new glm::vec3(x, y, 0.0f);
-    this->rotation = 0.0f;
+Instance::Instance(float x, float y, float z) {
+    this->position = new glm::vec3(x, y, z);
+    this->xrotation = 0.0f;
+    this->yrotation = 0.0f;
+    this->zrotation = 0.0f;
     this->centeredOrigo = false;
     this->trash = false;
     this->sprite = new Sprite();
-    this->collisionBox = new CollisionBox(16.0f, 16.0f);
+    this->collisionBox = new CollisionBox(16.0f, 16.0f, 16.0f);
     this->interactive = false;
 }
 
@@ -93,6 +95,17 @@ void Instance::setZ(float z) {
     this->position->z = z;
 }
 
+
+/**
+ * Will set the collisionbox size to the same size as the sprite.
+ */
+void Instance::syncCollisionBoxWithSprite(float delta) {
+    this->collisionBox->setSize(
+            this->sprite->getWidth(),
+            this->sprite->getHeight()
+    );
+}
+
 /**
  * Default tick-behavior
  *
@@ -113,7 +126,7 @@ void Instance::tickDefault(float delta) {
  */
 void Instance::drawDefault(float delta) {
     for (std::vector<Component*>::iterator it = this->components->begin(); it != this->components->end();) {
-        (*it)->tick(delta);
+        (*it)->draw(delta);
 
         ++it;
     }
