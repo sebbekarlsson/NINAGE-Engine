@@ -414,6 +414,11 @@ int Ninage::run() {
         this->draw(delta);
         this->tick(delta);
         /* </APP GRAPHICS & LOGIC> */
+        
+        if (app->keyboardDown(SDL_SCANCODE_ESCAPE)) {
+            this->close();
+            return 0;
+        }
 
         SDL_GL_SwapWindow(this->display);
         
