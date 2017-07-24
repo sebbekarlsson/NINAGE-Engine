@@ -47,6 +47,18 @@ bool Ninage::initGL() {
     
     glMatrixMode(GL_MODELVIEW);
     
+    glDisable(GL_TEXTURE_2D);
+    //glEnable(GL_LIGHTING);
+    //glEnable(GL_LIGHT0);
+    glEnable(GL_NORMALIZE);
+    glDisable(GL_COLOR_MATERIAL);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glDepthFunc(GL_LEQUAL);
+
+    glEnable(GL_TEXTURE_2D);
+
     #ifndef __APPLE__
         if (GraphicsCard::vendorIsInvidia()) {
             std::cout << "NVIDIA detected, we will use GL_LEQUAL" << std::endl;
@@ -57,27 +69,10 @@ bool Ninage::initGL() {
         }
     #endif
 
-    glDisable(GL_TEXTURE_2D);
-    glEnable(GL_DEPTH_TEST);
-    //glEnable(GL_LIGHTING);
-    //glEnable(GL_LIGHT0);
-    glEnable(GL_NORMALIZE);
-    glDisable(GL_COLOR_MATERIAL);
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glEnable(GL_TEXTURE_2D);
-
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
     glLoadIdentity();    
-
-    glClearColor(
-        (float)(0/255),
-        (float)(0/255),
-        (float)(0/255),
-        1.0f
-    );
 
     return success;
 }
@@ -150,6 +145,7 @@ void Ninage::draw(float delta) {
         return;
 
     glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+    glAlphaFunc(GL_GREATER, 0);
 
     glPushMatrix();
     

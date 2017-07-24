@@ -4,7 +4,7 @@
 
 Scene::Scene() {
     this->camera = new Camera(0, 0, 0);
-    this->backgroundColor = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+    this->backgroundColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
 }
 
 /**
