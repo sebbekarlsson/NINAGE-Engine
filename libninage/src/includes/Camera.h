@@ -23,6 +23,7 @@ class Camera: public Entity {
         void tick(float delta);
         void scene(float delta, Instance * instance);
         void setZoomPoint(float x, float y);
+
         glm::vec2& getZoomPoint();
 };
 

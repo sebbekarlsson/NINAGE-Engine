@@ -70,6 +70,15 @@ void Entity::addRotation(float rotation, int axis) {
     }
 }
 
+void mouseMoveEvent(
+    int &mouseX,
+    int &mouseY,
+    int &deltaMouseX,
+    int &deltaMouseY
+) {
+
+}
+
 /**
  * Get the direction the object is moving in.
  *

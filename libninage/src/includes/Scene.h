@@ -27,6 +27,13 @@ class Scene {
         void drawDefault(float delta);
         void initialize(float delta);
         void setBackgroundColor(Color * color);
+        
+        virtual void mouseMoveEvent(
+            int &mouseX,
+            int &mouseY,
+            int &deltaMouseX,
+            int &deltaMouseY
+        ) = 0;
 
         /**
          * Update logic for scene

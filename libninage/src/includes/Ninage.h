@@ -62,6 +62,12 @@ class Ninage {
         void addScene(Scene * scene);
         void randomizeSeed();
         void setViewMode(int viewmode);
+        void mouseMoveEvent(
+            int &mouseX,
+            int &mouseY,
+            int &deltaMouseX,
+            int &deltaMouseY
+        );
         void main();
 
         float getFPS();

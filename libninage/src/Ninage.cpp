@@ -148,13 +148,17 @@ void Ninage::draw(float delta) {
     glAlphaFunc(GL_GREATER, 0);
 
     glPushMatrix();
+
+    glRotatef(getCurrentScene()->camera->xrotation, 1.0f, 0.0f, 0.0f);
+    glRotatef(getCurrentScene()->camera->yrotation, 0.0f, 1.0f, 0.0f);
+    glRotatef(getCurrentScene()->camera->zrotation, 0.0f, 0.0f, 1.0f);
     
     this->getCurrentScene()->camera->draw(delta);
 
     glTranslatef(
         -this->getCurrentScene()->camera->getX(),
         -this->getCurrentScene()->camera->getY(),
-        0
+        -this->getCurrentScene()->camera->getZ()
     );
 
     glTranslatef(
@@ -352,6 +356,20 @@ void Ninage::setViewMode(int viewmode) {
     this->VIEWMODE = viewmode;
 }
 
+void Ninage::mouseMoveEvent(
+    int &mouseX,
+    int &mouseY,
+    int &deltaMouseX,
+    int &deltaMouseY
+) {
+    this->getCurrentScene()->mouseMoveEvent(
+        mouseX,
+        mouseY,
+        deltaMouseX,
+        deltaMouseY
+    );
+}
+
 /**
  * Main loop of the application
  *
@@ -382,7 +400,14 @@ int Ninage::run() {
         while (SDL_PollEvent(&e) != 0) {
             if (e.type == SDL_QUIT) {
                 this->quit = true;
-            } 
+            } else if(e.type == SDL_MOUSEMOTION) {
+                app->mouseMoveEvent(
+                    e.motion.x,
+                    e.motion.y,
+                    e.motion.xrel,
+                    e.motion.yrel
+                );
+            }
         }
 
         /* <APP GRAPHICS & LOGIC> */

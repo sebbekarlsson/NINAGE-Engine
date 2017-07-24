@@ -95,7 +95,6 @@ void Instance::setZ(float z) {
     this->position->z = z;
 }
 
-
 /**
  * Will set the collisionbox size to the same size as the sprite.
  */
