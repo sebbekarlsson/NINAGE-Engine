@@ -8,6 +8,7 @@
 Camera::Camera(float x, float y, float z) : Entity(x, y, z) {
     this->zoomPoint = new glm::vec2(0.1f, 0.1f); 
     this->zoom = 1.0f;
+    this->collisionBox->setSize(1.0f, 2.0f, 1.0f);
 }
 
 /**

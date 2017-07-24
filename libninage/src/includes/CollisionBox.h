@@ -16,7 +16,7 @@ class CollisionBox {
         float depth;
 
         void draw(float delta);
-        void setSize(float width, float height);
+        void setSize(float width, float height, float depth);
 
         float getOffsetX();
         float getOffsetY();

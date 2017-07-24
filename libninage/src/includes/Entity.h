@@ -16,6 +16,9 @@ class Entity: public Instance {
         float dxrot;
         float dyrot;
         float dzrot;
+        float xfriction;
+        float yfriction;
+        float zfriction;
         float friction;
         float rotationFriction;
         

@@ -8,8 +8,7 @@ CollisionBox::CollisionBox(float width, float height, float depth) {
     this->width = width;
     this->height = height;
     this->depth = depth;
-
-    this->offset = new glm::vec3(0.0f, 0.0f, -1.0f);
+    this->offset = new glm::vec3(0.0f, 0.0f, 0.0f);
 }
 
 /**
@@ -37,9 +36,10 @@ void CollisionBox::draw(float delta) {
  * @param float width
  * @param float height
  */
-void CollisionBox::setSize(float width, float height) {
+void CollisionBox::setSize(float width, float height, float depth) {
     this->width = width;
     this->height = height;
+    this->depth = depth;
 }
 
 float CollisionBox::getOffsetX() {

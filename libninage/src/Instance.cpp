@@ -101,7 +101,8 @@ void Instance::setZ(float z) {
 void Instance::syncCollisionBoxWithSprite(float delta) {
     this->collisionBox->setSize(
             this->sprite->getWidth(),
-            this->sprite->getHeight()
+            this->sprite->getHeight(),
+            0.0f
     );
 }
 
