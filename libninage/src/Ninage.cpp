@@ -30,7 +30,10 @@ bool Ninage::initGL() {
     //GLenum error = GL_NO_ERROR;
     /* TODO: proper error handling */
 
-    glClearColor(0, 0, 0, 0);
+    
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    glShadeModel(GL_SMOOTH);
+    
     glClearDepth(1.0f);
 
     glMatrixMode(GL_PROJECTION);
@@ -42,23 +45,25 @@ bool Ninage::initGL() {
         break;
         case 1:
             gluPerspective(45.0f, (float) WIDTH / HEIGHT, 1.0f, 500.0f);
+            glEnable(GL_LIGHTING);
+            glEnable(GL_LIGHT0);
         break;
     }
     
     glMatrixMode(GL_MODELVIEW);
-    
+
     glDisable(GL_TEXTURE_2D);
-    //glEnable(GL_LIGHTING);
-    //glEnable(GL_LIGHT0);
-    glEnable(GL_NORMALIZE);
-    glDisable(GL_COLOR_MATERIAL);
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_NORMALIZE);
+    glEnable(GL_COLOR_MATERIAL);
+    glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glDepthFunc(GL_LEQUAL);
-
     glEnable(GL_TEXTURE_2D);
 
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    
     #ifndef __APPLE__
         if (GraphicsCard::vendorIsInvidia()) {
             std::cout << "NVIDIA detected, we will use GL_LEQUAL" << std::endl;
@@ -69,10 +74,12 @@ bool Ninage::initGL() {
         }
     #endif
 
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-    glLoadIdentity();    
+    glClearColor(
+        (float)(0/255),
+        (float)(0/255),
+        (float)(0/255),
+        0.0f
+    );
 
     return success;
 }
@@ -143,9 +150,12 @@ bool Ninage::init() {
 void Ninage::draw(float delta) {
     if (!this->getCurrentScene()->initialized)
         return;
-
-    glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+    
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glAlphaFunc(GL_GREATER, 0);
+    glLoadIdentity();
+
+    glClearColor(0, 0, 0, 0);
 
     glPushMatrix();
 
@@ -176,9 +186,23 @@ void Ninage::draw(float delta) {
             0.0f
             );
 
+    if (this->VIEWMODE == 1) {
+        GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+        GLfloat mat_shininess[] = { 50.0 };
+        GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
+        glClearColor(0.0, 0.0, 0.0, 0.0);
+        glShadeModel(GL_SMOOTH);
+
+        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+        glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+    }
+
     this->getCurrentScene()->draw(delta);
 
     glPopMatrix();
+
+    glFlush();
 }
 
 /**

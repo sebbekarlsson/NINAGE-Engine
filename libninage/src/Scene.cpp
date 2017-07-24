@@ -86,13 +86,6 @@ void Scene::tickDefault(float delta) {
  * Default scene graphics behavior
  */
 void Scene::drawDefault(float delta) {
-    glClearColor(
-        this->backgroundColor->r,
-        this->backgroundColor->g,
-        this->backgroundColor->b,
-        this->backgroundColor->a
-    );
-    
     for (std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
         glPushMatrix();
 
@@ -118,6 +111,13 @@ void Scene::drawDefault(float delta) {
 
         glPopMatrix();
     }
+
+    glClearColor(
+        this->backgroundColor->r,
+        this->backgroundColor->g,
+        this->backgroundColor->b,
+        this->backgroundColor->a
+    );
 }
 
 /**
