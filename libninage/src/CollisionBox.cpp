@@ -35,6 +35,7 @@ void CollisionBox::draw(float delta) {
  *
  * @param float width
  * @param float height
+ * @param float depth
  */
 void CollisionBox::setSize(float width, float height, float depth) {
     this->width = width;
