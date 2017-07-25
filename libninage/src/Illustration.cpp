@@ -1,8 +1,8 @@
-#include "includes/SpriteImage.h"
+#include "includes/Illustration.h"
 #include <iostream>
 
 
-SpriteImage::SpriteImage(SDL_Surface *surface) {
+Illustration::Illustration(SDL_Surface *surface) {
     this->surface = surface;
     this->TextureID = 0;
     this->bound = false;
@@ -12,7 +12,7 @@ SpriteImage::SpriteImage(SDL_Surface *surface) {
  * Binds the texture to the current OpenGL context, so that
  * it can be used for example texture coordinates.
  */
-void SpriteImage::bind() {
+void Illustration::bind() {
     if (!this->bound) {
         glGenTextures(1, &this->TextureID);
         glBindTexture(GL_TEXTURE_2D, this->TextureID);
@@ -41,7 +41,7 @@ void SpriteImage::bind() {
 /**
  * Unbinds / removes the texture from the current OpenGL context.
  */
-void SpriteImage::unbind() {
+void Illustration::unbind() {
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
@@ -50,7 +50,7 @@ void SpriteImage::unbind() {
  *
  * @return int
  */
-int SpriteImage::getWidth() {
+int Illustration::getWidth() {
     if (this->surface == NULL)
         return 0;
 
@@ -62,7 +62,7 @@ int SpriteImage::getWidth() {
  *
  * @return int
  */
-int SpriteImage::getHeight() {
+int Illustration::getHeight() {
     if (this->surface == NULL)
         return 0;
 

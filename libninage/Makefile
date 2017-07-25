@@ -17,8 +17,8 @@ OFILES=\
        CollisionBox.o\
        Instance.o\
        Entity.o\
-       SpriteImage.o\
-       Sprite.o\
+       Illustration.o\
+       IllustrationStack.o\
        Camera.o\
        Scene.o\
        Point.o\
@@ -35,11 +35,11 @@ all: $(OFILES) $(LIBFILES)
 Ninage.o: src/Ninage.cpp src/includes/Ninage.h
 	g++ $(G_FLAGZ) -c src/Ninage.cpp
 
-SpriteImage.o: src/SpriteImage.cpp src/includes/SpriteImage.h
-	g++ $(G_FLAGZ) -c src/SpriteImage.cpp
+Illustration.o: src/Illustration.cpp src/includes/Illustration.h
+	g++ $(G_FLAGZ) -c src/Illustration.cpp
 
-Sprite.o: src/Sprite.cpp src/includes/Sprite.h
-	g++ $(G_FLAGZ) -c src/Sprite.cpp
+IllustrationStack.o: src/IllustrationStack.cpp src/includes/IllustrationStack.h
+	g++ $(G_FLAGZ) -c src/IllustrationStack.cpp
 
 CollisionBox.o: src/CollisionBox.cpp src/includes/CollisionBox.h
 	g++ $(G_FLAGZ) -c src/CollisionBox.cpp

@@ -1,7 +1,7 @@
 #ifndef INSTANCE_H
 #define INSTANCE_H
 
-#include "Sprite.h"
+#include "IllustrationStack.h"
 #include "CollisionBox.h"
 #include <glm/vec3.hpp>
 
@@ -20,7 +20,7 @@ class Instance {
         bool centeredOrigo;
         bool trash;
         bool interactive;
-        Sprite *sprite;
+        IllustrationStack *illustrationStack;
         CollisionBox *collisionBox;
         glm::vec3 *position;
 
@@ -33,7 +33,7 @@ class Instance {
         void setZ(float z);
         void tickDefault(float delta);
         void drawDefault(float delta);
-        void syncCollisionBoxWithSprite(float delta);
+        void syncCollisionBoxWithIllustrationStack(float delta);
         
         /**
          * Update logic for object / instance

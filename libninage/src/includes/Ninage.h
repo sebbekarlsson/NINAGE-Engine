@@ -13,7 +13,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
-#include "SpriteImage.h"
+#include "Illustration.h"
 #include <glm/vec2.hpp> 
 #include "Scene.h"
 
@@ -48,7 +48,7 @@ class Ninage {
         bool loadFont(std::string fontfile, int size);
         bool isFontLoaded(std::string fontfile);
 
-        SpriteImage* loadImage(std::string path);
+        Illustration* loadImage(std::string path);
         Scene* getCurrentScene();
         glm::vec2 getMousePosition();
 

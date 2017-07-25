@@ -302,11 +302,11 @@ void Ninage::addScene(Scene *scene) {
  *
  * @param std::string path
  *
- * @return SpriteImage
+ * @return Illustration
  */
-SpriteImage* Ninage::loadImage(std::string path) {
+Illustration* Ninage::loadImage(std::string path) {
     SDL_Surface * surface = IMG_Load(path.c_str());
-    SpriteImage * image = new SpriteImage(&*surface);
+    Illustration * image = new Illustration(&*surface);
 
     return image;
 }

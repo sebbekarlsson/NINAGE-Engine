@@ -12,7 +12,7 @@ Instance::Instance(float x, float y, float z) {
     this->zrotation = 0.0f;
     this->centeredOrigo = false;
     this->trash = false;
-    this->sprite = new Sprite();
+    this->illustrationStack = new IllustrationStack();
     this->collisionBox = new CollisionBox(16.0f, 16.0f, 16.0f);
     this->interactive = false;
 }
@@ -21,7 +21,7 @@ Instance::Instance(float x, float y, float z) {
  * Destructor
  */
 Instance::~Instance() {
-    delete this->sprite;
+    delete this->illustrationStack;
     delete this->collisionBox;
     delete this->components;
 }
@@ -96,13 +96,13 @@ void Instance::setZ(float z) {
 }
 
 /**
- * Will set the collisionbox size to the same size as the sprite.
+ * Will set the collisionbox size to the same size as the IllustrationStack.
  */
-void Instance::syncCollisionBoxWithSprite(float delta) {
+void Instance::syncCollisionBoxWithIllustrationStack(float delta) {
     this->collisionBox->setSize(
-            this->sprite->getWidth(),
-            this->sprite->getHeight(),
-            0.0f
+        this->illustrationStack->getWidth(),
+        this->illustrationStack->getHeight(),
+        0.0f
     );
 }
 
