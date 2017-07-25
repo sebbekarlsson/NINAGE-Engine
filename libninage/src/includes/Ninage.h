@@ -48,7 +48,7 @@ class Ninage {
         bool loadFont(std::string fontfile, int size);
         bool isFontLoaded(std::string fontfile);
 
-        Illustration* loadImage(std::string path);
+        Illustration* loadIllustration(std::string path);
         Scene* getCurrentScene();
         glm::vec2 getMousePosition();
 

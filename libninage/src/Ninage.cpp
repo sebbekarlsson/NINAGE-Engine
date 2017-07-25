@@ -298,13 +298,13 @@ void Ninage::addScene(Scene *scene) {
 }
 
 /**
- * Load an image which can be drawn.
+ * Load an illustration which can be drawn.
  *
  * @param std::string path
  *
  * @return Illustration
  */
-Illustration* Ninage::loadImage(std::string path) {
+Illustration* Ninage::loadIllustration(std::string path) {
     SDL_Surface * surface = IMG_Load(path.c_str());
     Illustration * image = new Illustration(&*surface);
 
