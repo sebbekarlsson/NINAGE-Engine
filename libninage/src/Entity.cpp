@@ -102,22 +102,44 @@ float Entity::getMovingDirection(float delta) {
  * @return bool
  */
 bool Entity::intersectsWith(float delta, Entity * entity) {
-    return
-        (this->getX() - this->collisionBox->width) + (this->dx * delta) <=
-        entity->getX() + entity->collisionBox->width+(entity->dx * delta) &&
-        
-        this->getX() + this->collisionBox->width+(this->dx * delta) >=
-        entity->getX() + (entity->dx * delta) &&
-        
-        (this->getY() - this->collisionBox->height) + (this->dy * delta) <=
-        entity->getY()+entity->collisionBox->height + (entity->dy * delta) &&
-        
-        this->getY() + this->collisionBox->height + (this->dy * delta) >=
-        entity->getY() + (entity->dy * delta) &&
 
-        (this->getZ() - this->collisionBox->depth) + (this->dz * delta) <=
-        entity->getZ()+entity->collisionBox->depth + (entity->dz * delta) &&
-        
-        this->getZ() + this->collisionBox->depth + (this->dz * delta) >=
-        entity->getZ() + (entity->dz * delta);
+    if (this->centeredOrigo) {
+        return
+            (this->getX() - this->collisionBox->width / 2) + (this->dx * delta) <=
+            entity->getX() + entity->collisionBox->width + (entity->dx * delta) &&
+            
+            this->getX() + this->collisionBox->width / 2 + (this->dx * delta) >=
+            entity->getX() + (entity->dx * delta) &&
+            
+            (this->getY() - this->collisionBox->height) + (this->dy * delta) <=
+            entity->getY() + entity->collisionBox->height + (entity->dy * delta) &&
+            
+            this->getY() + this->collisionBox->height + (this->dy * delta) >=
+            entity->getY() + (entity->dy * delta) &&
+
+            (this->getZ() - this->collisionBox->depth / 2) + (this->dz * delta) <=
+            entity->getZ() + entity->collisionBox->depth + (entity->dz * delta) &&
+            
+            this->getZ() + this->collisionBox->depth / 2 + (this->dz * delta) >=
+            entity->getZ() + (entity->dz * delta);
+    } else {
+        return
+            (this->getX()) + (this->dx * delta) <=
+            entity->getX() + entity->collisionBox->width + (entity->dx * delta) &&
+            
+            this->getX() + this->collisionBox->width + (this->dx * delta) >=
+            entity->getX() + (entity->dx * delta) &&
+            
+            (this->getY() - this->collisionBox->height) + (this->dy * delta) <=
+            entity->getY() + entity->collisionBox->height + (entity->dy * delta) &&
+            
+            this->getY() + this->collisionBox->height + (this->dy * delta) >=
+            entity->getY() + (entity->dy * delta) &&
+
+            (this->getZ()) + (this->dz * delta) <=
+            entity->getZ() + entity->collisionBox->depth + (entity->dz * delta) &&
+            
+            this->getZ() + this->collisionBox->depth + (this->dz * delta) >=
+            entity->getZ() + (entity->dz * delta);
+    }
 }
