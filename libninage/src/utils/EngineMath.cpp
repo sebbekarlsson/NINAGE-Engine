@@ -13,6 +13,17 @@ float EngineMath::toRadians(float degrees) {
 }
 
 /**
+ * Turns radians to degrees
+ *
+ * @param float radians
+ *
+ * @return float
+ */
+float EngineMath::toDegrees(float radians) {
+    return radians * (180 / M_PI);
+}
+
+/**
  * Mainly used for physics.
  * This method will decrease the value of a variable until
  * it becomes `0` (zero).
@@ -53,9 +64,11 @@ float EngineMath::toZero(float x, float friction) {
  * @return float
  */
 float EngineMath::angleBetween2DPoints(float x0, float y0, float x1, float y1) {
-    return atan2(
-        x0 * y1 - y0 * x1, // determinant
-        x0 * x1 + y0 * y1 // dot product
+    return EngineMath::toDegrees(
+        atan2(
+            std::max(x0, x1) - std::min(x0, x1),
+            std::max(y0, y1) - std::min(y0, y1)
+        )
     );
 }
 
