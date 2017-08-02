@@ -48,8 +48,8 @@ void Entity::updatePhysics(float delta) {
  * @param float force
  */
 void Entity::addForce(float degrees, float force) {
-    this->dx += sin(EngineMath::toRadians(degrees)) * force;
-    this->dz -= cos(EngineMath::toRadians(degrees)) * force;
+    this->dx += cos(EngineMath::toRadians(degrees)) * force;
+    this->dy += sin(EngineMath::toRadians(degrees)) * force;
 }
 
 
