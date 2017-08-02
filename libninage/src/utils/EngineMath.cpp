@@ -58,3 +58,34 @@ float EngineMath::angleBetween2DPoints(float x0, float y0, float x1, float y1) {
         x0 * x1 + y0 * y1 // dot product
     );
 }
+
+/**
+ * Get the angle between 2 3D vectors
+ *
+ * @param float x0
+ * @param float y0
+ * @param float z0
+ * @param float x1
+ * @param float y1
+ * @param float z1
+ *
+ * @return float
+ */
+float EngineMath::angleBetween3DPoints(
+        float x0,
+        float y0,
+        float z0,
+        float x1,
+        float y1,
+        float z1
+) {
+    float dot = x0 * x1 + y0 * y1 + z0 * z1;
+    float lenSq1 = x0 * x0 + y0 * y0 + z0 * z0;
+    float lenSq2 = x1 * x1 + y1 * y1 + z1 * z1;
+
+    return acos(
+        dot / sqrt(
+            lenSq1 * lenSq2
+        )
+    );
+}
