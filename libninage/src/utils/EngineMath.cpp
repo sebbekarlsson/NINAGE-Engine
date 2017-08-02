@@ -41,3 +41,20 @@ float EngineMath::toZero(float x, float friction) {
 
     return x;
 }
+
+/**
+ * Get angle between 2 2D vectors.
+ *
+ * @param float x0
+ * @param float y0
+ * @param float x1
+ * @param float y1
+ *
+ * @return float
+ */
+float EngineMath::angleBetween2DPoints(float x0, float y0, float x1, float y1) {
+    return atan2(
+        x0 * y1 - y0 * x1, // determinant
+        x0 * x1 + y0 * y1 // dot product
+    );
+}
