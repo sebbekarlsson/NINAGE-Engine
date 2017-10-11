@@ -1,6 +1,7 @@
 #include "includes/Scene.h"
 #include "includes/Ninage.h"
 #include "includes/utils/GraphicsCard.h"
+#include "includes/ViewMode.h"
 #include <random>
 #include <time.h>
 
@@ -40,10 +41,10 @@ bool Ninage::initGL() {
     glLoadIdentity();
 
     switch (this->VIEWMODE) {
-        case 0:
+        case ViewMode::D2:
             glOrtho(0, (WIDTH * SCALE), (HEIGHT * SCALE), 0, 1, -1);
         break;
-        case 1:
+        case ViewMode::D3:
             gluPerspective(45.0f, (float) WIDTH / HEIGHT, 0.1f, 500.0f);
             glEnable(GL_LIGHTING);
             glEnable(GL_LIGHT0);
