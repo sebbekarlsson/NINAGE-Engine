@@ -24,6 +24,8 @@ OFILES=\
        Point.o\
        EngineMath.o\
        Color.o\
+       Model3D.o\
+       ModelLoader.o\
        GraphicsCard.o\
        Component.o
 
@@ -64,6 +66,12 @@ EngineMath.o: src/utils/EngineMath.cpp src/includes/utils/EngineMath.h
 
 Color.o: src/utils/Color.cpp src/includes/utils/Color.h
 	g++ $(G_FLAGZ) -c src/utils/Color.cpp
+
+Model3D.o: src/utils/Model3D.cpp src/includes/utils/Model3D.h
+	g++ $(G_FLAGZ) -c src/utils/Model3D.cpp
+
+ModelLoader.o: src/utils/ModelLoader.cpp src/includes/utils/ModelLoader.h
+	g++ $(G_FLAGZ) -c src/utils/ModelLoader.cpp
 
 GraphicsCard.o: src/utils/GraphicsCard.cpp src/includes/utils/GraphicsCard.h
 	g++ $(G_FLAGZ) -c src/utils/GraphicsCard.cpp
