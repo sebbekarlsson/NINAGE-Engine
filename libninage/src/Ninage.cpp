@@ -109,13 +109,13 @@ bool Ninage::init() {
         #endif
 
         display = SDL_CreateWindow (
-                this->TITLE.c_str(),
-                0,
-                0,
-                WIDTH * SCALE,
-                HEIGHT * SCALE,
-                SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN/* | SDL_WINDOW_FULLSCREEN*/
-                );
+            this->TITLE.c_str(),
+            0,
+            0,
+            WIDTH * SCALE,
+            HEIGHT * SCALE,
+            SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN/* | SDL_WINDOW_FULLSCREEN*/
+        );
 
         if (display == NULL) {
             printf("Could not create display: %s", SDL_GetError());
