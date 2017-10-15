@@ -1,4 +1,9 @@
 #include "includes/CollisionBox.h"
+#include "includes/Ninage.h"
+#include "includes/Viewmode.h"
+
+
+extern Ninage *app;
 
 
 /**
@@ -19,12 +24,48 @@ void CollisionBox::draw(float delta) {
     glPushMatrix();
     glDisable(GL_TEXTURE_2D);
     glColor3f(1.0f, 0.0f, 0.0f);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.0f, 0.0f);
-    glVertex2f(0.0f, this->height);
-    glVertex2f(this->width, this->height);
-    glVertex2f(this->width, 0.0f);
-    glEnd();
+
+
+    if (app->getViewmode() == Viewmode::D2) {
+        glBegin(GL_LINE_LOOP);
+        glVertex2f(0.0f, 0.0f);
+        glVertex2f(0.0f, this->height);
+        glVertex2f(this->width, this->height);
+        glVertex2f(this->width, 0.0f);
+        glEnd();
+    } else {
+        glLineWidth(8.0f);
+
+        glBegin(GL_LINE_LOOP);
+        glLineWidth(5.0f);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(0.0f, this->height, 0.0f);
+        glVertex3f(this->width, this->height, 0.0f);
+        glVertex3f(this->width, 0.0f, 0.0f);
+        glEnd();
+
+        glBegin(GL_LINE_LOOP);
+        glVertex3f(0.0f, 0.0f, this->depth);
+        glVertex3f(0.0f, this->height, this->depth);
+        glVertex3f(this->width, this->height, this->depth);
+        glVertex3f(this->width, 0.0f, this->depth);
+        glEnd();
+
+        glBegin(GL_LINE_LOOP);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(0.0f, 0.0f, this->depth);
+        glVertex3f(this->width, 0.0f, this->depth);
+        glVertex3f(this->width, 0.0f, 0.0f);
+        glEnd();
+
+        glBegin(GL_LINE_LOOP);
+        glVertex3f(0.0f, this->height, 0.0f);
+        glVertex3f(0.0f, this->height, this->depth);
+        glVertex3f(this->width, this->height, this->depth);
+        glVertex3f(this->width, this->height, 0.0f);
+        glEnd();
+    }
+
     glEnable(GL_TEXTURE_2D);
     glPopMatrix();
     glColor3f(1.0f, 1.0f, 1.0f);
