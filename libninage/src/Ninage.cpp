@@ -444,10 +444,8 @@ int Ninage::run() {
             }
         }
 
-        /* <APP GRAPHICS & LOGIC> */
-        this->draw(delta);
-        this->tick(delta);
-        /* </APP GRAPHICS & LOGIC> */
+        this->draw(delta); // draw everything
+        this->tick(delta); // update everything
         
         if (app->keyboardDown(SDL_SCANCODE_ESCAPE)) {
             this->close();

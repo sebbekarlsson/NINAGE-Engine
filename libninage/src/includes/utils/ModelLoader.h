@@ -8,12 +8,14 @@
 
 class ModelLoader {
     public:
-        std::map<std::string, Model3D*> *models;
-        
         ModelLoader();
         ~ModelLoader();
 
+
+        std::map<std::string, Model3D*> *models;
+        
         Model3D* load(std::string filepath);
+
         void clearModelcache();
 };
 
