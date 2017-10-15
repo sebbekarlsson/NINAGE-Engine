@@ -1,5 +1,9 @@
 #include "includes/Ninage.h"
 #include "includes/Camera.h"
+#include "includes/Viewmode.h"
+
+
+extern Ninage *app;
 
 
 /**
@@ -10,7 +14,9 @@ Camera::Camera(float x, float y, float z) : Entity(x, y, z) {
     this->zoom = 1.0f;
     this->collisionBox->setSize(0.7f, 2.0f, 0.7f);
     this->centeredOrigo = true;
-    this->xrotation = 180.0f;
+
+    if (app->getViewmode() == Viewmode::D3)
+        this->xrotation = 180.0f;
 }
 
 /**

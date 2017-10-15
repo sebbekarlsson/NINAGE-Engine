@@ -83,7 +83,7 @@ void IllustrationStack::draw(float delta) {
     if (this->getCurrentIllustration() == NULL) { return; }
 
     this->getCurrentIllustration()->bind();
-
+    
     glBegin(GL_QUADS);
     glTexCoord2f(0, 0);
     glVertex2f(0.0f, 0.0f);

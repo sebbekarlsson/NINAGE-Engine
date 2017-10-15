@@ -1,7 +1,7 @@
 #include "includes/Scene.h"
 #include "includes/Ninage.h"
 #include "includes/utils/GraphicsCard.h"
-#include "includes/ViewMode.h"
+#include "includes/Viewmode.h"
 #include <random>
 #include <time.h>
 
@@ -41,10 +41,10 @@ bool Ninage::initGL() {
     glLoadIdentity();
 
     switch (this->VIEWMODE) {
-        case ViewMode::D2:
+        case Viewmode::D2:
             glOrtho(0, (WIDTH * SCALE), (HEIGHT * SCALE), 0, 1, -1);
         break;
-        case ViewMode::D3:
+        case Viewmode::D3:
             gluPerspective(45.0f, (float) WIDTH / HEIGHT, 0.1f, 500.0f);
             glEnable(GL_LIGHTING);
             glEnable(GL_LIGHT0);
@@ -267,7 +267,7 @@ bool Ninage::keyboardDown(int keyCode) {
 /**
  * Get Window Width
  *
- * @return Int
+ * @return int
  */
 int Ninage::getWidth() {
     return this->WIDTH * this->SCALE;
@@ -276,10 +276,19 @@ int Ninage::getWidth() {
 /**
  * Get Window Height
  *
- * @return Int
+ * @return int
  */
 int Ninage::getHeight() {
     return this->HEIGHT * this->SCALE; 
+}
+
+/**
+ * Get mode of the view
+ *
+ * @return int
+ */
+int Ninage::getViewmode() {
+    return this->VIEWMODE;
 }
 
 /**
@@ -377,7 +386,7 @@ void Ninage::randomizeSeed() {
  *
  * @param int viewmode
  */
-void Ninage::setViewMode(int viewmode) {
+void Ninage::setViewmode(int viewmode) {
     this->VIEWMODE = viewmode;
 }
 

@@ -8,7 +8,7 @@
 
 /* Not needed, this is bad */
 //class Ninage;
-//extern Ninage *VARNAME;
+//extern Ninage *app;
 
 class Camera: public Entity {
     private:

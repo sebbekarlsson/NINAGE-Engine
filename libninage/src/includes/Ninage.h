@@ -54,6 +54,7 @@ class Ninage {
 
         int getWidth();
         int getHeight();
+        int getViewmode();
         int run();
 
         void draw(float delta);
@@ -61,7 +62,7 @@ class Ninage {
         void close();
         void addScene(Scene * scene);
         void randomizeSeed();
-        void setViewMode(int viewmode);
+        void setViewmode(int viewmode);
         void mouseMoveEvent(
             int &mouseX,
             int &mouseY,
