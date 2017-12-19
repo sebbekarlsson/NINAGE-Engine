@@ -65,6 +65,8 @@ bool Ninage::initGL() {
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     
+    glDepthFunc(GL_LEQUAL);
+    /* it seems like this fix is no longer needed with latest nvidia driver
     #ifndef __APPLE__
         if (GraphicsCard::vendorIsInvidia()) {
             std::cout << "NVIDIA detected, we will use GL_LEQUAL" << std::endl;
@@ -73,7 +75,7 @@ bool Ninage::initGL() {
             std::cout << "Free from NVIDIA! we will use GL_GREATER" << std::endl;
             glDepthFunc(GL_GREATER);
         }
-    #endif
+    #endif */
 
     glClearColor(
         (float)(0/255),
