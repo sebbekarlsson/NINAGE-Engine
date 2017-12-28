@@ -57,12 +57,6 @@ void Scene::tickDefault(float delta) {
             continue;
         }
 
-        /* Update the size of the collisionBox */
-        //(*it)->collisionBox->setSize(
-        //    (*it)->sprite->getCurrentImage()->getWidth(),
-        //    (*it)->sprite->getCurrentImage()->getHeight()
-        //);
-
         /* Update instance logic */
         (*it)->tick(delta);
         

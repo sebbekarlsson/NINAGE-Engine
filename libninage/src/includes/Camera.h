@@ -6,10 +6,6 @@
 #include "SDL2/SDL_ttf.h"
 
 
-/* Not needed, this is bad */
-//class Ninage;
-//extern Ninage *app;
-
 class Camera: public Entity {
     private:
         glm::vec2 *zoomPoint;
