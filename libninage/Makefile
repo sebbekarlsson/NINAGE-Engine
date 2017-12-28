@@ -21,7 +21,6 @@ OFILES=\
        IllustrationStack.o\
        Camera.o\
        Scene.o\
-       Point.o\
        EngineMath.o\
        Color.o\
        Model3D.o\
@@ -57,9 +56,6 @@ Camera.o: src/Camera.cpp src/includes/Camera.h
 
 Scene.o: src/Scene.cpp src/includes/Scene.h
 	g++ $(G_FLAGZ) -c src/Scene.cpp
-
-Point.o: src/utils/Point.cpp src/includes/utils/Point.h
-	g++ $(G_FLAGZ) -c src/utils/Point.cpp
 
 EngineMath.o: src/utils/EngineMath.cpp src/includes/utils/EngineMath.h
 	g++ $(G_FLAGZ) -c src/utils/EngineMath.cpp
