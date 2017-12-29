@@ -8,8 +8,6 @@
 > It's purpose is to be an interactive media engine, games just happen
 > to fall into that catagory.
 
-> [Official Website](http://ninage.ianertson.me/)
-
 ## Supported Dimensions
 * 2D
 * 3D
