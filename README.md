@@ -6,7 +6,7 @@
 > (But it can be used as a game engine)
 
 > It's purpose is to be an interactive media engine, games just happen
-> to fall into that catagory.
+> to fall into that category.
 
 ## Supported Dimensions
 * 2D
