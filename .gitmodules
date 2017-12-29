@@ -1,3 +1,6 @@
 [submodule "NINAGE-examples"]
 	path = NINAGE-examples
 	url = git@github.com:sebbekarlsson/NINAGE-examples.git
+[submodule "libninage/src/lib/ResourceManager"]
+	path = libninage/src/lib/ResourceManager
+	url = git@github.com:sebbekarlsson/ResourceManager.git

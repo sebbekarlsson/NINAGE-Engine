@@ -1,11 +1,7 @@
 #include "../includes/utils/ModelLoader.h"
 
 
-ModelLoader::ModelLoader() {}
-
-ModelLoader::~ModelLoader(void) {
-    delete this->models;
-}
+std::map<std::string, Model3D*> ModelLoader::models;
 
 /**
  * Load a 3D model
@@ -15,7 +11,7 @@ ModelLoader::~ModelLoader(void) {
  * @return Model3D
  */
 Model3D* ModelLoader::load(std::string filepath) {
-     /* 
+    /* 
      * # List of geometric vertices, with (x,y,z[,w]) coordinates, w is optional and defaults to 1.0.
      *   
      * v 0.123 0.234 0.345 1.0
@@ -44,15 +40,71 @@ Model3D* ModelLoader::load(std::string filepath) {
      *
      * source: https://en.wikipedia.org/wiki/Wavefront_.obj_file
      */
-
-    if (this->models->count(filepath))
-        return this->models->find(filepath)->second;
-
+    
+    
+    if (ModelLoader::models.count(filepath))
+        return ModelLoader::models.find(filepath)->second;
+    
     Model3D* model = new Model3D();
+    
+    ResourceManager::load(filepath);
+    std::string model_contents = ResourceManager::get(filepath);
+    std::istringstream iss(model_contents);
 
-    this->models->operator[](filepath) = model; // store model in the map
+    for (std::string line; std::getline(iss, line);) {
+        if(line.find("v ") != std::string::npos) {
+            // v
+            std::istringstream wiss(line);
+            std::string word;
+            int c = 0;
+            std::vector<float> vertices;
+            while(wiss >> word) {
+                if (c == 0) { c++; continue; }
 
-    return model; // not implemented yet
+                vertices.push_back(std::stof(word));
+                c++;
+            }
+            model->vertices.push_back(vertices);
+        }
+        else if(line.find("vt ") != std::string::npos) {
+            // vt
+            std::istringstream wiss(line);
+            std::string word;
+            int c = 0;
+            std::vector<float> vertices;
+            while(wiss >> word) {
+                if (c == 0) { c++; continue; }
+
+                vertices.push_back(std::stof(word));
+                c++;
+            }
+            model->texcoords.push_back(vertices);
+
+        }
+        else if(line.find("vp ") != std::string::npos) {
+            // vp
+            std::istringstream wiss(line);
+            std::string word;
+            int c = 0;
+            std::vector<float> vertices;
+            while(wiss >> word) {
+                if (c == 0) { c++; continue; }
+
+                vertices.push_back(std::stof(word));
+                c++;
+            }
+            model->vertexNormals.push_back(vertices);
+
+        }
+        //if(line.find("f ") != std::string::npos) {
+            // f
+        //}
+    }
+
+
+    ModelLoader::models.operator[](filepath) = model; // store model in the map
+
+    return model;
 }
 
 /**
@@ -61,5 +113,5 @@ Model3D* ModelLoader::load(std::string filepath) {
  * @return void
  */
 void ModelLoader::clearModelcache() {
-    this->models->clear();
+    ModelLoader::models.clear();
 }
