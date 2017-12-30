@@ -33,10 +33,10 @@ LIBFILES=libninage.a libninage.so
 SUBDIRS = src/lib/ResourceManager
 .PHONY: all $(SUBDIRS)
 
-all: $(OFILES) $(LIBFILES) $(SUBDIRS)
+all: $(SUBDIRS) $(OFILES) $(LIBFILES)
 
 $(SUBDIRS):
-	make install -C $@
+	$(MAKE) install -C $@
 
 Ninage.o: src/Ninage.cpp src/includes/Ninage.h
 	g++ $(G_FLAGZ) -c src/Ninage.cpp
@@ -90,7 +90,6 @@ install:
 	-rm /usr/local/share/ninage
 	-rm /usr/local/lib/libninage.*
 	-rm -rf /usr/local/include/ninage
-	cd src/lib/ResourceManager && make install && cd ..
 	make
 	cp -r ninage /usr/local/share/ninage
 	cp -r src/includes /usr/local/include/ninage
