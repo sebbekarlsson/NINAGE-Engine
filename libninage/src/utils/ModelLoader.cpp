@@ -96,9 +96,18 @@ Model3D* ModelLoader::load(std::string filepath) {
             model->vertexNormals.push_back(vertices);
 
         }
-        //if(line.find("f ") != std::string::npos) {
-            // f
-        //}
+        if(line.find("f ") != std::string::npos) {
+            std::istringstream wiss(line);
+            std::string word;
+            int c = 0;
+            std::vector<int> vertices;
+            while(wiss >> word) {
+                if (c == 0) { c++; continue; }
+                vertices.push_back(std::stoi(word));
+                c++;
+            }
+            model->faces.push_back(vertices);
+        }
     }
 
 
