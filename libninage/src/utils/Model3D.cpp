@@ -9,7 +9,7 @@ void Model3D::draw() {
     std::vector<std::vector<int>>::iterator faceit;
     
     glDisable(GL_TEXTURE_2D);
-    glColor3f(255, 255, 255);
+    //glColor3f(255, 255, 255);
     
     int u = 0;
     for (faceit = this->faces.begin(); faceit != this->faces.end(); ++faceit) {
