@@ -12,7 +12,6 @@ void Model3D::draw() {
     glColor3f(255, 255, 255);
     
     int u = 0;
-    int index 0;
     for (faceit = this->faces.begin(); faceit != this->faces.end(); ++faceit) {
         glBegin(GL_TRIANGLES);
             for (int index = 0; index < 3; index++) {
