@@ -1,6 +1,14 @@
 #include "../includes/utils/ModelLoader.h"
 
 
+bool replace(std::string str, const std::string& from, const std::string& to) {
+    size_t start_pos = str.find(from);
+    if(start_pos == std::string::npos)
+        return false;
+    str.replace(start_pos, from.length(), to);
+    return true;
+}
+
 std::map<std::string, Model3D*> ModelLoader::models;
 
 /**
@@ -11,37 +19,6 @@ std::map<std::string, Model3D*> ModelLoader::models;
  * @return Model3D
  */
 Model3D* ModelLoader::load(std::string filepath) {
-    /* 
-     * # List of geometric vertices, with (x,y,z[,w]) coordinates, w is optional and defaults to 1.0.
-     *   
-     * v 0.123 0.234 0.345 1.0
-     * v ...
-     *  ...
-     * # List of texture coordinates, in (u, v [,w]) coordinates, these will vary between 0 and 1, w is optional and defaults to 0.
-     * vt 0.500 1 [0]
-     * vt ...
-     * ...
-     * # List of vertex normals in (x,y,z) form; normals might not be unit vectors.
-     * vn 0.707 0.000 0.707
-     * vn ...
-     * ...
-     * # Parameter space vertices in ( u [,v] [,w] ) form; free form geometry statement ( see below )
-     * vp 0.310000 3.210000 2.100000
-     * vp ...
-     * ...
-     * # Polygonal face element (see below)
-     * f 1 2 3
-     * f 3/1 4/2 5/3
-     * f 6/4/1 3/5/3 7/6/5
-     * f 7//1 8//2 9//3
-     * f ...
-     * ...
-     *
-     *
-     * source: https://en.wikipedia.org/wiki/Wavefront_.obj_file
-     */
-    
-    
     if (ModelLoader::models.count(filepath))
         return ModelLoader::models.find(filepath)->second;
     
@@ -66,6 +43,20 @@ Model3D* ModelLoader::load(std::string filepath) {
             }
             model->vertices.push_back(vertices);
         }
+        if(line.find("vn ") != std::string::npos) {
+            // vn
+            std::istringstream wiss(line);
+            std::string word;
+            int c = 0;
+            std::vector<float> vertices;
+            while(wiss >> word) {
+                if (c == 0) { c++; continue; }
+
+                vertices.push_back(std::stof(word));
+                c++;
+            }
+            model->vertexNormals.push_back(vertices);
+        }
         else if(line.find("vt ") != std::string::npos) {
             // vt
             std::istringstream wiss(line);
@@ -81,7 +72,8 @@ Model3D* ModelLoader::load(std::string filepath) {
             model->texcoords.push_back(vertices);
 
         }
-        else if(line.find("vp ") != std::string::npos) {
+        // TODO: Implement later
+        /*else if(line.find("vp ") != std::string::npos) {
             // vp
             std::istringstream wiss(line);
             std::string word;
@@ -95,18 +87,33 @@ Model3D* ModelLoader::load(std::string filepath) {
             }
             model->vertexNormals.push_back(vertices);
 
-        }
-        if(line.find("f ") != std::string::npos) {
+        }*/
+        else if(line.find("f ") != std::string::npos) {
             std::istringstream wiss(line);
             std::string word;
             int c = 0;
             std::vector<int> vertices;
+            std::vector<int> vertexNormals;
             while(wiss >> word) {
                 if (c == 0) { c++; continue; }
-                vertices.push_back(std::stoi(word));
+
+                if (word.find("//") != std::string::npos){
+                    int vertexIndex = std::stoi(word.substr(0, word.find("//")));
+                    std::string nIndexStr = word.substr(word.find("//") + std::string("//").size(), std::string::npos);
+                    replace(nIndexStr, "\n", "");
+                    int vertexNormalIndex =  std::stoi(nIndexStr);
+                    
+                    vertices.push_back(vertexIndex);
+                    vertexNormals.push_back(vertexNormalIndex);
+                } else {
+                    vertices.push_back(std::stoi(word));
+                }
+                
                 c++;
             }
+            
             model->faces.push_back(vertices);
+            model->vertexNormalsIndices.push_back(vertexNormals);
         }
     }
 

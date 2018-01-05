@@ -16,6 +16,7 @@ class Model3D {
         std::vector<std::vector<float> > parameterSpaceVertices;
         std::vector<std::vector<float> > pologonalFaceElement;
         std::vector<std::vector<int> > faces;
+        std::vector<std::vector<int> > vertexNormalsIndices;
 
         void draw();
 };
