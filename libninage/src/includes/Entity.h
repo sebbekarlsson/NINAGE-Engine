@@ -3,6 +3,7 @@
 
 #include "Instance.h"
 #include "utils/EngineMath.h"
+#include "Viewmode.h"
 #include <math.h>
 
 
@@ -23,7 +24,7 @@ class Entity: public Instance {
         float rotationFriction;
         
         void updatePhysics(float delta);
-        void addForce(float degress, float force);
+        void addForce(float degress, float force, int mode);
         void addRotation(float rotation, int axis);
         float getMovingDirection(float delta);
         bool intersectsWith(float delta, Entity * entity);

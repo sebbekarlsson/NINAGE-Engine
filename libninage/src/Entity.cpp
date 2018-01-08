@@ -1,4 +1,5 @@
 #include "includes/Entity.h"
+#include "includes/Viewmode.h"
 
 
 Entity::Entity(float x, float y, float z): Instance(x, y, z) {
@@ -47,9 +48,12 @@ void Entity::updatePhysics(float delta) {
  * @param float degrees
  * @param float force
  */
-void Entity::addForce(float degrees, float force) {
+void Entity::addForce(float degrees, float force, int mode) {
     this->dx += cos(EngineMath::toRadians(degrees)) * force;
     this->dy += sin(EngineMath::toRadians(degrees)) * force;
+
+    if (mode == Viewmode::D3)
+        this->dz += tan(EngineMath::toRadians(degrees)) * force;
 }
 
 
