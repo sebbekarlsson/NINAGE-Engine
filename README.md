@@ -1,7 +1,8 @@
 # NINAGE ENGINE
 > **N**inage **I**s **N**ot **A** **G**ame **E**ngine
 
-> ![alt text](screenshots/display.jpg)
+> ![picture of 3d model](screenshots/3dmodel.png)
+> ![showcase](screenshots/display.jpg)
 
 > (But it can be used as a game engine)
 
