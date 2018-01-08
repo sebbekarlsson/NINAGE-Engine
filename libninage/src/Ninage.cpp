@@ -127,9 +127,7 @@ bool Ninage::init() {
 
     /* Initialize SDL_ttf */
     if(TTF_Init() == -1)
-    {
         return false;    
-    }
 
     return success;
 }
@@ -164,19 +162,21 @@ void Ninage::draw(float delta) {
     );
 
     glTranslatef(
-            this->getCurrentScene()->camera->getZoomPoint().x,
-            this->getCurrentScene()->camera->getZoomPoint().y,
-            0.0f
-            );
+        this->getCurrentScene()->camera->getZoomPoint().x,
+        this->getCurrentScene()->camera->getZoomPoint().y,
+        0.0f
+    );
+    
     glScalef(
-            this->getCurrentScene()->camera->zoom,
-            this->getCurrentScene()->camera->zoom, 1.0f
-            );
+        this->getCurrentScene()->camera->zoom,
+        this->getCurrentScene()->camera->zoom, 1.0f
+    );
+    
     glTranslatef(
-            -this->getCurrentScene()->camera->getZoomPoint().x,
-            -this->getCurrentScene()->camera->getZoomPoint().y,
-            0.0f
-            );
+        -this->getCurrentScene()->camera->getZoomPoint().x,
+        -this->getCurrentScene()->camera->getZoomPoint().y,
+        0.0f
+    );
 
     if (this->VIEWMODE == 1) {
         GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -322,16 +322,14 @@ Illustration* Ninage::loadIllustration(std::string path) {
  */
 bool Ninage::loadFont(std::string fontfile, int size) {
     if(TTF_Init() == -1)
-    {
         return false;    
-    }
 
     std::map<std::string, TTF_Font*>::iterator it;
 
     it = this->fonts->find(fontfile);
-    if (it != this->fonts->end()) {
+    
+    if (it != this->fonts->end())
         return false;
-    }
 
     TTF_Font *font = TTF_OpenFont(fontfile.c_str(), size);
 
