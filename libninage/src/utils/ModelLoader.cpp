@@ -37,16 +37,17 @@ Model3D* ModelLoader::load(std::string filepath) {
     Model3D* model = new Model3D();
 
     ResourceManager::load(filepath);
+    
     std::string model_contents = ResourceManager::get(filepath);
     std::istringstream iss(model_contents);
 
     for (std::string line; std::getline(iss, line);) {
         if(line.find("v ") != std::string::npos) {
-            // v
             std::istringstream wiss(line);
             std::string word;
-            int c = 0;
             std::vector<float> vertices;
+            
+            int c = 0;
             while(wiss >> word) {
                 if (c == 0) { c++; continue; }
 
@@ -55,26 +56,27 @@ Model3D* ModelLoader::load(std::string filepath) {
             }
             model->vertices.push_back(vertices);
         }
+
         if(line.find("vn ") != std::string::npos) {
-            // vn
             std::istringstream wiss(line);
             std::string word;
-            int c = 0;
             std::vector<float> vertices;
+            
+            int c = 0;
             while(wiss >> word) {
                 if (c == 0) { c++; continue; }
 
                 vertices.push_back(std::stof(word));
                 c++;
             }
+            
             model->vertexNormals.push_back(vertices);
-        }
-        else if(line.find("vt ") != std::string::npos) {
-            // vt
+        } else if(line.find("vt ") != std::string::npos) {
             std::istringstream wiss(line);
             std::string word;
-            int c = 0;
             std::vector<float> vertices;
+            
+            int c = 0;
             while(wiss >> word) {
                 if (c == 0) { c++; continue; }
 
@@ -82,38 +84,29 @@ Model3D* ModelLoader::load(std::string filepath) {
                 c++;
             }
             model->texcoords.push_back(vertices);
-        }
-        // TODO: Implement later
-        /*else if(line.find("vp ") != std::string::npos) {
-        // vp
-        std::istringstream wiss(line);
-        std::string word;
-        int c = 0;
-        std::vector<float> vertices;
-        while(wiss >> word) {
-        if (c == 0) { c++; continue; }
-
-        vertices.push_back(std::stof(word));
-        c++;
-        }
-        model->vertexNormals.push_back(vertices);
-
-        }*/
-        else if(line.find("f ") != std::string::npos) {
+        } else if(line.find("f ") != std::string::npos) {
             std::istringstream wiss(line);
             std::string word;
             std::vector<int> vertexPointers;
             std::vector<int> normalPointers;
             std::vector<int> texcoordPointers;
-            int c = 0;
             
+            int c = 0;
             while(wiss >> word) {
                 if (c == 0) { c++; continue; }
 
                 if (word.find("//") != std::string::npos){
-                    int vertexIndex = std::stoi(word.substr(0, word.find("//")));
-                    std::string nIndexStr = word.substr(word.find("//") + std::string("//").size(), std::string::npos);
+                    int vertexIndex = std::stoi(
+                        word.substr(0, word.find("//"))
+                    );
+                    
+                    std::string nIndexStr = word.substr(
+                        word.find("//") + std::string("//").size(),
+                        std::string::npos
+                    );
+
                     replace(nIndexStr, "\n", "");
+                    
                     int vertexNormalIndex =  std::stoi(nIndexStr);
 
                     vertexPointers.push_back(vertexIndex);
