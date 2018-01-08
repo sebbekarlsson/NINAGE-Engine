@@ -23,6 +23,7 @@ OFILES=\
        Scene.o\
        EngineMath.o\
        Color.o\
+       Modelface.o\
        Model3D.o\
        ModelLoader.o\
        GraphicsCard.o\
@@ -67,6 +68,9 @@ EngineMath.o: src/utils/EngineMath.cpp src/includes/utils/EngineMath.h
 
 Color.o: src/utils/Color.cpp src/includes/utils/Color.h
 	g++ $(G_FLAGZ) -c src/utils/Color.cpp
+
+Modelface.o: src/utils/Modelface.cpp src/includes/utils/Modelface.h
+	g++ $(G_FLAGZ) -c src/utils/Modelface.cpp
 
 Model3D.o: src/utils/Model3D.cpp src/includes/utils/Model3D.h
 	g++ $(G_FLAGZ) -c src/utils/Model3D.cpp

@@ -4,6 +4,7 @@
 #include <vector>
 #include <SDL2/SDL_opengl.h>
 #include <SDL2/SDL.h>
+#include "Modelface.h"
 
 
 class Model3D {
@@ -13,9 +14,7 @@ class Model3D {
         std::vector<std::vector<float> > vertices;
         std::vector<std::vector<float> > texcoords;
         std::vector<std::vector<float> > vertexNormals;
-        std::vector<std::vector<int> > faces;
-        std::vector<std::vector<int> > vertexNormalsIndices;
-        std::vector<std::vector<int> > texcoordIndices;
+        std::vector<Modelface*> faces;
 
         void draw();
 };

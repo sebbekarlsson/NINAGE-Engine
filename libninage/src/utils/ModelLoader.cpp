@@ -102,10 +102,10 @@ Model3D* ModelLoader::load(std::string filepath) {
         else if(line.find("f ") != std::string::npos) {
             std::istringstream wiss(line);
             std::string word;
+            std::vector<int> vertexPointers;
+            std::vector<int> normalPointers;
+            std::vector<int> texcoordPointers;
             int c = 0;
-            std::vector<int> vertices;
-            std::vector<int> vertexNormals;
-            std::vector<int> texcoords;
             
             while(wiss >> word) {
                 if (c == 0) { c++; continue; }
@@ -116,37 +116,35 @@ Model3D* ModelLoader::load(std::string filepath) {
                     replace(nIndexStr, "\n", "");
                     int vertexNormalIndex =  std::stoi(nIndexStr);
 
-                    vertices.push_back(vertexIndex);
-                    vertexNormals.push_back(vertexNormalIndex);
+                    vertexPointers.push_back(vertexIndex);
+                    normalPointers.push_back(vertexNormalIndex);
                 } else if (word.find("/")) {
                     std::vector<std::string> digits = split(word, '/');
                     
                     int counter = 0;
                     for(std::vector<std::string>::iterator it = digits.begin(); it != digits.end(); ++it) {
                         if (counter == 0) {
-                            vertices.push_back(std::stoi(*it));
+                            vertexPointers.push_back(std::stoi(*it));
                         } else if (counter == 1) {
-                            texcoords.push_back(std::stoi(*it));
+                            texcoordPointers.push_back(std::stoi(*it));
                         } else if (counter == 3) {
-                            vertexNormals.push_back(std::stoi(*it));
+                            normalPointers.push_back(std::stoi(*it));
                         }
 
                         counter++;
                     }
-                } else {
-                    vertices.push_back(std::stoi(word));
                 }
 
+                Modelface *_face = new Modelface(
+                    vertexPointers,
+                    texcoordPointers,
+                    normalPointers
+                );
+
+                model->faces.push_back(_face);
+                
                 c++;
             }
-
-            if (vertices.size() > 0)
-                model->faces.push_back(vertices);
-
-            if (vertexNormals.size() > 0)
-                model->vertexNormalsIndices.push_back(vertexNormals);
-            if (texcoords.size() > 0)
-                model->texcoordIndices.push_back(texcoords);
         }
     }
 

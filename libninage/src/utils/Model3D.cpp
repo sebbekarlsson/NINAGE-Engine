@@ -6,42 +6,45 @@ Model3D::Model3D() {}
 
 void Model3D::draw() {
     std::vector<std::vector<float>>::iterator it;
-    std::vector<std::vector<int>>::iterator faceit;
+    std::vector<Modelface*>::iterator faceit;
 
 
     int u = 0;
     for (faceit = this->faces.begin(); faceit != this->faces.end(); ++faceit) {
         glBegin(GL_TRIANGLES);
 
-        int indexPointer = 0;
-        int texturePointer = 0;
+        int vertexPointer = 0;
+        int texcoordPointer = 0;
+        int normalPointer = 0;
 
         for (int index = 0; index < 3; index++) {
+            if ((*faceit)->vertexPointers.size() > index)
+                vertexPointer = (*faceit)->vertexPointers[index] - 1;
+            
+            if ((*faceit)->texcoordPointers.size() > index)
+                texcoordPointer = (*faceit)->texcoordPointers[index] - 1;
+            
+            if ((*faceit)->normalPointers.size() > index)
+                normalPointer = (*faceit)->normalPointers[index] - 1;
 
-            indexPointer = (*faceit)[index] - 1;
-            
-            if (this->texcoordIndices.size() > u)
-                if (this->texcoordIndices[u].size() > index)
-                    texturePointer = this->texcoordIndices[u][index] - 1;
-            
-            if (this->vertexNormals.size() > indexPointer)
+            if (this->vertexNormals.size() > normalPointer)
                 glNormal3f(
-                    this->vertexNormals[indexPointer][0], // x
-                    this->vertexNormals[indexPointer][1], // y
-                    this->vertexNormals[indexPointer][2] // z
-                );
-           
-            if (this->texcoords.size() > texturePointer)
-                glTexCoord2f(
-                    this->texcoords[texturePointer][0], // x
-                    this->texcoords[texturePointer][1] // y
+                    this->vertexNormals[normalPointer][0], // x
+                    this->vertexNormals[normalPointer][1], // y
+                    this->vertexNormals[normalPointer][2] // z
                 );
 
-            if (this->vertices.size() > indexPointer)
+            if (this->texcoords.size() > texcoordPointer)
+                glTexCoord2f(
+                    this->texcoords[texcoordPointer][0], // x
+                    this->texcoords[texcoordPointer][1] // y
+                );
+            
+            if (this->vertices.size() > vertexPointer)
                 glVertex3f(
-                    this->vertices[indexPointer][0], // x
-                    this->vertices[indexPointer][1], // y
-                    this->vertices[indexPointer][2] // z
+                    this->vertices[vertexPointer][0], // x
+                    this->vertices[vertexPointer][1], // y
+                    this->vertices[vertexPointer][2] // z
                 );
         }
 
