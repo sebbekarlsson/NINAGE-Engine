@@ -4,10 +4,12 @@
 
 Model3D::Model3D() {}
 
+/**
+ * Draw the model
+ */
 void Model3D::draw() {
     std::vector<std::vector<float>>::iterator it;
     std::vector<Modelface*>::iterator faceit;
-
 
     int u = 0;
     for (faceit = this->faces.begin(); faceit != this->faces.end(); ++faceit) {
