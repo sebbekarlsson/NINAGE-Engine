@@ -9,6 +9,18 @@ bool replace(std::string str, const std::string& from, const std::string& to) {
     return true;
 }
 
+std::vector<std::string> split(std::string str, char delimiter) {
+    std::vector<std::string> internal;
+    std::stringstream ss(str); // Turn the string into a stream.
+    std::string tok;
+
+    while(getline(ss, tok, delimiter)) {
+        internal.push_back(tok);
+    }
+
+    return internal;
+}
+
 std::map<std::string, Model3D*> ModelLoader::models;
 
 /**
@@ -21,9 +33,9 @@ std::map<std::string, Model3D*> ModelLoader::models;
 Model3D* ModelLoader::load(std::string filepath) {
     if (ModelLoader::models.count(filepath))
         return ModelLoader::models.find(filepath)->second;
-    
+
     Model3D* model = new Model3D();
-    
+
     ResourceManager::load(filepath);
     std::string model_contents = ResourceManager::get(filepath);
     std::istringstream iss(model_contents);
@@ -70,22 +82,21 @@ Model3D* ModelLoader::load(std::string filepath) {
                 c++;
             }
             model->texcoords.push_back(vertices);
-
         }
         // TODO: Implement later
         /*else if(line.find("vp ") != std::string::npos) {
-            // vp
-            std::istringstream wiss(line);
-            std::string word;
-            int c = 0;
-            std::vector<float> vertices;
-            while(wiss >> word) {
-                if (c == 0) { c++; continue; }
+        // vp
+        std::istringstream wiss(line);
+        std::string word;
+        int c = 0;
+        std::vector<float> vertices;
+        while(wiss >> word) {
+        if (c == 0) { c++; continue; }
 
-                vertices.push_back(std::stof(word));
-                c++;
-            }
-            model->vertexNormals.push_back(vertices);
+        vertices.push_back(std::stof(word));
+        c++;
+        }
+        model->vertexNormals.push_back(vertices);
 
         }*/
         else if(line.find("f ") != std::string::npos) {
@@ -94,6 +105,8 @@ Model3D* ModelLoader::load(std::string filepath) {
             int c = 0;
             std::vector<int> vertices;
             std::vector<int> vertexNormals;
+            std::vector<int> texcoords;
+            
             while(wiss >> word) {
                 if (c == 0) { c++; continue; }
 
@@ -102,18 +115,38 @@ Model3D* ModelLoader::load(std::string filepath) {
                     std::string nIndexStr = word.substr(word.find("//") + std::string("//").size(), std::string::npos);
                     replace(nIndexStr, "\n", "");
                     int vertexNormalIndex =  std::stoi(nIndexStr);
-                    
+
                     vertices.push_back(vertexIndex);
                     vertexNormals.push_back(vertexNormalIndex);
+                } else if (word.find("/")) {
+                    std::vector<std::string> digits = split(word, '/');
+                    
+                    int counter = 0;
+                    for(std::vector<std::string>::iterator it = digits.begin(); it != digits.end(); ++it) {
+                        if (counter == 0) {
+                            vertices.push_back(std::stoi(*it));
+                        } else if (counter == 1) {
+                            texcoords.push_back(std::stoi(*it));
+                        } else if (counter == 3) {
+                            vertexNormals.push_back(std::stoi(*it));
+                        }
+
+                        counter++;
+                    }
                 } else {
                     vertices.push_back(std::stoi(word));
                 }
-                
+
                 c++;
             }
-            
-            model->faces.push_back(vertices);
-            model->vertexNormalsIndices.push_back(vertexNormals);
+
+            if (vertices.size() > 0)
+                model->faces.push_back(vertices);
+
+            if (vertexNormals.size() > 0)
+                model->vertexNormalsIndices.push_back(vertexNormals);
+            if (texcoords.size() > 0)
+                model->texcoordIndices.push_back(texcoords);
         }
     }
 
