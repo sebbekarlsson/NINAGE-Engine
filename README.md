@@ -14,8 +14,8 @@
 * 3D
 
 ## Documentation
-> [Documentation](DOCUMENTATION.md)
-> [Full Documentation][https://sebbekarlsson.github.io/NINAGE-Engine/]
+> [Documentation](DOCUMENTATION.md)  
+> [Full Documentation](https://sebbekarlsson.github.io/NINAGE-Engine/)
 
 ## Getting Started
 * Make sure you have the [requirements](REQUIREMENTS.md).
