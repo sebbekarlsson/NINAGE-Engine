@@ -18,7 +18,7 @@ class IllustrationStack {
 
         void next();
         void addIllustration(Illustration *image);
-        void draw(float delta);
+        void draw(float delta, int color_mode);
 
         Illustration* getCurrentIllustration();
         int getWidth();

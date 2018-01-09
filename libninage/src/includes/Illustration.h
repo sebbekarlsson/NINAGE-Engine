@@ -15,7 +15,7 @@ class Illustration {
         GLuint TextureID;
         bool bound;
 
-        void bind();
+        void bind(int color_mode);
         void unbind();
         int getWidth();
         int getHeight();
