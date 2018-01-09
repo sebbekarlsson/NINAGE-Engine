@@ -11,7 +11,6 @@ class Illustration {
         Illustration(SDL_Surface *surface);
 
         SDL_Surface * surface;
-        int mode = GL_RGBA;
         GLuint TextureID;
         bool bound;
 
