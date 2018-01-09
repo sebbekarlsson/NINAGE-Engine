@@ -10,7 +10,7 @@ extern Ninage *app;
  * Constructor
  */
 Camera::Camera(float x, float y, float z) : Entity(x, y, z) {
-    this->zoomPoint = new glm::vec2(0.1f, 0.1f); 
+    this->zoomPoint = new glm::vec2(0.0f, 0.0f); 
     this->zoom = 1.0f;
     this->collisionBox->setSize(0.7f, 2.0f, 0.7f);
     this->centeredOrigo = true;

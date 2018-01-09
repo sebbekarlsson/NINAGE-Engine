@@ -146,15 +146,12 @@ void Ninage::draw(float delta) {
     glLoadIdentity();
 
     glClearColor(0, 0, 0, 0);
-
+    
     glPushMatrix();
 
     glRotatef(getCurrentScene()->camera->xrotation, 1.0f, 0.0f, 0.0f);
     glRotatef(getCurrentScene()->camera->yrotation, 0.0f, 1.0f, 0.0f);
-    glRotatef(getCurrentScene()->camera->zrotation, 0.0f, 0.0f, 1.0f);
     
-    this->getCurrentScene()->camera->draw(delta);
-
     glTranslatef(
         -this->getCurrentScene()->camera->getX(),
         -this->getCurrentScene()->camera->getY(),
@@ -166,6 +163,8 @@ void Ninage::draw(float delta) {
         this->getCurrentScene()->camera->getZoomPoint().y,
         0.0f
     );
+    
+    glRotatef(this->getCurrentScene()->camera->zrotation, 0, 0, 1.0f);
     
     glScalef(
         this->getCurrentScene()->camera->zoom,
