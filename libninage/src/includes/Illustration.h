@@ -8,13 +8,15 @@
 
 class Illustration {
     public:
-        Illustration(SDL_Surface *surface);
+        Illustration(SDL_Surface *surface, int mode);
 
         SDL_Surface * surface;
         GLuint TextureID;
         bool bound;
 
-        void bind(int color_mode);
+        int mode;
+
+        void bind();
         void unbind();
         int getWidth();
         int getHeight();

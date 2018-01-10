@@ -79,10 +79,10 @@ int IllustrationStack::getHeight() {
  *
  * @param float delta
  */
-void IllustrationStack::draw(float delta, int color_mode) {
+void IllustrationStack::draw(float delta) {
     if (this->getCurrentIllustration() == NULL) { return; }
 
-    this->getCurrentIllustration()->bind(color_mode);
+    this->getCurrentIllustration()->bind();
     
     glBegin(GL_QUADS);
     glTexCoord2f(0, 0);

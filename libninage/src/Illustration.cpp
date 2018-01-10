@@ -2,19 +2,18 @@
 #include <iostream>
 
 
-Illustration::Illustration(SDL_Surface *surface) {
+Illustration::Illustration(SDL_Surface *surface, int mode) {
     this->surface = surface;
     this->TextureID = 0;
     this->bound = false;
+    this->mode = mode;
 }
 
 /**
  * Binds the texture to the current OpenGL context, so that
  * it can be used for example texture coordinates.
- *
- * @param int color_mode
  */
-void Illustration::bind(int color_mode) {
+void Illustration::bind() {
     if (!this->bound) {
         glGenTextures(1, &this->TextureID);
         glBindTexture(GL_TEXTURE_2D, this->TextureID);
@@ -30,11 +29,11 @@ void Illustration::bind(int color_mode) {
 
         glTexImage2D(GL_TEXTURE_2D,
             0,
-            color_mode,
+            this->mode,
             this->surface->w,
             this->surface->h,
             0,
-            color_mode,
+            this->mode,
             GL_UNSIGNED_BYTE,
             this->surface->pixels
         );
