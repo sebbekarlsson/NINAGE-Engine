@@ -81,6 +81,9 @@ void Scene::tickDefault(float delta) {
  */
 void Scene::drawDefault(float delta) {
     for (std::vector<Instance*>::iterator it = this->instances->begin(); it != this->instances->end(); ++it) {
+        if ((*it)->disabled)
+            continue;
+
         glPushMatrix();
 
         if ((*it)->centeredOrigo) {

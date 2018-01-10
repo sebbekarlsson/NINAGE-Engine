@@ -20,6 +20,7 @@ class Instance {
         bool centeredOrigo;
         bool trash;
         bool interactive;
+        bool disabled = false;
         IllustrationStack *illustrationStack;
         CollisionBox *collisionBox;
         glm::vec3 *position;
