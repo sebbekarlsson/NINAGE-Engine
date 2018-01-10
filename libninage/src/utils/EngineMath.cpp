@@ -64,12 +64,7 @@ float EngineMath::toZero(float x, float friction) {
  * @return float
  */
 float EngineMath::angleBetween2DPoints(float x0, float y0, float x1, float y1) {
-    return EngineMath::toDegrees(
-        atan2(
-            std::max(x0, x1) - std::min(x0, x1),
-            std::max(y0, y1) - std::min(y0, y1)
-        )
-    );
+    return atan2(y0 - y1, x0 - x1) * (180 / M_PI);
 }
 
 /**
