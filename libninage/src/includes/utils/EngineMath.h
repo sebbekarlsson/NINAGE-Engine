@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <algorithm>
+#include <random>
 
 
 namespace EngineMath {
@@ -13,6 +14,9 @@ namespace EngineMath {
     float angleBetween3DPoints(
         float x0, float y0, float z0, float x1, float y1, float z1
     );
+    float distanceBetween2DPoints(float x0, float y0, float x1, float y1);
+    
+    int randint(int min, int max);
 };
 
 #endif

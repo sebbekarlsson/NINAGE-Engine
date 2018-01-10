@@ -68,6 +68,20 @@ float EngineMath::angleBetween2DPoints(float x0, float y0, float x1, float y1) {
 }
 
 /**
+ * Get distance between 2 2D vectors.
+ *
+ * @param float x0
+ * @param float y0
+ * @param float x1
+ * @param float y1
+ *
+ * @return float
+ */
+float EngineMath::distanceBetween2DPoints(float x0, float y0, float x1, float y1) {
+    return hypot(x0 - x1, y0 - y1); 
+}
+
+/**
  * Get the angle between 2 3D vectors
  *
  * @param float x0
@@ -97,3 +111,15 @@ float EngineMath::angleBetween3DPoints(
         )
     );
 }
+
+/**
+ * Get a random number in a range
+ *
+ * @param int min
+ * @param int max
+ *
+ * @return int
+ */
+int EngineMath::randint(int min, int max) {
+    return rand()%(max-min + 1) + min;
+};
