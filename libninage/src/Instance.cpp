@@ -97,12 +97,20 @@ void Instance::setZ(float z) {
 
 /**
  * Will set the collisionbox size to the same size as the IllustrationStack.
+ *
+ * TODO: Rename
  */
 void Instance::syncCollisionBoxWithIllustrationStack(float delta) {
     this->collisionBox->setSize(
         this->illustrationStack->getWidth(),
         this->illustrationStack->getHeight(),
         0.0f
+    );
+    
+    this->collisionBox->setRotation(
+        this->xrotation,
+        this->yrotation,
+        this->zrotation
     );
 }
 

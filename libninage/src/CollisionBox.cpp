@@ -84,6 +84,19 @@ void CollisionBox::setSize(float width, float height, float depth) {
     this->depth = depth;
 }
 
+/**
+ * Set the rotation of the collisionbox.
+ *
+ * @param float xrotation
+ * @param float yrotation
+ * @param float zrotation
+ */
+void CollisionBox::setRotation(float xrotation, float yrotation, float zrotation) {
+    this->xrotation = xrotation;
+    this->yrotation = yrotation;
+    this->zrotation = zrotation;
+};
+
 float CollisionBox::getOffsetX() {
     return this->offset->x;
 }

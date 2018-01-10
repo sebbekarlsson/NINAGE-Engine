@@ -14,9 +14,13 @@ class CollisionBox {
         float width;
         float height;
         float depth;
+        float xrotation = 0.0f;
+        float yrotation = 0.0f;
+        float zrotation = 0.0f;
 
         void draw(float delta);
         void setSize(float width, float height, float depth);
+        void setRotation(float xrotation, float yrotation, float zrotation);
 
         float getOffsetX();
         float getOffsetY();
