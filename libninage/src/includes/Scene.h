@@ -6,69 +6,34 @@
 #include <algorithm>
 #include "utils/Color.h"
 #include "Camera.h"
+#include "State.h"
 
 
-class Instance;
-
-class Scene {
+class Scene: public State {
     public:
         Scene();
 
-        /** Current game instances */
-        std::vector<Instance*> *instances = new std::vector<Instance*>();
-        
-        /** Instances that will be added in the next update */
-        std::vector<Instance*> *newInstances = new std::vector<Instance*>();
-        
         /** The camera of the scene */
         Camera * camera;
 
         /** The background color of the scene */
         Color * backgroundColor;
 
-        /** whether or not the scene has been initialied */
-        bool initialized;
+        void setBackgroundColor(Color * color);
+
+        void tickDefault(float delta);
+        void drawDefault(float delta);
 
         /**
-         * Add a game instance to the scene
-         *
-         * @param Instance *instance
+         * Update logic
          */
-        void instantiate(Instance *instance);
-        
+        virtual void tick(float delta) = 0;
+
         /**
-         * Remove a game instance from the scene
-         * 
-         * @param Instance *instance
+         * Update graphics
          */
-        void destantiate(Instance *instance);
-        
-        /**
-         * Update the default scene logic
-         *
-         * @param float delta
-         */
-        void tickDefault(float delta);
-        
-        /**
-         * Draw the default scene graphics
-         *
-         * @param float delta
-         */
-        void drawDefault(float delta);
-        
-        /**
-         * Initialize the scene
-         *
-         * @param float delta
-         */
-        void initialize(float delta);
-        
-        /**
-         * Change background color of the scene
-         */
-        void setBackgroundColor(Color * color);
-       
+        virtual void draw(float delta) = 0;
+         
         /**
          * Capture mouse movements
          *
@@ -83,27 +48,6 @@ class Scene {
             int &deltaMouseX,
             int &deltaMouseY
         ) = 0;
-
-        /**
-         * Update logic for scene
-         *
-         * @param float delta
-         */
-        virtual void tick(float delta) = 0;
-
-        /**
-         * Draw scene graphics
-         *
-         * @param float delta
-         */
-        virtual void draw(float detla) = 0;
-
-        /**
-         * Initialize scene, place out objects etc..
-         *
-         * @param float delta
-         */
-        virtual void init(float delta) = 0;
 };
 
 #endif

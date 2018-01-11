@@ -20,6 +20,7 @@ OFILES=\
        Illustration.o\
        IllustrationStack.o\
        Camera.o\
+       State.o\
        Scene.o\
        EngineMath.o\
        Color.o\
@@ -59,6 +60,9 @@ Entity.o: src/Entity.cpp src/includes/Entity.h
 
 Camera.o: src/Camera.cpp src/includes/Camera.h
 	g++ $(G_FLAGZ) -c src/Camera.cpp
+
+State.o: src/State.cpp src/includes/State.h
+	g++ $(G_FLAGZ) -c src/State.cpp
 
 Scene.o: src/Scene.cpp src/includes/Scene.h
 	g++ $(G_FLAGZ) -c src/Scene.cpp
