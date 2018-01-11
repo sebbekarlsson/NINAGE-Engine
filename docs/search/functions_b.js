@@ -1,6 +1,7 @@
 var searchData=
 [
   ['setbackgroundcolor',['setBackgroundColor',['../class_scene.html#a28e355931913be85e5bd1c4c065e9aa5',1,'Scene']]],
+  ['setrotation',['setRotation',['../class_collision_box.html#acc8af144e935d3051a1cd4021d5e955d',1,'CollisionBox']]],
   ['setsize',['setSize',['../class_collision_box.html#a1558d634f32ad13b7ec27f41c007547c',1,'CollisionBox']]],
   ['setviewmode',['setViewmode',['../class_ninage.html#a968979263364c05ee919b6c6c8c66155',1,'Ninage']]],
   ['setx',['setX',['../class_instance.html#ae4891faebed081c31982c955c23c7690',1,'Instance']]],

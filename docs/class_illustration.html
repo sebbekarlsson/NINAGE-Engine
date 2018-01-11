@@ -72,11 +72,11 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a20eebb8797c5ae2872189c6e67f95f45"><td class="memItemLeft" align="right" valign="top"><a id="a20eebb8797c5ae2872189c6e67f95f45"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Illustration</b> (SDL_Surface *surface)</td></tr>
-<tr class="separator:a20eebb8797c5ae2872189c6e67f95f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3feb97bab7429e0df22622d4172c1c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_illustration.html#af3feb97bab7429e0df22622d4172c1c3">bind</a> (int color_mode)</td></tr>
-<tr class="separator:af3feb97bab7429e0df22622d4172c1c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd3a3395e70dd827776d1e877b03061f"><td class="memItemLeft" align="right" valign="top"><a id="afd3a3395e70dd827776d1e877b03061f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Illustration</b> (SDL_Surface *surface, int mode)</td></tr>
+<tr class="separator:afd3a3395e70dd827776d1e877b03061f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a974c21130b7fc437982009bc777879b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_illustration.html#a974c21130b7fc437982009bc777879b6">bind</a> ()</td></tr>
+<tr class="separator:a974c21130b7fc437982009bc777879b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b8473937c8ff066f41099cc113d0f29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_illustration.html#a7b8473937c8ff066f41099cc113d0f29">unbind</a> ()</td></tr>
 <tr class="separator:a7b8473937c8ff066f41099cc113d0f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3835bad57f6e52d97838e6448a8ea14c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_illustration.html#a3835bad57f6e52d97838e6448a8ea14c">getWidth</a> ()</td></tr>
@@ -95,10 +95,13 @@ GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>TextureID</b></td><
 <tr class="memitem:a89398ce7487733434bcdf1630e6b00e0"><td class="memItemLeft" align="right" valign="top"><a id="a89398ce7487733434bcdf1630e6b00e0"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>bound</b></td></tr>
 <tr class="separator:a89398ce7487733434bcdf1630e6b00e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71b9e6036ddd51c26814b08c8ced4f2a"><td class="memItemLeft" align="right" valign="top"><a id="a71b9e6036ddd51c26814b08c8ced4f2a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>mode</b></td></tr>
+<tr class="separator:a71b9e6036ddd51c26814b08c8ced4f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af3feb97bab7429e0df22622d4172c1c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3feb97bab7429e0df22622d4172c1c3">&#9670;&nbsp;</a></span>bind()</h2>
+<a id="a974c21130b7fc437982009bc777879b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a974c21130b7fc437982009bc777879b6">&#9670;&nbsp;</a></span>bind()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -106,19 +109,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>bound</b></td></tr>
         <tr>
           <td class="memname">void Illustration::bind </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>color_mode</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Binds the texture to the current OpenGL context, so that it can be used for example texture coordinates.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">int</td><td>color_mode </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Binds the texture to the current OpenGL context, so that it can be used for example texture coordinates. </p>
 
 </div>
 </div>
