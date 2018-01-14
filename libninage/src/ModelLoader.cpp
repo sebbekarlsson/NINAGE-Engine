@@ -1,4 +1,4 @@
-#include "../includes/utils/ModelLoader.h"
+#include "includes/ModelLoader.h"
 
 
 bool replace(std::string str, const std::string& from, const std::string& to) {

@@ -1,4 +1,5 @@
-#include "../includes/utils/Modelface.h"
+#include "includes/Modelface.h"
+
 
 Modelface::Modelface(
     std::vector<int> vertexPointers,

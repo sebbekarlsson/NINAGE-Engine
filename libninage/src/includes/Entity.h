@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 #include "Instance.h"
-#include "utils/EngineMath.h"
+#include "EngineMath.h"
 #include "Viewmode.h"
 #include <math.h>
 

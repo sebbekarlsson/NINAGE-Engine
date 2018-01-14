@@ -1,6 +1,6 @@
 #include "includes/Scene.h"
 #include "includes/Ninage.h"
-#include "includes/utils/GraphicsCard.h"
+#include "includes/GraphicsCard.h"
 #include "includes/Viewmode.h"
 #include <random>
 #include <time.h>

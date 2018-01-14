@@ -1,5 +1,5 @@
-#include "../includes/Ninage.h"
-#include "../includes/utils/GraphicsCard.h"
+#include "includes/Ninage.h"
+#include "includes/GraphicsCard.h"
 
 
 /**

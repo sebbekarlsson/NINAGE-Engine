@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "utils/Color.h"
+#include "Color.h"
 #include "Camera.h"
 #include "State.h"
 
