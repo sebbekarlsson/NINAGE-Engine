@@ -2,96 +2,31 @@ OS := $(shell uname)
 
 $(info $(OS))
 
-ifeq ($(OS), Darwin)
-    FLAGZ=-Wall -std=c++11 -framework OpenGL -framework GLUT -lresourcemanager -lSDL2_image -lSDL2_ttf -lSDL2 -g
-else
-    FLAGZ=-Wall -std=c++11 -lresourcemanager -lGL -lglut -lSDL2_image -lSDL2_ttf -lSDL2 -g
-endif
-
 G_FLAGZ=-std=c++11 -Wall -g
 
-$(info $(FLAGZ))
+ifeq ($(OS), Darwin)
+    FLAGZ=$(G_FLAGZ) -lninage -framework OpenGL -framework GLUT -lSDL2_image -lSDL2_ttf -lSDL2
+else
+    FLAGZ=$(G_FLAGZ) -std=c++11 -lninage -lGL -lglut -lSDL2_image -lSDL2_ttf -lGLU -lSDL2
+endif
 
-OFILES=\
-       Ninage.o\
-       CollisionBox.o\
-       Instance.o\
-       Entity.o\
-       Illustration.o\
-       IllustrationStack.o\
-       Camera.o\
-       State.o\
-       Scene.o\
-       EngineMath.o\
-       Color.o\
-       Modelface.o\
-       Model3D.o\
-       ModelLoader.o\
-       GraphicsCard.o\
-       Component.o
 
+EXEC = app.out
+SOURCES = $(wildcard src/*.cpp src/utils/*.cpp) 
+OBJECTS = $(SOURCES:.cpp=.o)
 LIBFILES=libninage.a libninage.so
-
 SUBDIRS = src/lib/ResourceManager
 .PHONY: all $(SUBDIRS)
 
-all: $(SUBDIRS) $(OFILES) $(LIBFILES)
+all: $(SUBDIRS) $(OBJECTS) $(LIBFILES)
 
-$(SUBDIRS):
-	$(MAKE) install -C $@
+%.o: %.cpp
+	g++ -c $(G_FLAGZ) $< -o $@
 
-Ninage.o: src/Ninage.cpp src/includes/Ninage.h
-	g++ $(G_FLAGZ) -c src/Ninage.cpp
-
-Illustration.o: src/Illustration.cpp src/includes/Illustration.h
-	g++ $(G_FLAGZ) -c src/Illustration.cpp
-
-IllustrationStack.o: src/IllustrationStack.cpp src/includes/IllustrationStack.h
-	g++ $(G_FLAGZ) -c src/IllustrationStack.cpp
-
-CollisionBox.o: src/CollisionBox.cpp src/includes/CollisionBox.h
-	g++ $(G_FLAGZ) -c src/CollisionBox.cpp
-
-Instance.o: src/Instance.cpp src/includes/Instance.h
-	g++ $(G_FLAGZ) -c src/Instance.cpp
-
-Entity.o: src/Entity.cpp src/includes/Entity.h
-	g++ $(G_FLAGZ) -c src/Entity.cpp
-
-Camera.o: src/Camera.cpp src/includes/Camera.h
-	g++ $(G_FLAGZ) -c src/Camera.cpp
-
-State.o: src/State.cpp src/includes/State.h
-	g++ $(G_FLAGZ) -c src/State.cpp
-
-Scene.o: src/Scene.cpp src/includes/Scene.h
-	g++ $(G_FLAGZ) -c src/Scene.cpp
-
-EngineMath.o: src/utils/EngineMath.cpp src/includes/utils/EngineMath.h
-	g++ $(G_FLAGZ) -c src/utils/EngineMath.cpp
-
-Color.o: src/utils/Color.cpp src/includes/utils/Color.h
-	g++ $(G_FLAGZ) -c src/utils/Color.cpp
-
-Modelface.o: src/utils/Modelface.cpp src/includes/utils/Modelface.h
-	g++ $(G_FLAGZ) -c src/utils/Modelface.cpp
-
-Model3D.o: src/utils/Model3D.cpp src/includes/utils/Model3D.h
-	g++ $(G_FLAGZ) -c src/utils/Model3D.cpp
-
-ModelLoader.o: src/utils/ModelLoader.cpp src/includes/utils/ModelLoader.h
-	g++ $(G_FLAGZ) -c src/utils/ModelLoader.cpp
-
-GraphicsCard.o: src/utils/GraphicsCard.cpp src/includes/utils/GraphicsCard.h
-	g++ $(G_FLAGZ) -c src/utils/GraphicsCard.cpp
-
-Component.o: src/Component.cpp src/includes/Component.h
-	g++ $(G_FLAGZ) -c src/Component.cpp
-
-libninage.a: $(OFILES)
+libninage.a: $(OBJECTS)
 	ar rcs $@ $^
 
-libninage.so: $(OFILES)
+libninage.so: $(OBJECTS)
 	ar rcs $@ $^
 
 install:
@@ -109,5 +44,7 @@ clean:
 	-rm *.out
 	-rm *.so
 	-rm *.a
+	-rm src/*.o
+	-rm src/utils/*.o
 
 	cd src/lib/ResourceManager && make clean
