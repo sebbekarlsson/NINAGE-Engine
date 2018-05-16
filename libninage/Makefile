@@ -13,7 +13,7 @@ endif
 
 SOURCES = $(wildcard src/*.cpp) 
 OBJECTS = $(SOURCES:.cpp=.o)
-LIBFILES=libninage.a libninage.so
+LIBFILES=libninage.a
 SUBDIRS = src/lib/ResourceManager
 .PHONY: all $(SUBDIRS)
 
@@ -25,9 +25,6 @@ SUBDIRS = src/lib/ResourceManager
 libninage.a: $(OBJECTS)
 	ar rcs $@ $^
 
-libninage.so: $(OBJECTS)
-	ar rcs $@ $^
-
 install:
 	-rm /usr/local/share/ninage
 	-rm /usr/local/lib/libninage.*
@@ -36,7 +33,6 @@ install:
 	cp -r ninage /usr/local/share/ninage
 	cp -r src/includes /usr/local/include/ninage
 	mv libninage.a /usr/local/lib/libninage.a
-	mv libninage.so /usr/local/lib/libninage.so
 
 clean:
 	-rm *.o

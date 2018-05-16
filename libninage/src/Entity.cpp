@@ -24,14 +24,6 @@ Entity::Entity(float x, float y, float z): Instance(x, y, z) {
  * @param float delta
  */
 void Entity::updatePhysics(float delta) {
-    dx = EngineMath::toZero(dx, xfriction);
-    dy = EngineMath::toZero(dy, yfriction);
-    dz = EngineMath::toZero(dz, zfriction);
-    
-    dxrot = EngineMath::toZero(dxrot, rotationFriction);
-    dyrot = EngineMath::toZero(dyrot, rotationFriction);
-    dzrot = EngineMath::toZero(dzrot, rotationFriction);
-
     this->xrotation += this->dxrot * delta;
     this->yrotation += this->dyrot * delta;
     this->zrotation += this->dzrot * delta;
@@ -39,6 +31,14 @@ void Entity::updatePhysics(float delta) {
     this->position->x += this->dx * delta;
     this->position->y += this->dy * delta;
     this->position->z += this->dz * delta;
+
+    dx = EngineMath::toZero(dx, xfriction);
+    dy = EngineMath::toZero(dy, yfriction);
+    dz = EngineMath::toZero(dz, zfriction);
+    
+    dxrot = EngineMath::toZero(dxrot, rotationFriction);
+    dyrot = EngineMath::toZero(dyrot, rotationFriction);
+    dzrot = EngineMath::toZero(dzrot, rotationFriction);
 }
 
 
@@ -106,7 +106,6 @@ float Entity::getMovingDirection(float delta) {
  * @return bool
  */
 bool Entity::intersectsWith(float delta, Entity * entity) {
-
     if (this->centeredOrigo) {
         return
             (this->getX() - this->collisionBox->width / 2) + (this->dx * delta) <=
@@ -115,11 +114,8 @@ bool Entity::intersectsWith(float delta, Entity * entity) {
             this->getX() + this->collisionBox->width / 2 + (this->dx * delta) >=
             entity->getX() + (entity->dx * delta) &&
             
-            (this->getY() - this->collisionBox->height) + (this->dy * delta) <=
-            entity->getY() + entity->collisionBox->height + (entity->dy * delta) &&
-            
-            this->getY() + this->collisionBox->height + (this->dy * delta) >=
-            entity->getY() + (entity->dy * delta) &&
+            this->getY() - this->collisionBox->height <= entity->getY() &&
+            this->getY() >= entity->getY() - entity->collisionBox->height &&
 
             (this->getZ() - this->collisionBox->depth / 2) + (this->dz * delta) <=
             entity->getZ() + entity->collisionBox->depth + (entity->dz * delta) &&

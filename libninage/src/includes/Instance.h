@@ -21,8 +21,11 @@ class Instance {
         bool trash;
         bool interactive;
         bool disabled = false;
+
         IllustrationStack *illustrationStack;
+        
         CollisionBox *collisionBox;
+        
         glm::vec3 *position;
 
         float getX();
