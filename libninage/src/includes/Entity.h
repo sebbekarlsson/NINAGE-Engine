@@ -27,7 +27,7 @@ class Entity: public Instance {
         void addForce(float degress, float force, int mode);
         void addRotation(float rotation, int axis);
         float getMovingDirection(float delta);
-        bool intersectsWith(float delta, Entity * entity);
+        bool intersectsWith(Entity * entity);
 };
 
 #endif
