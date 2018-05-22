@@ -9,9 +9,26 @@
 > It's purpose is to be an interactive media engine, games just happen
 > to fall into that category.
 
-## Supported Dimensions
-* 2D
-* 3D
+## Quickstart
+> The minimal code you need to run a NINAGE application
+
+    #include <ninage/Ninage.h>
+    #include <ninage/Viewmode.h>
+    #include "MainScene.h" // your scene
+
+
+    Ninage *app;
+    const Uint8 *state = SDL_GetKeyboardState(NULL);
+
+    void Ninage::main() {
+        MainScene* scene = new MainScene();
+        this->addScene(scene);
+    }
+
+    int main(int argc, char* args[]) {
+        app = new Ninage();
+        return app->run();
+    }
 
 ## Documentation
 > [Documentation](DOCUMENTATION.md)  
