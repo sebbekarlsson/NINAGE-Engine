@@ -13,7 +13,6 @@
 > The minimal code you need to run a NINAGE application
 
     #include <ninage/Ninage.h>
-    #include <ninage/Viewmode.h>
     #include "MainScene.h" // your scene
 
 
