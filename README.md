@@ -1,8 +1,8 @@
 # NINAGE ENGINE
 > **N**inage **I**s **N**ot **A** **G**ame **E**ngine
 
-> ![picture of 3d model](screenshots/3dmodel.png)
-> ![showcase](screenshots/display.jpg)
+<img width='200px' src='screenshots/3dmodel.png'/>
+<img width='200px' src='screenshots/display.jpg'/>
 
 > (But it can be used as a game engine)
 
