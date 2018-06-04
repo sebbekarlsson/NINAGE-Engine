@@ -20,17 +20,15 @@ Entity::Entity(float x, float y, float z): Instance(x, y, z) {
 /**
  * Updates physics, the goal is that
  * delta-x, delta-y, delta-z becomes `0`
- *
- * @param float delta
  */
-void Entity::updatePhysics(float delta) {
-    this->xrotation += this->dxrot * delta;
-    this->yrotation += this->dyrot * delta;
-    this->zrotation += this->dzrot * delta;
+void Entity::updatePhysics() {
+    this->xrotation += this->dxrot;
+    this->yrotation += this->dyrot;
+    this->zrotation += this->dzrot;
     
-    this->position->x += this->dx * delta;
-    this->position->y += this->dy * delta;
-    this->position->z += this->dz * delta;
+    this->position->x += this->dx;
+    this->position->y += this->dy;
+    this->position->z += this->dz;
 
     dx = EngineMath::toZero(dx, xfriction);
     dy = EngineMath::toZero(dy, yfriction);
@@ -89,13 +87,11 @@ void mouseMoveEvent(
 /**
  * Get the direction the object is moving in.
  *
- * @param float delta
- *
  * @return float
  */
-float Entity::getMovingDirection(float delta) {
-    float deltaY = this->getY() - (this->getY() + (this->dy * delta));
-    float deltaX = this->getX() - (this->getX() + (this->dx * delta));
+float Entity::getMovingDirection() {
+    float deltaY = this->getY() - (this->getY() + (this->dy));
+    float deltaX = this->getX() - (this->getX() + (this->dx));
     return (float) (atan2(deltaY, deltaX) * 180 / M_PI);
 }
 

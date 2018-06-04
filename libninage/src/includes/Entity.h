@@ -23,10 +23,10 @@ class Entity: public Instance {
         float friction;
         float rotationFriction;
         
-        void updatePhysics(float delta);
+        void updatePhysics();
         void addForce(float degress, float force, int mode);
         void addRotation(float rotation, int axis);
-        float getMovingDirection(float delta);
+        float getMovingDirection();
         bool intersectsWith(Entity * entity);
 };
 

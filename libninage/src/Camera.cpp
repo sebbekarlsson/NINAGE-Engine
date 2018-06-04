@@ -23,7 +23,7 @@ Camera::Camera(float x, float y, float z) : Entity(x, y, z) {
  * Update logic for camera
  */
 void Camera::tick(float delta) {
-    this->updatePhysics(delta);
+    this->updatePhysics();
 }
 
 /**
