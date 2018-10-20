@@ -1,5 +1,6 @@
 #include "includes/State.h"
 #include "includes/Instance.h"
+#include <algorithm>
 
 
 State::State() {};

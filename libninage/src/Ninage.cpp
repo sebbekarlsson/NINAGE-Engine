@@ -445,7 +445,7 @@ int Ninage::run() {
         delta = (double)((NOW - LAST) * 1000 / (float)SDL_GetPerformanceFrequency());
         
         /* Let's store 10 frame calculations */ 
-        if (fpsBuffer->size() < fpsBufferLength) {
+        if ((int)fpsBuffer->size() < fpsBufferLength) {
             fpsBuffer->push_back(delta);
         } else {
             /* Let's calculate the FPS */

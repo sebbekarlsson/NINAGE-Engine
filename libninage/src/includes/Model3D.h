@@ -10,6 +10,7 @@
 class Model3D {
     public:
         Model3D();
+        ~Model3D();
 
         std::vector<std::vector<float> > vertices;
         std::vector<std::vector<float> > texcoords;

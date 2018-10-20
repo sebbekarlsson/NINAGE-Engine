@@ -24,7 +24,7 @@ IllustrationStack::~IllustrationStack() {
 void IllustrationStack::next() {
     if (this->illustrations->empty()) { return; }
 
-    if (this->imageIndex < this->illustrations->size() - 1) {
+    if (this->imageIndex < ((int)this->illustrations->size()) - 1) {
         this->imageIndex++;
     } else {
         this->imageIndex = 0;

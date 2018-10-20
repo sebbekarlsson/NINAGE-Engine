@@ -4,6 +4,12 @@
 
 Model3D::Model3D() {}
 
+Model3D::~Model3D() {
+    this->vertexNormals.clear();
+    this->texcoords.clear();
+    this->vertices.clear();
+}
+
 /**
  * Draw the model
  */
@@ -15,11 +21,11 @@ void Model3D::draw() {
     for (faceit = this->faces.begin(); faceit != this->faces.end(); ++faceit) {
         glBegin(GL_TRIANGLES);
 
-        int vertexPointer = 0;
-        int texcoordPointer = 0;
-        int normalPointer = 0;
+        unsigned int vertexPointer = 0;
+        unsigned int texcoordPointer = 0;
+        unsigned int normalPointer = 0;
 
-        for (int index = 0; index < 3; index++) {
+        for (unsigned int index = 0; index < 3; index++) {
             if ((*faceit)->vertexPointers.size() > index)
                 vertexPointer = (*faceit)->vertexPointers[index] - 1;
             
