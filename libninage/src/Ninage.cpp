@@ -1,7 +1,7 @@
-#include "includes/Scene.h"
-#include "includes/Ninage.h"
-#include "includes/GraphicsCard.h"
-#include "includes/Viewmode.h"
+#include "includes/Scene.hpp"
+#include "includes/Ninage.hpp"
+#include "includes/GraphicsCard.hpp"
+#include "includes/Viewmode.hpp"
 #include <random>
 #include <time.h>
 

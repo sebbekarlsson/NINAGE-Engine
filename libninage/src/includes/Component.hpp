@@ -1,7 +1,7 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#include "Instance.h"
+#include "Instance.hpp"
 
 
 class Component {

@@ -4,7 +4,7 @@
 #include <vector>
 #include <SDL2/SDL_opengl.h>
 #include <SDL2/SDL.h>
-#include "Modelface.h"
+#include "Modelface.hpp"
 
 
 class Model3D {

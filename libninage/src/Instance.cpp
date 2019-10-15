@@ -1,5 +1,5 @@
-#include "includes/Instance.h"
-#include "includes/Component.h"
+#include "includes/Instance.hpp"
+#include "includes/Component.hpp"
 
 
 /**
