@@ -1,9 +1,9 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "Instance.h"
-#include "EngineMath.h"
-#include "Viewmode.h"
+#include "Instance.hpp"
+#include "EngineMath.hpp"
+#include "Viewmode.hpp"
 #include <math.h>
 
 

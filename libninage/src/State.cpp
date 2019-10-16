@@ -1,5 +1,5 @@
-#include "includes/State.h"
-#include "includes/Instance.h"
+#include "includes/State.hpp"
+#include "includes/Instance.hpp"
 #include <algorithm>
 
 

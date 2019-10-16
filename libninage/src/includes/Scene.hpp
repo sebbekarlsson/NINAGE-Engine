@@ -4,9 +4,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "Color.h"
-#include "Camera.h"
-#include "State.h"
+#include "Color.hpp"
+#include "Camera.hpp"
+#include "State.hpp"
 
 
 class Scene: public State {

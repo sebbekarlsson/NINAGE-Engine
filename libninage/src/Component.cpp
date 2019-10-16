@@ -1,4 +1,4 @@
-#include "includes/Component.h"
+#include "includes/Component.hpp"
 
 
 Component::Component(Instance &instance) {

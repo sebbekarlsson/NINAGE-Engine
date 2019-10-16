@@ -1,9 +1,9 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "Entity.h"
+#include "Entity.hpp"
 #include <glm/vec2.hpp>
-#include "SDL2/SDL_ttf.h"
+#include "SDL2/SDL_ttf.hpp"
 
 
 class Camera: public Entity {

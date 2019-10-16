@@ -1,5 +1,5 @@
-#include "includes/Scene.h"
-#include "includes/Instance.h"
+#include "includes/Scene.hpp"
+#include "includes/Instance.hpp"
 
 
 Scene::Scene() : State() {

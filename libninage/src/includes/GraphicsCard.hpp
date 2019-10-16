@@ -1,7 +1,7 @@
 #ifndef GRAPHICSCARD_H
 #define GRAPHICSCARD_H
 
-#include "Color.h"
+#include "Color.hpp"
 
 
 extern Ninage *app;

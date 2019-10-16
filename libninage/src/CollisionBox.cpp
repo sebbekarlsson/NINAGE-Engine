@@ -1,6 +1,6 @@
-#include "includes/CollisionBox.h"
-#include "includes/Ninage.h"
-#include "includes/Viewmode.h"
+#include "includes/CollisionBox.hpp"
+#include "includes/Ninage.hpp"
+#include "includes/Viewmode.hpp"
 
 
 extern Ninage *app;

@@ -1,8 +1,8 @@
 #ifndef INSTANCE_H
 #define INSTANCE_H
 
-#include "IllustrationStack.h"
-#include "CollisionBox.h"
+#include "IllustrationStack.hpp"
+#include "CollisionBox.hpp"
 #include <glm/vec3.hpp>
 
 class Component;

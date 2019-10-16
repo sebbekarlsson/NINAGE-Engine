@@ -1,6 +1,6 @@
-#include "includes/Ninage.h"
-#include "includes/Camera.h"
-#include "includes/Viewmode.h"
+#include "includes/Ninage.hpp"
+#include "includes/Camera.hpp"
+#include "includes/Viewmode.hpp"
 
 
 extern Ninage *app;

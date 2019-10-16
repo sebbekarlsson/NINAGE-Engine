@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include "Illustration.h"
+#include "Illustration.hpp"
 
 
 class IllustrationStack {

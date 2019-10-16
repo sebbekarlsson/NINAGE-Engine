@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <map>
-#include "Model3D.h"
+#include "Model3D.hpp"
 #include <ResourceManager.h>
 
 class ModelLoader {

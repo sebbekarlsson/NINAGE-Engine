@@ -2,7 +2,7 @@
 #define COLLISIONBOX_H
 
 #include <SDL2/SDL_opengl.h>
-#include <glm/vec3.hpp>
+#include <glm/vec3.h>
 
 
 class CollisionBox {

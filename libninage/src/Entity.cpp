@@ -1,5 +1,5 @@
-#include "includes/Entity.h"
-#include "includes/Viewmode.h"
+#include "includes/Entity.hpp"
+#include "includes/Viewmode.hpp"
 
 
 Entity::Entity(float x, float y, float z): Instance(x, y, z) {
